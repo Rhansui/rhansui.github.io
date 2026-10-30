@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GNN International | Agricultural & Petroleum Supply - Est. 2009</title>
+  <meta name="description" content="GNN International; 2009'dan bu yana Türkiye ve İspanya merkezli küresel petrol ürünleri, granül üre ve tarım kimyasalları tedarikçisidir.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              void: '#040705',
+              dark: '#080f0a',
+              surface: '#0d1712',
+              card: '#112019',
+              neon: '#00ff87',
+              lime: '#76ff03',
+              emerald: '#10b981',
+              border: 'rgba(0, 255, 135, 0.15)',
+              glow: 'rgba(0, 255, 135, 0.25)',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"Space Grotesk"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Neon Yeşil Işıma ve Kartlar */
+    .neon-glow {
+      background: radial-gradient(circle at 50% 25%, rgba(0, 255, 135, 0.12) 0%, rgba(4, 7, 5, 0) 70%);
+    }
+    .neon-card {
+      background: rgba(13, 23, 18, 0.7);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(0, 255, 135, 0.12);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .neon-card:hover {
+      border-color: rgba(0, 255, 135, 0.4);
+      box-shadow: 0 10px 35px -10px rgba(0, 255, 135, 0.25);
+      transform: translateY(-2px);
+    }
+    .neon-text-glow {
+      text-shadow: 0 0 20px rgba(0, 255, 135, 0.5);
+    }
+    .shimmer-neon {
+      background: linear-gradient(90deg, #ffffff 0%, #00ff87 40%, #76ff03 70%, #ffffff 100%);
+      background-size: 200% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      animation: shine 6s linear infinite;
+    }
+    @keyframes shine {
+      to { background-position: 200% center; }
+    }
+  </style>
+</head>
+<body class="bg-brand-void text-slate-200 font-sans antialiased selection:bg-brand-neon selection:text-brand-void">
+
+  <!-- ================= TOP BAR ================= -->
+  <div class="border-b border-brand-border bg-brand-dark/95 text-xs py-2 px-4 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-6 text-slate-400">
+        <span class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-brand-neon animate-pulse"></span>
+          <strong class="text-white">İzmir HQ:</strong> 5546/1. Sk No:23/A Bornova
+        </span>
+        <span class="hidden sm:flex items-center gap-2">
+          <i data-lucide="globe" class="w-3.5 h-3.5 text-brand-neon"></i>
+          <strong class="text-white">GNN Europe:</strong> İspanya Operasyonel Hub
+        </span>
+        <span class="hidden lg:flex items-center gap-1.5 font-mono text-[11px] text-brand-lime">
+          <i data-lucide="award" class="w-3.5 h-3.5"></i> EST. 2009 (17 Yıllık Küresel Deneyim)
+        </span>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <a href="mailto:info@gnnkimya.com" class="hover:text-brand-neon flex items-center gap-1.5 text-slate-300 transition">
+          <i data-lucide="mail" class="w-3.5 h-3.5 text-brand-neon"></i> info@gnnkimya.com
+        </a>
+        <div class="h-3 w-px bg-white/10"></div>
+        <!-- DİL SEÇİCİ -->
+        <div class="flex items-center gap-1 bg-white/5 p-1 rounded-lg border border-brand-border">
+          <button onclick="setLang('tr')" id="btn-tr" class="px-2 py-0.5 rounded text-[11px] font-bold bg-brand-neon text-brand-void transition">TR</button>
+          <button onclick="setLang('en')" id="btn-en" class="px-2 py-0.5 rounded text-[11px] font-bold text-slate-400 hover:text-white transition">EN</button>
+          <button onclick="setLang('es')" id="btn-es" class="px-2 py-0.5 rounded text-[11px] font-bold text-slate-400 hover:text-white transition">ES</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= HEADER (NAVBAR & DENGELİ SAYDAM LOGO) ================= -->
+  <header class="sticky top-0 z-50 bg-gradient-to-r from-emerald-950/70 via-slate-900/90 to-brand-void/95 backdrop-blur-xl border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-22 py-3 flex items-center justify-between">
+      
+      <!-- LOGO VE YEŞİLDEN BEYAZA GEÇİŞLİ ZARİF ZEMİN -->
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="relative p-1.5 rounded-xl bg-gradient-to-br from-emerald-500/20 via-white/10 to-transparent border border-white/20 shadow-md shadow-emerald-500/10 backdrop-blur-md group-hover:border-brand-neon/50 transition duration-300">
+          <img src="logo-transparent.png" alt="GNN International Logo" class="h-14 sm:h-[68px] w-auto object-contain drop-shadow-[0_0_15px_rgba(0,255,135,0.35)] group-hover:scale-105 transition duration-300">
+        </div>
+        <div class="border-l border-white/15 pl-3.5 py-0.5">
+          <span class="text-xs sm:text-sm font-mono font-extrabold tracking-widest text-brand-neon block uppercase drop-shadow-[0_0_10px_rgba(0,255,135,0.3)]">
+            AGRICULTURAL & PETROLEUM
+          </span>
+          <span class="text-[10px] sm:text-[11px] font-mono tracking-widest text-slate-300 block mt-0.5 flex items-center gap-1.5 font-semibold">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-lime"></span>
+            EST. 2009 • INTERNATIONAL
+          </span>
+        </div>
+      </a>
+
+      <!-- NAV LİNKLERİ -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#about" class="hover:text-brand-neon transition" data-i18n="nav_about">Hakkımızda</a>
+        <a href="#products" class="hover:text-brand-neon transition" data-i18n="nav_products">Ürünlerimiz</a>
+        <a href="#global" class="hover:text-brand-neon transition" data-i18n="nav_logistics">Küresel Ağımız</a>
+        <a href="#quality" class="hover:text-brand-neon transition" data-i18n="nav_quality">Kalite & Standartlar</a>
+        <a href="#contact" class="hover:text-brand-neon transition" data-i18n="nav_contact">İletişim</a>
+      </nav>
+
+      <!-- HIZLI BUTONLAR & MOBIL MENÜ BUTONU -->
+      <div class="flex items-center gap-2.5">
+        <a href="https://wa.me/905000000000?text=Merhaba,%20GNN%20International%20petrol%20ve%20ure%20urunleri%20hakkinda%20bilgi%20ve%20teklif%20almak%20istiyorum." target="_blank" class="hidden sm:flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500 hover:text-brand-void px-4 py-2.5 rounded-xl text-xs font-bold transition">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>WhatsApp</span>
+        </a>
+        <button onclick="openQuoteModal()" class="bg-gradient-to-r from-brand-neon to-brand-lime text-brand-void hover:shadow-lg hover:shadow-brand-neon/30 font-extrabold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs flex items-center gap-1.5 transition duration-300 hover:scale-[1.03]">
+          <i data-lucide="send" class="w-3.5 h-3.5"></i>
+          <span data-i18n="btn_quote">Teklif İste</span>
+        </button>
+
+        <!-- MOBİL MENÜ TETİKLEYİCİ -->
+        <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-xl bg-white/5 border border-brand-border text-slate-300 hover:text-brand-neon transition">
+          <i data-lucide="menu" id="menu-icon" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- MOBİL AÇILIR MENÜ (DRAWER) -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-brand-border bg-brand-void/98 backdrop-blur-2xl px-6 py-6 transition-all">
+      <nav class="flex flex-col space-y-4 text-sm font-semibold text-slate-200">
+        <a href="#about" onclick="toggleMobileMenu()" class="hover:text-brand-neon transition flex items-center justify-between py-1 border-b border-white/5">
+          <span data-i18n="nav_about">Hakkımızda</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-brand-neon"></i>
+        </a>
+        <a href="#products" onclick="toggleMobileMenu()" class="hover:text-brand-neon transition flex items-center justify-between py-1 border-b border-white/5">
+          <span data-i18n="nav_products">Ürünlerimiz</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-brand-neon"></i>
+        </a>
+        <a href="#global" onclick="toggleMobileMenu()" class="hover:text-brand-neon transition flex items-center justify-between py-1 border-b border-white/5">
+          <span data-i18n="nav_logistics">Küresel Ağımız</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-brand-neon"></i>
+        </a>
+        <a href="#quality" onclick="toggleMobileMenu()" class="hover:text-brand-neon transition flex items-center justify-between py-1 border-b border-white/5">
+          <span data-i18n="nav_quality">Kalite & Standartlar</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-brand-neon"></i>
+        </a>
+        <a href="#contact" onclick="toggleMobileMenu()" class="hover:text-brand-neon transition flex items-center justify-between py-1">
+          <span data-i18n="nav_contact">İletişim</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-brand-neon"></i>
+        </a>
+      </nav>
+      <div class="mt-6 pt-4 border-t border-brand-border flex gap-3">
+        <a href="https://wa.me/905000000000" target="_blank" class="flex-1 py-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold text-xs flex items-center justify-center gap-2">
+          <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp
+        </a>
+        <button onclick="toggleMobileMenu(); openQuoteModal();" class="flex-1 py-3 rounded-xl bg-brand-neon text-brand-void font-extrabold text-xs flex items-center justify-center gap-2">
+          <i data-lucide="send" class="w-4 h-4"></i> Teklif İste
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO BÖLÜMÜ (NEON YEŞİL & SİYAH) ================= -->
+  <section class="relative pt-24 pb-20 overflow-hidden neon-glow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-3xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-neon/30 bg-brand-neon/10 text-brand-neon text-xs font-mono font-semibold mb-6">
+          <i data-lucide="shield-check" class="w-4 h-4"></i>
+          <span data-i18n="hero_badge">17 Yıllık Küresel B2B Petrokimya & Tarım Tedarikçisi</span>
+        </div>
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+          <span data-i18n="hero_title_1">Küresel Pazarlarda</span> <br>
+          <span class="shimmer-neon font-black" data-i18n="hero_title_2">Güven, Hız ve Kesintisiz Tedarik</span>
+        </h1>
+        <p class="text-base sm:text-lg text-slate-300 mb-8 leading-relaxed" data-i18n="hero_desc">
+          GNN International; Türkiye (İzmir) ve İspanya stratejik merkezleriyle petrol türevleri, yüksek saflıkta granül üre ve tarım kimyasallarında dünya standartlarında güvenilir lojistik ve tedarik çözümleri sunar.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="#products" class="bg-brand-neon text-brand-void font-extrabold px-8 py-4 rounded-xl text-sm hover:bg-brand-lime hover:shadow-xl hover:shadow-brand-neon/30 transition flex items-center gap-2">
+            <span data-i18n="btn_explore">Ürün Kataloglarımızı İnceleyin</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+          <button onclick="openQuoteModal()" class="neon-card text-white px-8 py-4 rounded-xl text-sm font-semibold hover:border-brand-neon transition flex items-center gap-2">
+            <i data-lucide="file-text" class="w-4 h-4 text-brand-neon"></i>
+            <span data-i18n="btn_specs">Şartname & Fiyat Al</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- SAYAÇLAR (İSTATİSTİKLER) -->
+      <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="neon-card p-6 rounded-2xl text-center">
+          <div class="text-3xl sm:text-4xl font-extrabold text-brand-neon font-mono mb-1">15+</div>
+          <div class="text-xs text-slate-400 font-medium" data-i18n="stat_countries">İhracat Yapılan Ülke</div>
+        </div>
+        <div class="neon-card p-6 rounded-2xl text-center">
+          <div class="text-3xl sm:text-4xl font-extrabold text-brand-lime font-mono mb-1">250K+</div>
+          <div class="text-xs text-slate-400 font-medium" data-i18n="stat_tonnage">Yıllık Tonaj Hacmi</div>
+        </div>
+        <div class="neon-card p-6 rounded-2xl text-center">
+          <div class="text-3xl sm:text-4xl font-extrabold text-brand-neon font-mono mb-1">%99.8</div>
+          <div class="text-xs text-slate-400 font-medium" data-i18n="stat_delivery">Zamanında Teslimat</div>
+        </div>
+        <div class="neon-card p-6 rounded-2xl text-center">
+          <div class="text-3xl sm:text-4xl font-extrabold text-brand-lime font-mono mb-1">2009</div>
+          <div class="text-xs text-slate-400 font-medium">Kuruluş Yılı (17 Yıl)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ÜRÜNLERİMİZ ================= -->
+  <section id="products" class="py-24 bg-brand-dark/60 relative border-t border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-xs font-mono font-bold text-brand-neon tracking-widest uppercase mb-3" data-i18n="prod_tag">ENDÜSTRİYEL TEDARİK</h2>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-white" data-i18n="prod_title">Temel Ürün Kategorilerimiz</h3>
+        <p class="text-sm text-slate-400 mt-3" data-i18n="prod_subtitle">Endüstriyel üretim ve tarım sektörünün ihtiyaç duyduğu yüksek saflıkta hammaddeleri doğrudan rafineri ve fabrikalardan temin ediyoruz.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- KART 1: PETROL ÜRÜNLERİ -->
+        <div class="neon-card rounded-2xl overflow-hidden group transition duration-300 flex flex-col justify-between">
+          <div class="p-8">
+            <div class="w-12 h-12 rounded-xl bg-brand-neon/10 border border-brand-neon/30 text-brand-neon flex items-center justify-center mb-6 group-hover:scale-110 transition">
+              <i data-lucide="fuel" class="w-6 h-6"></i>
+            </div>
+            <h4 class="text-xl font-bold text-white mb-3" data-i18n="card_petrol_title">Petrol & Enerji Ürünleri</h4>
+            <p class="text-xs text-slate-300 leading-relaxed mb-6" data-i18n="card_petrol_desc">
+              Uluslararası standartlarda baz yağlar, endüstriyel yakıtlar, bitüm ve rafine türevlerin güvenli tanker ve gemi bazlı tedariği.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-400 mb-6 font-mono">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> Endüstriyel Baz Yağlar</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> Bitüm & Asfalt Ürünleri</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> Dizel & Rafine Yakıtlar</li>
+            </ul>
+          </div>
+          <div class="p-8 pt-0">
+            <button onclick="selectProductAndQuote('Petrol & Enerji Ürünleri')" class="w-full py-2.5 rounded-xl bg-white/5 border border-brand-border hover:border-brand-neon hover:bg-brand-neon hover:text-brand-void text-xs font-bold transition text-white">
+              Detay & Teklif İste →
+            </button>
+          </div>
+        </div>
+
+        <!-- KART 2: ÜRE (UREA 46) - AMİRAL GEMİSİ -->
+        <div class="neon-card rounded-2xl overflow-hidden group transition duration-300 flex flex-col justify-between border-brand-neon/40 shadow-xl shadow-brand-neon/5">
+          <div class="p-8">
+            <div class="w-12 h-12 rounded-xl bg-brand-neon/20 border border-brand-neon text-brand-neon flex items-center justify-center mb-6 group-hover:scale-110 transition">
+              <i data-lucide="boxes" class="w-6 h-6"></i>
+            </div>
+            <div class="inline-block px-2.5 py-0.5 rounded text-[10px] font-mono bg-brand-neon/20 text-brand-neon uppercase font-extrabold mb-2">Amiral Gemisi</div>
+            <h4 class="text-xl font-bold text-white mb-3" data-i18n="card_urea_title">Üre (Granular Urea 46%)</h4>
+            <p class="text-xs text-slate-300 leading-relaxed mb-6" data-i18n="card_urea_desc">
+              Yüksek azotlu granül ve pril üre. Hem tarımsal gübreleme hem de endüstriyel tutkal, reçine ve AdBlue üretimi için saf hammadde.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-400 mb-6 font-mono">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> Granül Üre (Granular %46N)</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> Pril Üre (Prilled Urea)</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> Dökme (Bulk) & Big Bag Sevkiyat</li>
+            </ul>
+          </div>
+          <div class="p-8 pt-0">
+            <button onclick="selectProductAndQuote('Granül Üre 46%')" class="w-full py-2.5 rounded-xl bg-brand-neon text-brand-void font-extrabold text-xs hover:bg-brand-lime transition shadow-md shadow-brand-neon/20">
+              Tonajlı Teklif İste →
+            </button>
+          </div>
+        </div>
+
+        <!-- KART 3: TARIM KİMYASALLARI -->
+        <div class="neon-card rounded-2xl overflow-hidden group transition duration-300 flex flex-col justify-between">
+          <div class="p-8">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-brand-lime flex items-center justify-center mb-6 group-hover:scale-110 transition">
+              <i data-lucide="sprout" class="w-6 h-6"></i>
+            </div>
+            <h4 class="text-xl font-bold text-white mb-3" data-i18n="card_agri_title">Tarım & Gübre Çözümleri</h4>
+            <p class="text-xs text-slate-300 leading-relaxed mb-6" data-i18n="card_agri_desc">
+              Toprak verimliliğini maksimize eden fosfat, potasyum ve kükürt bileşenli kompleks bitki besleme kimyasalları.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-400 mb-6 font-mono">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> DAP & MAP Fosfatlı Gübreler</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> Amonyum Sülfat & Kükürt</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> Özel NPK Karışım Hammaddeleri</li>
+            </ul>
+          </div>
+          <div class="p-8 pt-0">
+            <button onclick="selectProductAndQuote('Tarım Kimyasalları & Gübre')" class="w-full py-2.5 rounded-xl bg-white/5 border border-brand-border hover:border-brand-neon hover:bg-brand-neon hover:text-brand-void text-xs font-bold transition text-white">
+              Detay & Teklif İste →
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= KÜRESEL AĞ & LOJİSTİK ================= -->
+  <section id="global" class="py-24 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="text-xs font-mono font-bold text-brand-neon tracking-widest uppercase mb-2 block" data-i18n="logistics_tag">STRATEJİK KONUM</span>
+          <h3 class="text-3xl sm:text-4xl font-extrabold text-white mb-6 leading-tight" data-i18n="logistics_title">
+            Akdeniz'den Avrupa'ya <br> Kesintisiz Tedarik Köprüsü
+          </h3>
+          <p class="text-slate-300 text-sm leading-relaxed mb-6" data-i18n="logistics_desc">
+            2009'dan beri İzmir liman terminalleri ve İspanya'daki operasyonel merkezimiz (GNN Europe) sayesinde, Akdeniz, Karadeniz ve Avrupa hinterlandına hızlı, güvenli ve esnek teslimat modelleri (FOB, CIF, CFR) sunuyoruz.
+          </p>
+
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <div class="p-2.5 rounded-xl bg-brand-neon/10 border border-brand-neon/30 text-brand-neon mt-1">
+                <i data-lucide="anchor" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <strong class="text-white text-sm block">İzmir Merkez (Türkiye)</strong>
+                <span class="text-xs text-slate-400">Doğu Akdeniz, Orta Doğu ve Karadeniz deniz yolu sevkiyat kontrol noktası.</span>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="p-2.5 rounded-xl bg-brand-neon/10 border border-brand-neon/30 text-brand-neon mt-1">
+                <i data-lucide="navigation" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <strong class="text-white text-sm block">GNN Europe (İspanya Hub)</strong>
+                <span class="text-xs text-slate-400">Avrupa Birliği gümrük uyumlu dağıtım, İberya ve Batı Akdeniz lojistik üssü.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- İNTERAKTİF LOJİSTİK KARTI -->
+        <div class="neon-card p-8 rounded-3xl border border-brand-border relative">
+          <div class="flex items-center justify-between pb-6 border-b border-white/10 mb-6">
+            <div>
+              <span class="text-xs font-mono text-slate-400 uppercase">Sevkiyat Modeli</span>
+              <h5 class="text-lg font-bold text-white">İncoterms Standartları</h5>
+            </div>
+            <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-brand-neon/10 text-brand-neon border border-brand-neon/30">
+              SGS ONAYLI
+            </span>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3 text-center mb-6">
+            <div class="bg-brand-void p-4 rounded-xl border border-brand-border">
+              <div class="font-mono text-lg font-bold text-brand-neon">FOB</div>
+              <div class="text-[10px] text-slate-400">Liman Teslim</div>
+            </div>
+            <div class="bg-brand-void p-4 rounded-xl border border-brand-border">
+              <div class="font-mono text-lg font-bold text-brand-neon">CIF</div>
+              <div class="text-[10px] text-slate-400">Navlun & Sigorta</div>
+            </div>
+            <div class="bg-brand-void p-4 rounded-xl border border-brand-border">
+              <div class="font-mono text-lg font-bold text-brand-neon">CFR</div>
+              <div class="text-[10px] text-slate-400">Varış Limanı</div>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-brand-neon/5 border border-brand-neon/20 text-xs text-slate-300 flex items-center gap-3">
+            <i data-lucide="check-circle-2" class="w-6 h-6 text-brand-neon shrink-0"></i>
+            <span>Tüm kimyasal ve petrol yüklemelerimiz bağımsız uluslararası gözetim firmaları (SGS / Bureau Veritas) raporlarıyla belgelenir.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= İLETİŞİM VE ADRES ================= -->
+  <section id="contact" class="py-24 bg-brand-dark/80 border-t border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <span class="text-xs font-mono font-bold text-brand-neon tracking-widest uppercase mb-2 block">DOĞRUDAN ULAŞIN</span>
+          <h3 class="text-3xl font-extrabold text-white mb-6">Merkezlerimizle İletişime Geçin</h3>
+          <p class="text-slate-300 text-sm leading-relaxed mb-8">
+            Küresel petrol ürünleri, üre ve tarım kimyasalları talepleriniz için uzman ekibimiz 24 saat içinde teknik şartname ve fiyat teklifi ile döner.
+          </p>
+
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-white/5 border border-brand-border flex items-center justify-center text-brand-neon shrink-0">
+                <i data-lucide="map-pin" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <strong class="text-white text-sm block">GNN Kimya International (Merkez)</strong>
+                <span class="text-xs text-slate-400">5546/1. Sk No:23/A, 35090 Bornova / İZMİR / TÜRKİYE</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-white/5 border border-brand-border flex items-center justify-center text-brand-neon shrink-0">
+                <i data-lucide="globe-2" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <strong class="text-white text-sm block">GNN Avrupa (İspanya Ofisi)</strong>
+                <span class="text-xs text-slate-400">GNN Europe Logistics Hub / İSPANYA</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-white/5 border border-brand-border flex items-center justify-center text-brand-neon shrink-0">
+                <i data-lucide="mail" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <strong class="text-white text-sm block">Resmi E-Posta</strong>
+                <a href="mailto:info@gnnkimya.com" class="text-xs text-brand-neon hover:underline">info@gnnkimya.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HIZLI FORM -->
+        <div class="neon-card p-8 rounded-3xl">
+          <h4 class="text-xl font-bold text-white mb-2">Hızlı Mesaj & Teklif Talebi</h4>
+          <p class="text-xs text-slate-400 mb-6">Aşağıdaki formu doldurun, ilgili departmanımız size doğrudan dönüş yapsın.</p>
+          
+          <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Ad Soyad / Şirket Adı</label>
+              <input type="text" id="form-name" required placeholder="Örn: Mehmet Yılmaz - Akdeniz Gübre A.Ş." class="w-full bg-brand-void border border-brand-border rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-neon">
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">E-Posta</label>
+                <input type="email" id="form-email" required placeholder="adiniz@sirket.com" class="w-full bg-brand-void border border-brand-border rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-neon">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Telefon / WhatsApp</label>
+                <input type="text" id="form-phone" required placeholder="+90 5XX XXX XX XX" class="w-full bg-brand-void border border-brand-border rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-neon">
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">İlgilendiğiniz Ürün & Tonaj</label>
+              <input type="text" id="form-product" placeholder="Örn: 5.000 Ton Granül Üre 46% CIF İspanya" class="w-full bg-brand-void border border-brand-border rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-neon">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Mesajınız</label>
+              <textarea id="form-msg" rows="3" placeholder="Teslim limanı, şartname ve diğer detayları belirtiniz..." class="w-full bg-brand-void border border-brand-border rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-neon"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-gradient-to-r from-brand-neon to-brand-lime text-brand-void font-extrabold py-3.5 rounded-xl text-xs hover:shadow-lg hover:shadow-brand-neon/30 transition">
+              Talebi Gönder →
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="border-t border-brand-border bg-brand-void py-12 text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-4">
+        <div class="p-1.5 rounded-xl bg-gradient-to-br from-emerald-500/20 to-white/10 border border-white/15">
+          <img src="logo-transparent.png" alt="GNN Logo" class="h-14 w-auto object-contain">
+        </div>
+        <div>
+          <span class="text-white font-bold block text-sm">GNN International</span>
+          <span class="text-[11px] text-slate-400">Agricultural & Petroleum Supply • Est. 2009</span>
+          <span class="text-[10px] text-slate-500 block">© 2009 - 2026 GNN Kimya International. All rights reserved.</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-6 text-[11px]">
+        <a href="#about" class="hover:text-brand-neon transition">Hakkımızda</a>
+        <a href="#products" class="hover:text-brand-neon transition">Ürünlerimiz</a>
+        <a href="#global" class="hover:text-brand-neon transition">Lojistik</a>
+        <a href="#contact" class="hover:text-brand-neon transition">İletişim</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= TEKLİF İSTEME MODAL (AÇILIR PENCERE) ================= -->
+  <div id="quote-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="neon-card bg-brand-dark p-8 rounded-3xl max-w-lg w-full border border-brand-neon/40 shadow-2xl relative">
+      <button onclick="closeQuoteModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <div class="flex items-center gap-2 text-brand-neon text-xs font-mono mb-2">
+        <i data-lucide="sparkles" class="w-4 h-4"></i> HIZLI B2B ŞARTNAME & TEKLİF
+      </div>
+      <h3 class="text-2xl font-bold text-white mb-2">Resmi Teklif İsteyin</h3>
+      <p class="text-xs text-slate-400 mb-6">Lütfen ilgilendiğiniz kimyasal/petrol ürününü ve tahmini hacminizi belirtin.</p>
+
+      <div class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Seçilen Ürün</label>
+          <input type="text" id="modal-product-input" value="Granül Üre 46%" class="w-full bg-brand-void border border-brand-border rounded-xl px-4 py-2.5 text-xs text-white font-semibold focus:outline-none focus:border-brand-neon">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Tahmini Miktar (Ton)</label>
+          <select id="modal-tonnage" class="w-full bg-brand-void border border-brand-border rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand-neon">
+            <option>100 - 500 Ton</option>
+            <option>500 - 2.500 Ton</option>
+            <option>2.500 - 10.000 Ton (Gemi / Vessel)</option>
+            <option>10.000+ Ton (Uzun Vadeli Kontrat)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Teslimat Tercihi (Incoterms)</label>
+          <select id="modal-incoterm" class="w-full bg-brand-void border border-brand-border rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand-neon">
+            <option>CIF (Varış Limanı Sigortalı)</option>
+            <option>FOB (Yükleme Limanı Teslim)</option>
+            <option>CFR (Varış Limanı Navlun Dahil)</option>
+          </select>
+        </div>
+
+        <button onclick="sendToWhatsApp()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-brand-void font-extrabold py-3.5 rounded-xl text-xs flex items-center justify-center gap-2 transition shadow-lg shadow-emerald-500/20">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          WhatsApp İle Doğrudan İletişime Geç
+        </button>
+
+        <button onclick="sendToMail()" class="w-full bg-white/5 hover:bg-white/10 text-white font-semibold py-3.5 rounded-xl text-xs flex items-center justify-center gap-2 transition border border-brand-border">
+          <i data-lucide="mail" class="w-4 h-4 text-brand-neon"></i>
+          E-Posta İle Resmi Şartname Formu Gönder
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT: LUCIDE ICONS & DİL ÇEVİRİSİ -->
+  <script>
+    lucide.createIcons();
+
+    const translations = {
+      tr: {
+        nav_about: "Hakkımızda",
+        nav_products: "Ürünlerimiz",
+        nav_logistics: "Küresel Ağımız",
+        nav_quality: "Kalite & Standartlar",
+        nav_contact: "İletişim",
+        btn_quote: "Teklif İste",
+        hero_badge: "17 Yıllık Küresel B2B Petrokimya & Tarım Tedarikçisi",
+        hero_title_1: "Küresel Pazarlarda",
+        hero_title_2: "Güven, Hız ve Kesintisiz Tedarik",
+        hero_desc: "GNN International; Türkiye (İzmir) ve İspanya stratejik merkezleriyle petrol türevleri, yüksek saflıkta granül üre ve tarım kimyasallarında dünya standartlarında güvenilir lojistik ve tedarik çözümleri sunar.",
+        btn_explore: "Ürün Kataloglarımızı İnceleyin",
+        btn_specs: "Şartname & Fiyat Al",
+        stat_countries: "İhracat Yapılan Ülke",
+        stat_tonnage: "Yıllık Tonaj Hacmi",
+        stat_delivery: "Zamanında Teslimat",
+        prod_tag: "ENDÜSTRİYEL TEDARİK",
+        prod_title: "Temel Ürün Kategorilerimiz",
+        prod_subtitle: "Endüstriyel üretim ve tarım sektörünün ihtiyaç duyduğu yüksek saflıkta hammaddeleri doğrudan rafineri ve fabrikalardan temin ediyoruz.",
+        card_petrol_title: "Petrol & Enerji Ürünleri",
+        card_petrol_desc: "Uluslararası standartlarda baz yağlar, endüstriyel yakıtlar, bitüm ve rafine türevlerin güvenli tanker ve gemi bazlı tedariği.",
+        card_urea_title: "Üre (Granular Urea 46%)",
+        card_urea_desc: "Yüksek azotlu granül ve pril üre. Hem tarımsal gübreleme hem de endüstriyel tutkal, reçine ve AdBlue üretimi için saf hammadde.",
+        card_agri_title: "Tarım & Gübre Çözümleri",
+        card_agri_desc: "Toprak verimliliğini maksimize eden fosfat, potasyum ve kükürt bileşenli kompleks bitki besleme kimyasalları.",
+        logistics_tag: "STRATEJİK KONUM",
+        logistics_title: "Akdeniz'den Avrupa'ya <br> Kesintisiz Tedarik Köprüsü",
+        logistics_desc: "2009'dan beri İzmir liman terminalleri ve İspanya'daki operasyonel merkezimiz (GNN Europe) sayesinde, Akdeniz, Karadeniz ve Avrupa hinterlandına hızlı, güvenli ve esnek teslimat modelleri sunuyoruz."
+      },
+      en: {
+        nav_about: "About Us",
+        nav_products: "Products",
+        nav_logistics: "Global Network",
+        nav_quality: "Quality & Standards",
+        nav_contact: "Contact",
+        btn_quote: "Request a Quote",
+        hero_badge: "Global B2B Petrochemical & Agricultural Supplier Since 2009",
+        hero_title_1: "In Global Markets",
+        hero_title_2: "Trust, Speed & Uninterrupted Supply",
+        hero_desc: "GNN International delivers world-class supply and logistics solutions for petroleum derivatives, granular urea, and agricultural chemicals with strategic hubs in Turkey (Izmir) and Spain.",
+        btn_explore: "Explore Product Catalogs",
+        btn_specs: "Get Specs & Pricing",
+        stat_countries: "Export Countries",
+        stat_tonnage: "Annual Volume (Tons)",
+        stat_delivery: "On-Time Delivery",
+        prod_tag: "INDUSTRIAL SUPPLY",
+        prod_title: "Core Product Categories",
+        prod_subtitle: "Direct sourcing of high-purity raw materials for industrial manufacturing and agricultural development.",
+        card_petrol_title: "Petroleum & Energy",
+        card_petrol_desc: "Reliable tanker and vessel supply of base oils, industrial fuels, bitumen, and refined petroleum derivatives according to international specifications.",
+        card_urea_title: "Urea (Granular 46% N)",
+        card_urea_desc: "High-nitrogen granular and prilled urea. Premium feedstock for agricultural fertilization, industrial resins, adhesives, and AdBlue synthesis.",
+        card_agri_title: "Agricultural Fertilizers",
+        card_agri_desc: "High-yield phosphate, potassium, and sulfur-based complex plant nutrition solutions.",
+        logistics_tag: "STRATEGIC PRESENCE",
+        logistics_title: "Seamless Supply Bridge <br> Across the Mediterranean to Europe",
+        logistics_desc: "Operating since 2009 through our Izmir port terminals and our base in Spain (GNN Europe), we provide flexible trade delivery models (FOB, CIF, CFR) across Europe and the Mediterranean."
+      },
+      es: {
+        nav_about: "Nosotros",
+        nav_products: "Productos",
+        nav_logistics: "Red Global",
+        nav_quality: "Calidad",
+        nav_contact: "Contacto",
+        btn_quote: "Solicitar Cotización",
+        hero_badge: "Proveedor Global Petroquímico y Agrícola Desde 2009",
+        hero_title_1: "En Mercados Globales",
+        hero_title_2: "Confianza, Rapidez y Suministro Continuo",
+        hero_desc: "GNN International suministra derivados de petróleo, urea granular y químicos agrícolas con centros estratégicos en Turquía (Izmir) y España.",
+        btn_explore: "Ver Catálogo de Productos",
+        btn_specs: "Especificaciones y Precios",
+        stat_countries: "Países de Exportación",
+        stat_tonnage: "Volumen Anual (Ton)",
+        stat_delivery: "Entregas a Tiempo",
+        prod_tag: "SUMINISTRO INDUSTRIAL",
+        prod_title: "Categorías de Productos",
+        prod_subtitle: "Abastecimiento directo de materias primas de alta pureza para la industria química y agrícola.",
+        card_petrol_title: "Petróleo y Energía",
+        card_petrol_desc: "Suministro confiable de aceites base, combustibles industriales, betún y derivados refinados para transporte marítimo y terrestre.",
+        card_urea_title: "Urea Granular (46% N)",
+        card_urea_desc: "Urea granular y perlada de alto contenido en nitrógeno para fertilizantes, resinas y producción de AdBlue.",
+        card_agri_title: "Fertilizantes Agrícolas",
+        card_agri_desc: "Soluciones de nutrición vegetal a base de fosfatos, potasio y azufre de alto rendimiento.",
+        logistics_tag: "PRESENCIA ESTRATÉGICA",
+        logistics_title: "Puente Logístico <br> Del Mediterráneo a Toda Europa",
+        logistics_desc: "Operando desde 2009 a través de nuestras terminales en Izmir y nuestro hub en España (GNN Europe), ofrecemos modelos de entrega flexibles (FOB, CIF, CFR)."
+      }
+    };
+
+    function setLang(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+
+      ['tr', 'en', 'es'].forEach(l => {
+        const btn = document.getElementById('btn-' + l);
+        if (l === lang) {
+          btn.className = "px-2 py-0.5 rounded text-[11px] font-bold bg-brand-neon text-brand-void transition";
+        } else {
+          btn.className = "px-2 py-0.5 rounded text-[11px] font-bold text-slate-400 hover:text-white transition";
+        }
+      });
+    }
+
+    function openQuoteModal() {
+      const modal = document.getElementById('quote-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeQuoteModal() {
+      const modal = document.getElementById('quote-modal');
+      modal.classList.remove('flex');
+      modal.classList.add('hidden');
+    }
+
+    function selectProductAndQuote(productName) {
+      document.getElementById('modal-product-input').value = productName;
+      openQuoteModal();
+    }
+
+    function sendToWhatsApp() {
+      const prod = document.getElementById('modal-product-input').value;
+      const tonnage = document.getElementById('modal-tonnage').value;
+      const incoterm = document.getElementById('modal-incoterm').value;
+      const text = encodeURIComponent(`Merhaba GNN International yetkilisi,\n\nTalep Ettiğim Ürün: ${prod}\nMiktar: ${tonnage}\nTeslim Şekli: ${incoterm}\n\nDetaylı fiyat teklifi ve teknik şartname rica ediyorum.`);
+      window.open(`https://wa.me/905000000000?text=${text}`, '_blank');
+    }
+
+    function sendToMail() {
+      const prod = document.getElementById('modal-product-input').value;
+      const tonnage = document.getElementById('modal-tonnage').value;
+      const incoterm = document.getElementById('modal-incoterm').value;
+      const subject = encodeURIComponent(`B2B Teklif Talebi: ${prod} - ${tonnage}`);
+      const body = encodeURIComponent(`Sayın GNN International Satış Departmanı,\n\n${prod} ürünü için ${tonnage} hacminde (${incoterm}) şartlarında resmi teklifinizi rica ederiz.`);
+      window.location.href = `mailto:info@gnnkimya.com?subject=${subject}&body=${body}`;
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      alert("✅ Talebiniz başarıyla alındı! GNN International satış departmanımız en kısa sürede sizinle iletişime geçecektir.");
+      e.target.reset();
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+      } else {
+        menu.classList.add('hidden');
+      }
+    }
+  </script>
+</body>
+</html>
