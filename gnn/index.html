@@ -189,8 +189,11 @@
     </div>
   </header>
 
-  <!-- ================= HERO BÖLÜMÜ (NEON YEŞİL & SİYAH) ================= -->
+  <!-- ================= HERO BÖLÜMÜ (3D ETKİLEŞİMLİ MOLEKÜLER AĞ & NEON) ================= -->
   <section class="relative pt-24 pb-20 overflow-hidden neon-glow">
+    <!-- 3D İNTERAKTİF KİMYASAL AĞ CANVASI -->
+    <canvas id="chemical-canvas" class="absolute inset-0 w-full h-full pointer-events-none opacity-40 z-0"></canvas>
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="text-center max-w-3xl mx-auto">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-neon/30 bg-brand-neon/10 text-brand-neon text-xs font-mono font-semibold mb-6">
@@ -251,70 +254,96 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
         <!-- KART 1: PETROL ÜRÜNLERİ -->
-        <div class="neon-card rounded-2xl overflow-hidden group transition duration-300 flex flex-col justify-between">
-          <div class="p-8">
-            <div class="w-12 h-12 rounded-xl bg-brand-neon/10 border border-brand-neon/30 text-brand-neon flex items-center justify-center mb-6 group-hover:scale-110 transition">
-              <i data-lucide="fuel" class="w-6 h-6"></i>
+        <div class="neon-card rounded-3xl overflow-hidden group transition duration-300 flex flex-col justify-between">
+          <div>
+            <!-- FOTOĞRAF VİTRİNİ -->
+            <div class="h-44 w-full overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Petrol Rafineri" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-brand-card/50 to-transparent"></div>
+              <div class="absolute top-4 left-4 w-10 h-10 rounded-xl bg-brand-void/80 border border-brand-neon/30 text-brand-neon flex items-center justify-center backdrop-blur-md">
+                <i data-lucide="fuel" class="w-5 h-5"></i>
+              </div>
             </div>
-            <h4 class="text-xl font-bold text-white mb-3" data-i18n="card_petrol_title">Petrol & Enerji Ürünleri</h4>
-            <p class="text-xs text-slate-300 leading-relaxed mb-6" data-i18n="card_petrol_desc">
-              Uluslararası standartlarda baz yağlar, endüstriyel yakıtlar, bitüm ve rafine türevlerin güvenli tanker ve gemi bazlı tedariği.
-            </p>
-            <ul class="space-y-2 text-xs text-slate-400 mb-6 font-mono">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> Endüstriyel Baz Yağlar</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> Bitüm & Asfalt Ürünleri</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> Dizel & Rafine Yakıtlar</li>
-            </ul>
+
+            <div class="p-7">
+              <h4 class="text-xl font-bold text-white mb-2" data-i18n="card_petrol_title">Petrol & Enerji Ürünleri</h4>
+              <p class="text-xs text-slate-300 leading-relaxed mb-6" data-i18n="card_petrol_desc">
+                Uluslararası standartlarda baz yağlar, endüstriyel yakıtlar, bitüm ve rafine türevlerin güvenli tanker ve gemi bazlı tedariği.
+              </p>
+              <ul class="space-y-2 text-xs text-slate-400 mb-6 font-mono">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> Endüstriyel Baz Yağlar</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> Bitüm & Asfalt Ürünleri</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> Dizel & Rafine Yakıtlar</li>
+              </ul>
+            </div>
           </div>
-          <div class="p-8 pt-0">
-            <button onclick="selectProductAndQuote('Petrol & Enerji Ürünleri')" class="w-full py-2.5 rounded-xl bg-white/5 border border-brand-border hover:border-brand-neon hover:bg-brand-neon hover:text-brand-void text-xs font-bold transition text-white">
+          <div class="p-7 pt-0">
+            <button onclick="selectProductAndQuote('Petrol & Enerji Ürünleri')" class="w-full py-3 rounded-xl bg-white/5 border border-brand-border hover:border-brand-neon hover:bg-brand-neon hover:text-brand-void text-xs font-bold transition text-white">
               Detay & Teklif İste →
             </button>
           </div>
         </div>
 
         <!-- KART 2: ÜRE (UREA 46) - AMİRAL GEMİSİ -->
-        <div class="neon-card rounded-2xl overflow-hidden group transition duration-300 flex flex-col justify-between border-brand-neon/40 shadow-xl shadow-brand-neon/5">
-          <div class="p-8">
-            <div class="w-12 h-12 rounded-xl bg-brand-neon/20 border border-brand-neon text-brand-neon flex items-center justify-center mb-6 group-hover:scale-110 transition">
-              <i data-lucide="boxes" class="w-6 h-6"></i>
+        <div class="neon-card rounded-3xl overflow-hidden group transition duration-300 flex flex-col justify-between border-brand-neon/40 shadow-xl shadow-brand-neon/10">
+          <div>
+            <!-- FOTOĞRAF VİTRİNİ -->
+            <div class="h-44 w-full overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Granül Üre Üretimi" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-brand-card/50 to-transparent"></div>
+              <div class="absolute top-4 left-4 w-10 h-10 rounded-xl bg-brand-void/80 border border-brand-neon text-brand-neon flex items-center justify-center backdrop-blur-md shadow-lg shadow-brand-neon/20">
+                <i data-lucide="boxes" class="w-5 h-5"></i>
+              </div>
+              <div class="absolute top-4 right-4 px-2.5 py-1 rounded-full text-[10px] font-mono bg-brand-neon text-brand-void font-extrabold uppercase shadow-lg shadow-brand-neon/30">
+                Amiral Gemisi
+              </div>
             </div>
-            <div class="inline-block px-2.5 py-0.5 rounded text-[10px] font-mono bg-brand-neon/20 text-brand-neon uppercase font-extrabold mb-2">Amiral Gemisi</div>
-            <h4 class="text-xl font-bold text-white mb-3" data-i18n="card_urea_title">Üre (Granular Urea 46%)</h4>
-            <p class="text-xs text-slate-300 leading-relaxed mb-6" data-i18n="card_urea_desc">
-              Yüksek azotlu granül ve pril üre. Hem tarımsal gübreleme hem de endüstriyel tutkal, reçine ve AdBlue üretimi için saf hammadde.
-            </p>
-            <ul class="space-y-2 text-xs text-slate-400 mb-6 font-mono">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> Granül Üre (Granular %46N)</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> Pril Üre (Prilled Urea)</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> Dökme (Bulk) & Big Bag Sevkiyat</li>
-            </ul>
+
+            <div class="p-7">
+              <h4 class="text-xl font-bold text-white mb-2" data-i18n="card_urea_title">Üre (Granular Urea 46%)</h4>
+              <p class="text-xs text-slate-300 leading-relaxed mb-6" data-i18n="card_urea_desc">
+                Yüksek azotlu granül ve pril üre. Hem tarımsal gübreleme hem de endüstriyel tutkal, reçine ve AdBlue üretimi için saf hammadde.
+              </p>
+              <ul class="space-y-2 text-xs text-slate-400 mb-6 font-mono">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> Granül Üre (Granular %46N)</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> Pril Üre (Prilled Urea)</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> Dökme (Bulk) & Big Bag Sevkiyat</li>
+              </ul>
+            </div>
           </div>
-          <div class="p-8 pt-0">
-            <button onclick="selectProductAndQuote('Granül Üre 46%')" class="w-full py-2.5 rounded-xl bg-brand-neon text-brand-void font-extrabold text-xs hover:bg-brand-lime transition shadow-md shadow-brand-neon/20">
+          <div class="p-7 pt-0">
+            <button onclick="selectProductAndQuote('Granül Üre 46%')" class="w-full py-3 rounded-xl bg-brand-neon text-brand-void font-extrabold text-xs hover:bg-brand-lime transition shadow-lg shadow-brand-neon/20">
               Tonajlı Teklif İste →
             </button>
           </div>
         </div>
 
         <!-- KART 3: TARIM KİMYASALLARI -->
-        <div class="neon-card rounded-2xl overflow-hidden group transition duration-300 flex flex-col justify-between">
-          <div class="p-8">
-            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-brand-lime flex items-center justify-center mb-6 group-hover:scale-110 transition">
-              <i data-lucide="sprout" class="w-6 h-6"></i>
+        <div class="neon-card rounded-3xl overflow-hidden group transition duration-300 flex flex-col justify-between">
+          <div>
+            <!-- FOTOĞRAF VİTRİNİ -->
+            <div class="h-44 w-full overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=800&q=80" alt="Tarım Gübre" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-brand-card/50 to-transparent"></div>
+              <div class="absolute top-4 left-4 w-10 h-10 rounded-xl bg-brand-void/80 border border-brand-lime/30 text-brand-lime flex items-center justify-center backdrop-blur-md">
+                <i data-lucide="sprout" class="w-5 h-5"></i>
+              </div>
             </div>
-            <h4 class="text-xl font-bold text-white mb-3" data-i18n="card_agri_title">Tarım & Gübre Çözümleri</h4>
-            <p class="text-xs text-slate-300 leading-relaxed mb-6" data-i18n="card_agri_desc">
-              Toprak verimliliğini maksimize eden fosfat, potasyum ve kükürt bileşenli kompleks bitki besleme kimyasalları.
-            </p>
-            <ul class="space-y-2 text-xs text-slate-400 mb-6 font-mono">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> DAP & MAP Fosfatlı Gübreler</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> Amonyum Sülfat & Kükürt</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> Özel NPK Karışım Hammaddeleri</li>
-            </ul>
+
+            <div class="p-7">
+              <h4 class="text-xl font-bold text-white mb-2" data-i18n="card_agri_title">Tarım & Gübre Çözümleri</h4>
+              <p class="text-xs text-slate-300 leading-relaxed mb-6" data-i18n="card_agri_desc">
+                Toprak verimliliğini maksimize eden fosfat, potasyum ve kükürt bileşenli kompleks bitki besleme kimyasalları.
+              </p>
+              <ul class="space-y-2 text-xs text-slate-400 mb-6 font-mono">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> DAP & MAP Fosfatlı Gübreler</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> Amonyum Sülfat & Kükürt</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-neon"></i> Özel NPK Karışım Hammaddeleri</li>
+              </ul>
+            </div>
           </div>
-          <div class="p-8 pt-0">
-            <button onclick="selectProductAndQuote('Tarım Kimyasalları & Gübre')" class="w-full py-2.5 rounded-xl bg-white/5 border border-brand-border hover:border-brand-neon hover:bg-brand-neon hover:text-brand-void text-xs font-bold transition text-white">
+          <div class="p-7 pt-0">
+            <button onclick="selectProductAndQuote('Tarım Kimyasalları & Gübre')" class="w-full py-3 rounded-xl bg-white/5 border border-brand-border hover:border-brand-neon hover:bg-brand-neon hover:text-brand-void text-xs font-bold transition text-white">
               Detay & Teklif İste →
             </button>
           </div>
@@ -707,6 +736,100 @@
         menu.classList.add('hidden');
       }
     }
+
+    // ================= 3D İNTERAKTİF KİMYASAL MOLEKÜL AĞI =================
+    (function init3DChemicalMesh() {
+      const canvas = document.getElementById('chemical-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      let particles = [];
+      const mouse = { x: null, y: null, radius: 120 };
+
+      function resize() {
+        width = canvas.width = canvas.parentElement.offsetWidth;
+        height = canvas.height = canvas.parentElement.offsetHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      window.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
+
+      window.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
+
+      const particleCount = Math.min(50, Math.floor(window.innerWidth / 25));
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.8,
+          vy: (Math.random() - 0.5) * 0.8,
+          radius: Math.random() * 2.5 + 1.5,
+          color: Math.random() > 0.4 ? '#00ff87' : '#76ff03'
+        });
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < 0 || p.x > width) p.vx *= -1;
+          if (p.y < 0 || p.y > height) p.vy *= -1;
+
+          // Mouse etkileşimi (itme/çekme)
+          if (mouse.x !== null && mouse.y !== null) {
+            const dx = mouse.x - p.x;
+            const dy = mouse.y - p.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < mouse.radius) {
+              const force = (mouse.radius - dist) / mouse.radius;
+              p.x -= (dx / dist) * force * 2;
+              p.y -= (dy / dist) * force * 2;
+            }
+          }
+
+          // Çiz
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.shadowColor = p.color;
+          ctx.shadowBlur = 8;
+          ctx.fill();
+
+          // Bağlantı çizgileri (Moleküler Bağlar)
+          for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dx = p.x - p2.x;
+            const dy = p.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 130) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = `rgba(0, 255, 135, ${0.25 * (1 - dist / 130)})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+        }
+
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
+
   </script>
 </body>
 </html>
