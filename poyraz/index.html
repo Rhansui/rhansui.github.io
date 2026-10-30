@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poyraz Arıtım & Havuzculuk | Mersin Yüzme Havuzu, Su Arıtma ve SPA Sistemleri</title>
+  <meta name="description" content="Poyraz Arıtım ve Havuzculuk Mersin. Yüzme havuzu yapımı, endüstriyel ve evsel su arıtma sistemleri, sauna, Türk hamamı ve havuz kimyasallarında UHE/TSE standartlarında anahtar teslim çözümler.">
+  <meta name="keywords" content="mersin su arıtma, mersin havuz yapımı, villa havuzu mersin, endüstriyel su arıtma, sauna hamam mersin, poyraz arıtım, havuz kimyasalları, arıtma cihazı fiyatları">
+  
+  <!-- Google Fonts & Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            },
+            aqua: {
+              400: '#22d3ee',
+              500: '#06b6d4',
+              600: '#0891b2',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .glass-nav {
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .product-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+    }
+    .filter-btn.active {
+      background: #0284c7;
+      color: #ffffff;
+      border-color: #0284c7;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- TOP INFO BAR -->
+  <header class="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-4 flex-wrap justify-center sm:justify-start">
+        <span class="flex items-center gap-1.5 text-slate-400">
+          📍 <span>Mersin / Akdeniz ve Çevre İller</span>
+        </span>
+        <span class="hidden md:inline text-slate-700">|</span>
+        <span class="flex items-center gap-1.5 text-emerald-400 font-medium">
+          🛡️ <span>UHE & TSE Standartlarında Projelendirme</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="tel:03242383510" class="hover:text-white transition flex items-center gap-1 font-semibold">
+          📞 <span>(0324) 238 35 10</span>
+        </a>
+        <span class="text-slate-700">|</span>
+        <a href="tel:05326924073" class="hover:text-white transition flex items-center gap-1 font-semibold text-brand-400">
+          📱 <span>0532 692 40 73</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-50 glass-nav border-b border-slate-800/80 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <!-- LOGO -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-brand-500 to-aqua-400 flex items-center justify-center text-white text-2xl shadow-lg shadow-brand-500/25 group-hover:scale-105 transition">
+            💧
+          </div>
+          <div>
+            <div class="font-black text-xl tracking-tight text-white leading-none">
+              POYRAZ <span class="text-brand-400 font-extrabold">ARITIM</span>
+            </div>
+            <div class="text-[10px] font-bold tracking-widest text-slate-400 uppercase mt-0.5">
+              & Havuzculuk Ltd. Şti.
+            </div>
+          </div>
+        </a>
+
+        <!-- NAV LINKS -->
+        <div class="hidden lg:flex items-center gap-8 font-semibold text-sm text-slate-300">
+          <a href="#hizmetler" class="hover:text-brand-400 transition">Hizmetlerimiz</a>
+          <a href="#urunler" class="hover:text-brand-400 transition flex items-center gap-1.5">
+            <span>Ürünlerimiz</span>
+            <span class="px-2 py-0.5 text-[10px] bg-brand-500/20 text-brand-400 rounded-full font-extrabold">YENİ</span>
+          </a>
+          <a href="#projeler" class="hover:text-brand-400 transition">Projelerimiz</a>
+          <a href="#neden-biz" class="hover:text-brand-400 transition">Neden Poyraz?</a>
+          <a href="#iletisim" class="hover:text-brand-400 transition">İletişim</a>
+        </div>
+
+        <!-- CTA BUTTONS -->
+        <div class="flex items-center gap-3">
+          <button onclick="openQuoteModal()" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-brand-600 to-aqua-500 hover:from-brand-500 hover:to-aqua-400 text-white font-bold text-xs uppercase tracking-wider py-3 px-5 rounded-xl shadow-md shadow-brand-500/20 transition transform hover:-translate-y-0.5">
+            📋 <span>Fiyat Teklifi Al</span>
+          </button>
+          <a href="https://wa.me/905326924073?text=Merhaba,%20havuz%20ve%20su%20ar%C4%B1tma%20hizmetleriniz%20ve%20%C3%BCr%C3%BCnleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs uppercase tracking-wider py-3 px-4 rounded-xl shadow-md shadow-emerald-500/20 transition">
+            💬 <span class="hidden sm:inline">WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION WITH LIVE WATER LOOP VIDEO -->
+  <section class="relative min-h-[620px] lg:min-h-[700px] flex items-center justify-center overflow-hidden">
+    <!-- MOVING BACKGROUND VIDEO (LATHAM POOL LOOP) -->
+    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+      <source src="assets/hero-pool.webm" type="video/webm">
+    </video>
+
+    <!-- DARK LUXURY OVERLAY FOR CONTRAST -->
+    <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/80 to-slate-950/75"></div>
+    <div class="absolute inset-0 bg-radial-at-t from-brand-500/10 via-transparent to-black/70"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- LEFT TEXT -->
+        <div class="lg:col-span-8 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-500/20 border border-brand-400/40 text-brand-300 text-xs font-bold mb-6 tracking-wide backdrop-blur-md">
+            ✨ <span>Mersin ve Çukurova'nın Lider Havuz & Su Teknolojileri Kuruluşu</span>
+          </div>
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.15] mb-6 drop-shadow-sm">
+            Kusursuz Yüzme Havuzları, <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-aqua-400 via-brand-300 to-white">
+              Kristal Berraklığında Su.
+            </span>
+          </h1>
+          <p class="text-base sm:text-lg text-slate-200 font-normal leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0 drop-shadow">
+            Villa havuzlarından olimpik tesislere, evsel ve endüstriyel arıtma sistemlerinden lüks SPA & Türk hamamı projelerine kadar UHE ve TSE normlarında anahtar teslim mühendislik çözümleri.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <button onclick="openQuoteModal()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-brand-600 to-aqua-500 hover:from-brand-500 hover:to-aqua-400 text-white font-extrabold text-sm py-4 px-8 rounded-xl shadow-xl shadow-brand-500/30 transition transform hover:-translate-y-0.5">
+              🚀 <span>Hemen Ücretsiz Keşif & Teklif Alın</span>
+            </button>
+            <a href="#urunler" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold text-sm py-4 px-7 rounded-xl border border-white/20 backdrop-blur-md transition">
+              🛍️ <span>Ürün Kataloğumuzu İnceleyin</span>
+            </a>
+          </div>
+
+          <!-- TRUST METRICS -->
+          <div class="grid grid-cols-3 gap-6 pt-10 mt-10 border-t border-slate-700/60 max-w-lg mx-auto lg:mx-0">
+            <div>
+              <div class="text-3xl font-black text-brand-400">15+</div>
+              <div class="text-xs text-slate-300 font-medium mt-0.5">Yıllık Tecrübe</div>
+            </div>
+            <div>
+              <div class="text-3xl font-black text-aqua-400">650+</div>
+              <div class="text-xs text-slate-300 font-medium mt-0.5">Teslim Edilen Proje</div>
+            </div>
+            <div>
+              <div class="text-3xl font-black text-emerald-400">%100</div>
+              <div class="text-xs text-slate-300 font-medium mt-0.5">TSE & UHE Onaylı</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT QUICK CONTACT BOX -->
+        <div class="lg:col-span-4">
+          <div class="bg-slate-900/85 backdrop-blur-xl border border-slate-700/80 rounded-3xl p-6 sm:p-8 shadow-2xl text-white">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-5">
+              <div>
+                <h3 class="font-extrabold text-base text-white">Hızlı Danışma Hattı</h3>
+                <p class="text-xs text-slate-400">Mersin Teknik Ofisimiz Hizmetinizde</p>
+              </div>
+              <span class="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-lg">
+                ✓
+              </span>
+            </div>
+
+            <div class="space-y-3.5 text-xs text-slate-300 mb-6">
+              <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/60 border border-slate-700/60">
+                <span class="text-xl">🏊‍♂️</span>
+                <span>Anahtar teslim villa ve ticari havuz inşası</span>
+              </div>
+              <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/60 border border-slate-700/60">
+                <span class="text-xl">💧</span>
+                <span>Ev & fabrika ters osmoz su arıtma sistemleri</span>
+              </div>
+              <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/60 border border-slate-700/60">
+                <span class="text-xl">🧪</span>
+                <span>Bakanlık onaylı havuz kimyasalları & servis</span>
+              </div>
+            </div>
+
+            <div class="space-y-2.5">
+              <a href="tel:05326924073" class="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-brand-600 hover:bg-brand-500 font-extrabold text-xs transition shadow-md shadow-brand-600/30">
+                📞 <span>0532 692 40 73 (Yetkili Mühendis)</span>
+              </a>
+              <a href="tel:03242383510" class="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-xs text-slate-300 transition">
+                ☎️ <span>0324 238 35 10 (Ofis Sabit)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS CATALOG (ÜRÜNLERİMİZ) SECTION -->
+  <section id="urunler" class="py-24 bg-slate-100 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 text-brand-800 text-xs font-bold uppercase tracking-wider mb-3">
+          ÜRÜN KATALOĞUMUZ
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+          Yüksek Standartlı Ekipman & Kimyasal Ürünlerimiz
+        </h2>
+        <p class="text-slate-600 mt-3 text-base">
+          Mersin merkezli depomuzdan doğrudan satış, yedek parça temini, montaj ve periyodik servis garantisiyle.
+        </p>
+      </div>
+
+      <!-- PRODUCT CATEGORY FILTER TABS -->
+      <div class="flex items-center justify-center gap-2 sm:gap-3 flex-wrap mb-12">
+        <button onclick="filterProducts('all')" class="filter-btn active text-xs sm:text-sm font-bold px-5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-700 transition" data-filter="all">
+          Tüm Ürünler
+        </button>
+        <button onclick="filterProducts('aritma')" class="filter-btn text-xs sm:text-sm font-bold px-5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-700 transition" data-filter="aritma">
+          💧 Su Arıtma Cihazları
+        </button>
+        <button onclick="filterProducts('havuz-ekipman')" class="filter-btn text-xs sm:text-sm font-bold px-5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-700 transition" data-filter="havuz-ekipman">
+          🏊‍♂️ Havuz Ekipmanları
+        </button>
+        <button onclick="filterProducts('kimyasal')" class="filter-btn text-xs sm:text-sm font-bold px-5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-700 transition" data-filter="kimyasal">
+          🧪 Havuz Kimyasalları
+        </button>
+        <button onclick="filterProducts('endustriyel')" class="filter-btn text-xs sm:text-sm font-bold px-5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-700 transition" data-filter="endustriyel">
+          🏭 Endüstriyel Tesisler
+        </button>
+      </div>
+
+      <!-- PRODUCTS GRID -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7" id="productsGrid">
+        
+        <!-- PRODUCT 1: ARITMA -->
+        <div class="product-item product-card bg-white rounded-3xl p-6 border border-slate-200/90 shadow-lg shadow-slate-200/50 flex flex-col justify-between" data-category="aritma">
+          <div>
+            <div class="relative bg-gradient-to-tr from-brand-50 to-aqua-50 rounded-2xl h-44 flex items-center justify-center text-6xl mb-5 overflow-hidden">
+              💧
+              <span class="absolute top-3 left-3 bg-brand-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-md">
+                Ev Tipi Arıtıcı
+              </span>
+            </div>
+            <div class="text-[11px] font-bold text-brand-600 mb-1">POYRAZ PRO SERİSİ</div>
+            <h3 class="font-extrabold text-slate-900 text-base leading-snug mb-2">
+              6 Aşamalı Alkali & Mineral Su Arıtma Cihazı
+            </h3>
+            <p class="text-xs text-slate-500 leading-relaxed mb-4">
+              Tezgah altı kompakt kasa, NSF onaylı membran filtre, 8.5 pH alkali mineral zenginleştirici ve lüks paslanmaz musluk.
+            </p>
+            <div class="flex items-center gap-2 text-[11px] font-semibold text-slate-600 mb-5">
+              <span>🛡️ 2 Yıl Garanti</span> • <span>🔧 Ücretsiz Montaj</span>
+            </div>
+          </div>
+          <a href="https://wa.me/905326924073?text=Merhaba,%206%20A%C5%9Famalı%20Alkali%20Su%20Ar%C4%B1tma%20Cihaz%C4%B1%20hakk%C4%B1nda%20fiyat%20ve%20stok%20bilgisi%20almak%20istiyorum." target="_blank" class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-brand-600 text-white font-bold text-xs flex items-center justify-center gap-2 transition">
+            💬 <span>Fiyat Sor & Sipariş Ver</span>
+          </a>
+        </div>
+
+        <!-- PRODUCT 2: HAVUZ POMPASI -->
+        <div class="product-item product-card bg-white rounded-3xl p-6 border border-slate-200/90 shadow-lg shadow-slate-200/50 flex flex-col justify-between" data-category="havuz-ekipman">
+          <div>
+            <div class="relative bg-gradient-to-tr from-blue-50 to-slate-100 rounded-2xl h-44 flex items-center justify-center text-6xl mb-5 overflow-hidden">
+              ⚙️
+              <span class="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-md">
+                Havuz Ekipmanı
+              </span>
+            </div>
+            <div class="text-[11px] font-bold text-blue-600 mb-1">AQUA FLOW</div>
+            <h3 class="font-extrabold text-slate-900 text-base leading-snug mb-2">
+              Yüksek Emişli Kendinden Emişli Havuz Pompası
+            </h3>
+            <p class="text-xs text-slate-500 leading-relaxed mb-4">
+              0.75 HP - 3 HP seçenekleri. Sessiz çalışma, entegre ön filtre sepeti, korozyona dayanıklı paslanmaz mil ve enerji tasarrufu.
+            </p>
+            <div class="flex items-center gap-2 text-[11px] font-semibold text-slate-600 mb-5">
+              <span>⚡ Yüksek Emiş Gücü</span> • <span>🔇 Ultra Sessiz</span>
+            </div>
+          </div>
+          <a href="https://wa.me/905326924073?text=Merhaba,%20Havuz%20Pompas%C4%B1%20modelleri%20hakk%C4%B1nda%20fiyat%20almak%20istiyorum." target="_blank" class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-brand-600 text-white font-bold text-xs flex items-center justify-center gap-2 transition">
+            💬 <span>Fiyat Sor & Sipariş Ver</span>
+          </a>
+        </div>
+
+        <!-- PRODUCT 3: KUM FİLTRESİ -->
+        <div class="product-item product-card bg-white rounded-3xl p-6 border border-slate-200/90 shadow-lg shadow-slate-200/50 flex flex-col justify-between" data-category="havuz-ekipman">
+          <div>
+            <div class="relative bg-gradient-to-tr from-cyan-50 to-blue-50 rounded-2xl h-44 flex items-center justify-center text-6xl mb-5 overflow-hidden">
+              🛢️
+              <span class="absolute top-3 left-3 bg-cyan-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-md">
+                Filtrasyon
+              </span>
+            </div>
+            <div class="text-[11px] font-bold text-cyan-600 mb-1">FİBERGLAS GÖVDE</div>
+            <h3 class="font-extrabold text-slate-900 text-base leading-snug mb-2">
+              Çok Yollu Vanalı Fiberglas Kum Filtresi (D500 - D900)
+            </h3>
+            <p class="text-xs text-slate-500 leading-relaxed mb-4">
+              Villa ve ticari havuzlar için UV dayanımlı gövde, 6 yollu üst/yan vana, manometre ve yüksek debili kuvars cam kum desteği.
+            </p>
+            <div class="flex items-center gap-2 text-[11px] font-semibold text-slate-600 mb-5">
+              <span>💎 Kristal Berraklık</span> • <span>☀️ UV Korumalı</span>
+            </div>
+          </div>
+          <a href="https://wa.me/905326924073?text=Merhaba,%20Fiberglas%20Kum%20Filtresi%20hakk%C4%B1nda%20bilgi%20ve%20fiyat%20almak%20istiyorum." target="_blank" class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-brand-600 text-white font-bold text-xs flex items-center justify-center gap-2 transition">
+            💬 <span>Fiyat Sor & Sipariş Ver</span>
+          </a>
+        </div>
+
+        <!-- PRODUCT 4: HAVUZ KLORU -->
+        <div class="product-item product-card bg-white rounded-3xl p-6 border border-slate-200/90 shadow-lg shadow-slate-200/50 flex flex-col justify-between" data-category="kimyasal">
+          <div>
+            <div class="relative bg-gradient-to-tr from-emerald-50 to-teal-50 rounded-2xl h-44 flex items-center justify-center text-6xl mb-5 overflow-hidden">
+              🧪
+              <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-md">
+                Bakanlık Onaylı
+              </span>
+            </div>
+            <div class="text-[11px] font-bold text-emerald-600 mb-1">DEZENFEKSİYON</div>
+            <h3 class="font-extrabold text-slate-900 text-base leading-snug mb-2">
+              %90 Granül & Tablet Stabilizatörlü Klor (5kg / 25kg)
+            </h3>
+            <p class="text-xs text-slate-500 leading-relaxed mb-4">
+              Sağlık Bakanlığı biyosidal ruhsatlı. Havuz suyundaki bakteri ve mikropları anında yok eden yavaş salınımlı profesyonel klor.
+            </p>
+            <div class="flex items-center gap-2 text-[11px] font-semibold text-slate-600 mb-5">
+              <span>📜 Bakanlık Ruhsatlı</span> • <span>📦 5kg / 25kg Ambalaj</span>
+            </div>
+          </div>
+          <a href="https://wa.me/905326924073?text=Merhaba,%20Havuz%20Kloru%20(5kg/25kg)%20fiyat%20ve%20teslimat%20bilgisi%20almak%20istiyorum." target="_blank" class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-brand-600 text-white font-bold text-xs flex items-center justify-center gap-2 transition">
+            💬 <span>Fiyat Sor & Sipariş Ver</span>
+          </a>
+        </div>
+
+        <!-- PRODUCT 5: pH DÜŞÜRÜCÜ & YOSUN ÖNLEYİCİ -->
+        <div class="product-item product-card bg-white rounded-3xl p-6 border border-slate-200/90 shadow-lg shadow-slate-200/50 flex flex-col justify-between" data-category="kimyasal">
+          <div>
+            <div class="relative bg-gradient-to-tr from-amber-50 to-emerald-50 rounded-2xl h-44 flex items-center justify-center text-6xl mb-5 overflow-hidden">
+              🧴
+              <span class="absolute top-3 left-3 bg-amber-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-md">
+                Kimyasal Denge
+              </span>
+            </div>
+            <div class="text-[11px] font-bold text-amber-600 mb-1">SU DENGESİ</div>
+            <h3 class="font-extrabold text-slate-900 text-base leading-snug mb-2">
+              Sıvı pH Düşürücü & Konsantre Yosun Önleyici
+            </h3>
+            <p class="text-xs text-slate-500 leading-relaxed mb-4">
+              Havuz suyunun ideal 7.2 - 7.6 pH dengesini sağlayan, yeşermeyi ve yosun oluşumunu kalıcı olarak önleyen konsantre bakım seti.
+            </p>
+            <div class="flex items-center gap-2 text-[11px] font-semibold text-slate-600 mb-5">
+              <span>🌿 Yosun Karşıtı</span> • <span>⚡ Hızlı Çözünme</span>
+            </div>
+          </div>
+          <a href="https://wa.me/905326924073?text=Merhaba,%20pH%20D%C3%BC%C5%9F%C3%BCr%C3%BCc%C3%BC%20ve%20Yosun%20%C3%96nleyici%20fiyatlar%C4%B1%20hakk%C4%B1nda%20bilgi%20istiyorum." target="_blank" class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-brand-600 text-white font-bold text-xs flex items-center justify-center gap-2 transition">
+            💬 <span>Fiyat Sor & Sipariş Ver</span>
+          </a>
+        </div>
+
+        <!-- PRODUCT 6: LED SPOT -->
+        <div class="product-item product-card bg-white rounded-3xl p-6 border border-slate-200/90 shadow-lg shadow-slate-200/50 flex flex-col justify-between" data-category="havuz-ekipman">
+          <div>
+            <div class="relative bg-gradient-to-tr from-purple-50 to-blue-50 rounded-2xl h-44 flex items-center justify-center text-6xl mb-5 overflow-hidden">
+              💡
+              <span class="absolute top-3 left-3 bg-purple-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-md">
+                Aydınlatma
+              </span>
+            </div>
+            <div class="text-[11px] font-bold text-purple-600 mb-1">SU ALTI SİSTEMLERİ</div>
+            <h3 class="font-extrabold text-slate-900 text-base leading-snug mb-2">
+              IP68 Havuz İçi RGB Su Altı LED Aydınlatma Spotu
+            </h3>
+            <p class="text-xs text-slate-500 leading-relaxed mb-4">
+              Kumandalı renk geçişi, beyaz / gün ışığı ve RGB seçenekleri. Paslanmaz çerçeve, epoksi reçine dolgulu %100 su geçirmezlik.
+            </p>
+            <div class="flex items-center gap-2 text-[11px] font-semibold text-slate-600 mb-5">
+              <span>🌈 16 Renk Seçeneği</span> • <span>💦 IP68 Su Geçirmez</span>
+            </div>
+          </div>
+          <a href="https://wa.me/905326924073?text=Merhaba,%20Havuz%20LED%20Ayd%C4%B1nlatma%20spotlar%C4%B1%20hakk%C4%B1nda%20bilgi%20ve%20fiyat%20istiyorum." target="_blank" class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-brand-600 text-white font-bold text-xs flex items-center justify-center gap-2 transition">
+            💬 <span>Fiyat Sor & Sipariş Ver</span>
+          </a>
+        </div>
+
+        <!-- PRODUCT 7: TİCARİ TERS OZMOZ -->
+        <div class="product-item product-card bg-white rounded-3xl p-6 border border-slate-200/90 shadow-lg shadow-slate-200/50 flex flex-col justify-between" data-category="endustriyel">
+          <div>
+            <div class="relative bg-gradient-to-tr from-slate-100 to-brand-100 rounded-2xl h-44 flex items-center justify-center text-6xl mb-5 overflow-hidden">
+              🏭
+              <span class="absolute top-3 left-3 bg-slate-800 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-md">
+                Endüstriyel RO
+              </span>
+            </div>
+            <div class="text-[11px] font-bold text-brand-600 mb-1">YÜKSEK KAPASİTE</div>
+            <h3 class="font-extrabold text-slate-900 text-base leading-snug mb-2">
+              Endüstriyel Ters Osmoz Arıtma Sistemi (Günde 1 - 50 Ton)
+            </h3>
+            <p class="text-xs text-slate-500 leading-relaxed mb-4">
+              Otel, fabrika, sera ve kuyu suyu tesisleri için paslanmaz çelik şasi, PLC kontrol panosu, yüksek basınç pompası ve membran koruma.
+            </p>
+            <div class="flex items-center gap-2 text-[11px] font-semibold text-slate-600 mb-5">
+              <span>📈 50 Ton/Gün Kapasite</span> • <span>⚡ PLC Otomasyon</span>
+            </div>
+          </div>
+          <a href="https://wa.me/905326924073?text=Merhaba,%20End%C3%BCstriyel%20Ters%20Osmoz%20Sistemi%20i%C3%A7in%20projelendirme%20ve%20fiyat%20teklifi%20istiyorum." target="_blank" class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-brand-600 text-white font-bold text-xs flex items-center justify-center gap-2 transition">
+            💬 <span>Fiyat Sor & Sipariş Ver</span>
+          </a>
+        </div>
+
+        <!-- PRODUCT 8: SU YUMUŞATMA -->
+        <div class="product-item product-card bg-white rounded-3xl p-6 border border-slate-200/90 shadow-lg shadow-slate-200/50 flex flex-col justify-between" data-category="endustriyel">
+          <div>
+            <div class="relative bg-gradient-to-tr from-teal-50 to-blue-50 rounded-2xl h-44 flex items-center justify-center text-6xl mb-5 overflow-hidden">
+              🚰
+              <span class="absolute top-3 left-3 bg-teal-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-md">
+                Kireç Çözücü
+              </span>
+            </div>
+            <div class="text-[11px] font-bold text-teal-600 mb-1">TANDEM SİSTEM</div>
+            <h3 class="font-extrabold text-slate-900 text-base leading-snug mb-2">
+              Otomatik Debili Su Yumuşatma Cihazı (Kireç Önleyici)
+            </h3>
+            <p class="text-xs text-slate-500 leading-relaxed mb-4">
+              Bina, site ve işletmeler için kireci sıfıra indiren otomatik Fleck / Clack valfli reçine tankları ve tuz tankı entegrasyonu.
+            </p>
+            <div class="flex items-center gap-2 text-[11px] font-semibold text-slate-600 mb-5">
+              <span>🚫 Sıfır Kireç</span> • <span>🔄 Otomatik Rejenerasyon</span>
+            </div>
+          </div>
+          <a href="https://wa.me/905326924073?text=Merhaba,%20Su%20Yumu%C5%9Fatma%20Cihazlar%C4%B1%20hakk%C4%B1nda%20fiyat%20ve%20bilgi%20almak%20istiyorum." target="_blank" class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-brand-600 text-white font-bold text-xs flex items-center justify-center gap-2 transition">
+            💬 <span>Fiyat Sor & Sipariş Ver</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMPLETED PROJECTS PHOTO GALLERY SECTION -->
+  <section id="projeler" class="py-24 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-bold uppercase tracking-wider mb-3">
+            FOTOĞRAF GALERİSİ
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            Tamamladığımız Havuz & Tesis Projelerimiz
+          </h2>
+          <p class="text-slate-600 mt-2 text-base">
+            Mersin, Erdemli, Mezitli, Tarsus ve Akdeniz bölgesinde başarıyla teslim ettiğimiz gerçek projelerimizden kareler.
+          </p>
+        </div>
+        <button onclick="openQuoteModal('Havuz Yapımı')" class="inline-flex items-center gap-2 self-start md:self-auto bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs py-3 px-5 rounded-xl shadow-md transition">
+          🏊‍♂️ Kendi Havuzunuz İçin Keşif İsteyin
+        </button>
+      </div>
+
+      <!-- GALLERY GRID -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <div class="group relative rounded-3xl overflow-hidden shadow-lg border border-slate-200 aspect-[4/3]">
+          <img src="assets/project-1.jpg" alt="Poyraz Arıtım Villa Havuz Projesi Mersin" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent opacity-90 group-hover:opacity-100 transition"></div>
+          <div class="absolute bottom-5 left-5 right-5 text-white">
+            <span class="text-[10px] font-black uppercase tracking-wider bg-brand-600 px-2.5 py-0.5 rounded-full inline-block mb-1.5">Villa Havuzu</span>
+            <h4 class="font-extrabold text-base">Taşmalı Lüks Villa Yüzme Havuzu</h4>
+            <p class="text-xs text-slate-300 mt-0.5">Mersin / Erdemli — Anahtar Teslim</p>
+          </div>
+        </div>
+
+        <div class="group relative rounded-3xl overflow-hidden shadow-lg border border-slate-200 aspect-[4/3]">
+          <img src="assets/project-2.jpg" alt="Poyraz Arıtım Skimmer Havuz Projesi" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent opacity-90 group-hover:opacity-100 transition"></div>
+          <div class="absolute bottom-5 left-5 right-5 text-white">
+            <span class="text-[10px] font-black uppercase tracking-wider bg-aqua-600 px-2.5 py-0.5 rounded-full inline-block mb-1.5">Site Havuzu</span>
+            <h4 class="font-extrabold text-base">Site & Konut Ortak Yüzme Havuzu</h4>
+            <p class="text-xs text-slate-300 mt-0.5">Mersin / Mezitli — Filtrasyon & LED</p>
+          </div>
+        </div>
+
+        <div class="group relative rounded-3xl overflow-hidden shadow-lg border border-slate-200 aspect-[4/3]">
+          <img src="assets/project-3.jpg" alt="Poyraz Arıtım Havuz Mekanik Odası" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent opacity-90 group-hover:opacity-100 transition"></div>
+          <div class="absolute bottom-5 left-5 right-5 text-white">
+            <span class="text-[10px] font-black uppercase tracking-wider bg-emerald-600 px-2.5 py-0.5 rounded-full inline-block mb-1.5">Mekanik Tesisat</span>
+            <h4 class="font-extrabold text-base">Kuvars Kum Filtresi & Pompa Dairesi</h4>
+            <p class="text-xs text-slate-300 mt-0.5">UHE ve TSE Normlarına Tam Uyumlu</p>
+          </div>
+        </div>
+
+        <div class="group relative rounded-3xl overflow-hidden shadow-lg border border-slate-200 aspect-[4/3]">
+          <img src="assets/project-4.jpg" alt="Poyraz Arıtım Doğal Taş Havuz" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent opacity-90 group-hover:opacity-100 transition"></div>
+          <div class="absolute bottom-5 left-5 right-5 text-white">
+            <span class="text-[10px] font-black uppercase tracking-wider bg-amber-600 px-2.5 py-0.5 rounded-full inline-block mb-1.5">Özel Tasarım</span>
+            <h4 class="font-extrabold text-base">Doğal Taş & Seramik Kaplama Havuz</h4>
+            <p class="text-xs text-slate-300 mt-0.5">Özel Mimari Aydınlatma & Merdiven</p>
+          </div>
+        </div>
+
+        <div class="group relative rounded-3xl overflow-hidden shadow-lg border border-slate-200 aspect-[4/3]">
+          <img src="assets/project-5.jpg" alt="Poyraz Arıtım Peyzajlı Havuz" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent opacity-90 group-hover:opacity-100 transition"></div>
+          <div class="absolute bottom-5 left-5 right-5 text-white">
+            <span class="text-[10px] font-black uppercase tracking-wider bg-indigo-600 px-2.5 py-0.5 rounded-full inline-block mb-1.5">Otel Havuzu</span>
+            <h4 class="font-extrabold text-base">Peyzaj Entegreli Yarı Olimpik Havuz</h4>
+            <p class="text-xs text-slate-300 mt-0.5">Akdeniz Bölgesi Otel Projesi</p>
+          </div>
+        </div>
+
+        <!-- EXTRA CALLOUT CARD -->
+        <div class="rounded-3xl p-8 bg-gradient-to-tr from-brand-900 to-slate-900 text-white flex flex-col justify-between border border-slate-800 shadow-xl">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-2xl mb-4">
+              📐
+            </div>
+            <h4 class="text-xl font-black mb-2">Hayalinizdeki Havuzu Birlikte Çizelim</h4>
+            <p class="text-xs text-slate-300 leading-relaxed mb-6">
+              Mekanınızın ölçülerini alıyor, zemin etüdünü yapıyor ve bütçenize en uygun projeyi 3D olarak beğeninize sunuyoruz.
+            </p>
+          </div>
+          <a href="tel:05326924073" class="w-full py-3.5 px-4 rounded-xl bg-brand-500 hover:bg-brand-400 font-extrabold text-xs text-center transition">
+            0532 692 40 73'ü Arayın 📞
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="hizmetler" class="py-24 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 text-brand-800 text-xs font-bold uppercase tracking-wider mb-3">
+          FAALİYET ALANLARIMIZ
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+          Su ve Havuz Teknolojilerinde Kapsamlı Çözümler
+        </h2>
+        <p class="text-slate-600 mt-4 text-base">
+          Poyraz Arıtım olarak mühendislik prensipleriyle tasarlıyor, en kaliteli malzemelerle kuruyor ve periyodik bakımlarla ömür boyu destekliyoruz.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- CARD 1: HAVUZ -->
+        <div class="group bg-white rounded-3xl p-7 border border-slate-200 hover:border-brand-500 hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-brand-600 to-aqua-400 text-white text-3xl flex items-center justify-center shadow-lg shadow-brand-500/20 mb-6 group-hover:scale-110 transition">
+              🏊‍♂️
+            </div>
+            <h3 class="text-xl font-extrabold text-slate-900 mb-3 group-hover:text-brand-600 transition">
+              Yüzme Havuzları & Ekipmanları
+            </h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              Villa, otel, site ve olimpik havuzların mimari tasarımı, taşma kanalları, liner ve seramik kaplamaları, su altı LED aydınlatmaları ve pompa daireleri.
+            </p>
+            <ul class="text-xs font-semibold text-slate-500 space-y-2 mb-6">
+              <li class="flex items-center gap-2">✅ Skimmer ve Taşmalı Havuzlar</li>
+              <li class="flex items-center gap-2">✅ Otomatik Havuz Temizleme Robotları</li>
+              <li class="flex items-center gap-2">✅ Isı Pompası ve Kış Bakımları</li>
+            </ul>
+          </div>
+          <button onclick="openQuoteModal('Havuz Yapımı')" class="w-full py-2.5 px-4 rounded-xl bg-slate-50 group-hover:bg-brand-600 text-slate-700 group-hover:text-white font-bold text-xs border border-slate-200 group-hover:border-brand-600 transition text-center shadow-sm">
+            Havuz Teklifi Al →
+          </button>
+        </div>
+
+        <!-- CARD 2: ARITMA -->
+        <div class="group bg-white rounded-3xl p-7 border border-slate-200 hover:border-brand-500 hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-aqua-500 to-brand-700 text-white text-3xl flex items-center justify-center shadow-lg shadow-aqua-500/20 mb-6 group-hover:scale-110 transition">
+              💧
+            </div>
+            <h3 class="text-xl font-extrabold text-slate-900 mb-3 group-hover:text-brand-600 transition">
+              Su Arıtma Sistemleri
+            </h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              Evsel içme suyu arıtma cihazları, fabrika ve oteller için Endüstriyel Ters Osmoz (Reverse Osmosis), kuyu suyu demir-mangan ve kireç arıtıcıları.
+            </p>
+            <ul class="text-xs font-semibold text-slate-500 space-y-2 mb-6">
+              <li class="flex items-center gap-2">✅ Ev Tipi Tezgah Altı Cihazlar</li>
+              <li class="flex items-center gap-2">✅ Endüstriyel Ters Ozmoz (RO)</li>
+              <li class="flex items-center gap-2">✅ Su Yumuşatma & Karbon Filtreler</li>
+            </ul>
+          </div>
+          <button onclick="openQuoteModal('Su Arıtma')" class="w-full py-2.5 px-4 rounded-xl bg-slate-50 group-hover:bg-brand-600 text-slate-700 group-hover:text-white font-bold text-xs border border-slate-200 group-hover:border-brand-600 transition text-center shadow-sm">
+            Arıtma Teklifi Al →
+          </button>
+        </div>
+
+        <!-- CARD 3: SPA & WELLNESS -->
+        <div class="group bg-white rounded-3xl p-7 border border-slate-200 hover:border-brand-500 hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-600 text-white text-3xl flex items-center justify-center shadow-lg shadow-amber-500/20 mb-6 group-hover:scale-110 transition">
+              🧖‍♀️
+            </div>
+            <h3 class="text-xl font-extrabold text-slate-900 mb-3 group-hover:text-brand-600 transition">
+              SPA, Sauna & Türk Hamamı
+            </h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              Ahşap Fin saunaları, buhar jeneratörlü buhar odaları, geleneksel Türk hamamı kurnası ve mermer ısıtma mekanikleri, jakuzi ve hidroterapi küvetleri.
+            </p>
+            <ul class="text-xs font-semibold text-slate-500 space-y-2 mb-6">
+              <li class="flex items-center gap-2">✅ Özel İmalat Sedir Ahşap Sauna</li>
+              <li class="flex items-center gap-2">✅ Buhar Odası İzolasyonu & Cihazı</li>
+              <li class="flex items-center gap-2">✅ Türk Hamamı Isıtma Tesisatı</li>
+            </ul>
+          </div>
+          <button onclick="openQuoteModal('SPA & Sauna')" class="w-full py-2.5 px-4 rounded-xl bg-slate-50 group-hover:bg-brand-600 text-slate-700 group-hover:text-white font-bold text-xs border border-slate-200 group-hover:border-brand-600 transition text-center shadow-sm">
+            SPA Teklifi Al →
+          </button>
+        </div>
+
+        <!-- CARD 4: KİMYASALLAR & BAKIM -->
+        <div class="group bg-white rounded-3xl p-7 border border-slate-200 hover:border-brand-500 hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-700 text-white text-3xl flex items-center justify-center shadow-lg shadow-emerald-500/20 mb-6 group-hover:scale-110 transition">
+              🧪
+            </div>
+            <h3 class="text-xl font-extrabold text-slate-900 mb-3 group-hover:text-brand-600 transition">
+              Kimyasallar & Periyodik Bakım
+            </h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              Sağlık Bakanlığı onaylı havuz kimyasalları (klor, yosun önleyici, pH düşürücü, çöktürücü), otomatik klorlama dozaj pompaları ve haftalık havuz bakım servisleri.
+            </p>
+            <ul class="text-xs font-semibold text-slate-500 space-y-2 mb-6">
+              <li class="flex items-center gap-2">✅ Sağlık Bakanlığı Onaylı Kimyasallar</li>
+              <li class="flex items-center gap-2">✅ Dijital Dozajlama & Ölçüm Cihazı</li>
+              <li class="flex items-center gap-2">✅ Kum Filtresi & Medya Değişimi</li>
+            </ul>
+          </div>
+          <button onclick="openQuoteModal('Kimyasal & Bakım')" class="w-full py-2.5 px-4 rounded-xl bg-slate-50 group-hover:bg-brand-600 text-slate-700 group-hover:text-white font-bold text-xs border border-slate-200 group-hover:border-brand-600 transition text-center shadow-sm">
+            Bakım Servisi İste →
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY POYRAZ SECTION -->
+  <section id="neden-biz" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-5">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-900/60 border border-brand-500/30 text-brand-300 text-xs font-bold uppercase tracking-wider mb-4">
+            NEDEN BİZİ TERCİH ETMELİSİNİZ?
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-black tracking-tight leading-snug mb-6">
+            UHE & TSE Standartlarında <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-aqua-300">
+              Mersin'in En Güvenilir Markası.
+            </span>
+          </h2>
+          <p class="text-slate-300 text-sm leading-relaxed mb-8">
+            Havuz ve arıtma işi şansa bırakılmaz; insan sağlığı ve su kalitesi en yüksek hassasiyeti gerektirir. Poyraz Arıtım olarak 15 yıldır aynı adreste, arkasında durduğumuz projelerle çalışıyoruz.
+          </p>
+
+          <a href="tel:05326924073" class="inline-flex items-center gap-3 bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm py-3.5 px-6 rounded-xl transition shadow-lg shadow-brand-500/25">
+            📞 <span>Mühendisimizle Hemen Görüşün</span>
+          </a>
+        </div>
+
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          
+          <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
+            <div class="text-3xl mb-3">📐</div>
+            <h4 class="font-extrabold text-base text-white mb-2">Mühendislik & 3D Proje</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Havuzunuz yapılmadan önce bahçenize veya mekanınıza göre mimari çizimleri ve teknik hesaplamaları eksiksiz hazırlıyoruz.
+            </p>
+          </div>
+
+          <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
+            <div class="text-3xl mb-3">🛡️</div>
+            <h4 class="font-extrabold text-base text-white mb-2">%100 Orijinal Ekipman</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Kullandığımız pompa, filtre, vana ve kimyasallar dünya standartlarında, faturalı ve garantili orijinal ürünlerdir.
+            </p>
+          </div>
+
+          <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
+            <div class="text-3xl mb-3">⚡</div>
+            <h4 class="font-extrabold text-base text-white mb-2">Zamanında Anahtar Teslim</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Sözleşmede belirlenen günde kazıdan ilk su doldurma anına kadar tüm aşamaları eksiksiz teslim ediyoruz.
+            </p>
+          </div>
+
+          <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
+            <div class="text-3xl mb-3">🛠️</div>
+            <h4 class="font-extrabold text-base text-white mb-2">Satış Sonrası Destek</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Proje bittikten sonra da yanınızdayız. Filtre değişimi, kimyasal temini ve arıza durumunda hızlı servis sağlıyoruz.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT & FOOTER -->
+  <footer id="iletisim" class="bg-slate-950 text-slate-400 text-xs pt-16 pb-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
+        
+        <!-- COL 1: FIRMA -->
+        <div>
+          <div class="flex items-center gap-2.5 text-white font-extrabold text-base mb-3">
+            💧 <span>POYRAZ ARITIM</span>
+          </div>
+          <p class="text-slate-400 text-xs leading-relaxed mb-4">
+            Mersin'de havuz yapımı, endüstriyel ve evsel su arıtma sistemleri, sauna, hamam ve havuz kimyasallarında uzman kuruluş.
+          </p>
+          <a href="https://www.instagram.com/poyrazaritim" target="_blank" class="inline-flex items-center gap-2 text-pink-400 hover:text-pink-300 font-semibold transition">
+            📸 <span>Instagram: @poyrazaritim</span>
+          </a>
+        </div>
+
+        <!-- COL 2: HİZMETLER -->
+        <div>
+          <h5 class="text-white font-bold text-sm mb-4">Hızlı Hizmet Listesi</h5>
+          <ul class="space-y-2">
+            <li><a href="#hizmetler" class="hover:text-white transition">Villa ve Otel Havuzu Yapımı</a></li>
+            <li><a href="#urunler" class="hover:text-white transition">Su Arıtma Cihazları Satışı</a></li>
+            <li><a href="#urunler" class="hover:text-white transition">Havuz Ekipmanları & Pompalar</a></li>
+            <li><a href="#hizmetler" class="hover:text-white transition">Sauna & Türk Hamamı İmalatı</a></li>
+            <li><a href="#urunler" class="hover:text-white transition">Havuz Kimyasalları & Dozajlama</a></li>
+          </ul>
+        </div>
+
+        <!-- COL 3: İLETİŞİM -->
+        <div>
+          <h5 class="text-white font-bold text-sm mb-4">İletişim Bilgileri</h5>
+          <ul class="space-y-2.5">
+            <li class="flex items-center gap-2">
+              <span class="text-slate-500">📍</span> 
+              <span>Mersin / Akdeniz / Türkiye</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-slate-500">📞</span> 
+              <a href="tel:03242383510" class="hover:text-white transition">(0324) 238 35 10</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-slate-500">📱</span> 
+              <a href="tel:05326924073" class="hover:text-white transition">0532 692 40 73</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-slate-500">✉️</span> 
+              <a href="mailto:info@poyrazaritim.com" class="hover:text-white transition">info@poyrazaritim.com</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- COL 4: ÇALIŞMA SAATLERİ -->
+        <div>
+          <h5 class="text-white font-bold text-sm mb-4">Çalışma Saatleri</h5>
+          <p class="text-slate-400 mb-2">Pazartesi - Cumartesi:</p>
+          <p class="text-white font-semibold mb-3">08:30 - 18:30</p>
+          <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+            <span class="text-emerald-400 font-bold block mb-1">🚨 7/24 Acil Teknik Servis</span>
+            <span class="text-[11px] text-slate-400">Havuz arızaları ve arıtma filtre acil müdahalelerinde 7/24 hizmetinizdeyiz.</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <div>
+          © 2026 Poyraz Arıtım ve Havuzculuk Ltd. Şti. Tüm Hakları Saklıdır.
+        </div>
+        <div class="flex gap-4">
+          <span>Gizlilik Politikası</span>
+          <span>•</span>
+          <span>KVKK Metni</span>
+          <span>•</span>
+          <span>Site Haritası</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/905326924073?text=Merhaba,%20Poyraz%20Ar%C4%B1t%C4%B1m%20hizmetleriniz%20ve%20%C3%BCr%C3%BCnleriniz%20hakk%C4%B1nda%20fiyat%20teklifi%20almak%20istiyorum." target="_blank" class="fixed bottom-6 right-6 z-40 bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition duration-300 shadow-emerald-500/40" title="WhatsApp İle Hızlı Mesaj Gönder">
+    💬
+  </a>
+
+  <!-- MODAL: HIZLI TEKLİF AL -->
+  <div id="quoteModal" class="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white w-full max-w-lg rounded-3xl p-6 sm:p-8 shadow-2xl relative border border-slate-100 animate-in fade-in zoom-in duration-200">
+      
+      <button onclick="closeQuoteModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 text-2xl font-bold w-8 h-8 rounded-full flex items-center justify-center hover:bg-slate-100 transition">
+        ✕
+      </button>
+
+      <div class="mb-6">
+        <span class="text-[11px] font-bold uppercase tracking-wider text-brand-600 block mb-1">ÜCRETSİZ KEŞİF VE FİYATLANDIRMA</span>
+        <h3 class="text-2xl font-black text-slate-900">Projeniz İçin Teklif Alın</h3>
+        <p class="text-xs text-slate-500 mt-1">Formu doldurun, mühendisimiz 15 dakika içinde sizi arasın.</p>
+      </div>
+
+      <form onsubmit="handleQuoteSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1.5">Adınız Soyadınız *</label>
+          <input type="text" id="quoteName" required placeholder="Örn: Ahmet Yılmaz" class="w-full text-sm px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1.5">Telefon Numaranız *</label>
+          <input type="tel" id="quotePhone" required placeholder="05XX XXX XX XX" class="w-full text-sm px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1.5">İlgilendiğiniz Hizmet / Ürün</label>
+          <select id="quoteService" class="w-full text-sm px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 bg-white">
+            <option value="Havuz Yapımı">Villa / Otel Havuzu Yapımı</option>
+            <option value="Su Arıtma Cihazı">Ev Tipi / Endüstriyel Su Arıtma Cihazı</option>
+            <option value="Havuz Ekipmanı">Havuz Pompası, Filtre veya LED Aydınlatma</option>
+            <option value="Havuz Kimyasalları">Havuz Kloru ve Kimyasal Seti</option>
+            <option value="SPA & Sauna">Sauna, Türk Hamamı veya SPA</option>
+            <option value="Periyodik Bakım">Periyodik Havuz Bakım Servisi</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1.5">Proje Detayları / Notunuz</label>
+          <textarea id="quoteNote" rows="3" placeholder="Örn: 8x4 metre villa havuzu için anahtar teslim fiyat veya arıtma cihazı fiyatı öğrenmek istiyorum..." class="w-full text-sm px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-brand-600 to-aqua-500 hover:from-brand-700 hover:to-aqua-600 text-white font-extrabold text-sm shadow-lg shadow-brand-500/25 transition">
+          🚀 Teklif Talebini Gönder (WhatsApp / İletişim)
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function filterProducts(category) {
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => {
+        if (btn.getAttribute('data-filter') === category) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      const items = document.querySelectorAll('.product-item');
+      items.forEach(item => {
+        const itemCat = item.getAttribute('data-category');
+        if (category === 'all' || itemCat === category) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    function openQuoteModal(serviceName = null) {
+      if (serviceName) {
+        const select = document.getElementById('quoteService');
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].text.includes(serviceName) || select.options[i].value.includes(serviceName)) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      const modal = document.getElementById('quoteModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeQuoteModal() {
+      const modal = document.getElementById('quoteModal');
+      modal.classList.remove('flex');
+      modal.classList.add('hidden');
+    }
+
+    function handleQuoteSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('quoteName').value;
+      const phone = document.getElementById('quotePhone').value;
+      const service = document.getElementById('quoteService').value;
+      const note = document.getElementById('quoteNote').value;
+
+      const text = `Merhaba Poyraz Arıtım,%0A%0AWeb sitenizden teklif formu doldurdum:%0A👤 *İsim:* ${encodeURIComponent(name)}%0A📞 *Telefon:* ${encodeURIComponent(phone)}%0A🛠️ *Hizmet / Ürün:* ${encodeURIComponent(service)}%0A📝 *Not:* ${encodeURIComponent(note)}`;
+
+      window.open(`https://wa.me/905326924073?text=${text}`, '_blank');
+      closeQuoteModal();
+    }
+  </script>
+
+</body>
+</html>
