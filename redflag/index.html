@@ -152,11 +152,13 @@
       background: var(--surface);
       border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 12px;
+      padding: 12px 14px 10px;
+      margin-bottom: 24px;
+    }
+    .stats-grid-row {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      padding: 10px 14px;
       text-align: center;
-      margin-bottom: 24px;
       gap: 8px;
     }
     .stat-box-val {
@@ -164,10 +166,41 @@
       font-size: 16px;
       font-weight: 700;
       color: #FFFFFF;
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+    .stat-box-val.flash {
+      color: var(--emerald) !important;
+      transform: scale(1.08);
     }
     .stat-box-lbl {
       font-size: 11px;
       color: var(--text-muted);
+    }
+    .live-activity-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #92FFD4;
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      letter-spacing: 0.3px;
+    }
+    .pulse-emerald-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--emerald);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--emerald);
+      animation: pulseEmerald 1.8s infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulseEmerald {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(0.6); opacity: 0.4; }
     }
 
     /* Quiz Container */
@@ -599,17 +632,23 @@
 
     <!-- Live Stats -->
     <div class="stats-ribbon">
-      <div>
-        <div class="stat-box-val">142,850+</div>
-        <div class="stat-box-lbl" id="txtStatScans">Scans Run</div>
+      <div class="stats-grid-row">
+        <div>
+          <div class="stat-box-val" id="liveScansVal">142,852+</div>
+          <div class="stat-box-lbl" id="txtStatScans">Scans Run</div>
+        </div>
+        <div>
+          <div class="stat-box-val">76.4%</div>
+          <div class="stat-box-lbl" id="txtStatAvg">Avg Toxicity</div>
+        </div>
+        <div>
+          <div class="stat-box-val">99.1%</div>
+          <div class="stat-box-lbl" id="txtStatAcc">Accuracy</div>
+        </div>
       </div>
-      <div>
-        <div class="stat-box-val">76.4%</div>
-        <div class="stat-box-lbl" id="txtStatAvg">Avg Toxicity</div>
-      </div>
-      <div>
-        <div class="stat-box-val">99.1%</div>
-        <div class="stat-box-lbl" id="txtStatAcc">Accuracy</div>
+      <div class="live-activity-bar">
+        <span class="pulse-emerald-dot"></span>
+        <span id="txtLiveActive">24 people scanning right now in US, UK & EU</span>
       </div>
     </div>
 
@@ -762,6 +801,7 @@
         statScans: "Scans Run",
         statAvg: "Avg Toxicity",
         statAcc: "Accuracy",
+        liveActive: "people scanning right now in US, UK & EU",
         checklist: "Behavioral Checklist",
         selected: "Selected",
         btnScan: "⚡ RUN TOXICITY SCAN",
@@ -827,6 +867,7 @@
         statScans: "Escaneos",
         statAvg: "Toxicidad Media",
         statAcc: "Precisión",
+        liveActive: "personas escaneando ahora mismo en vivo",
         checklist: "Lista de Comportamientos",
         selected: "Seleccionados",
         btnScan: "⚡ INICIAR ESCANEO DE TOXICIDAD",
@@ -892,6 +933,7 @@
         statScans: "Durchgeführt",
         statAvg: "Ø Toxizität",
         statAcc: "Präzision",
+        liveActive: "Personen scannen gerade live",
         checklist: "Verhaltens-Checkliste",
         selected: "Ausgewählt",
         btnScan: "⚡ TOXIZITÄTS-SCAN STARTEN",
@@ -957,6 +999,7 @@
         statScans: "Analyses",
         statAvg: "Toxicité Moyenne",
         statAcc: "Précision",
+        liveActive: "personnes en cours de scan en direct",
         checklist: "Grille Comportementale",
         selected: "Sélectionnés",
         btnScan: "⚡ LANCER L'ANALYSE DE TOXICITÉ",
@@ -1053,6 +1096,7 @@
       document.getElementById('txtBtnRetake').innerText = data.btnRetake;
       document.getElementById('txtFooter').innerText = data.footer;
       document.getElementById('txtDisclaimer').innerText = data.disclaimer;
+      updateLiveActive();
 
       // Re-render questions in the chosen language while preserving user's choices
       renderQuestions();
@@ -1231,8 +1275,41 @@
       }, 2500);
     }
 
+    // Live Real-Time Activity Engine
+    let currentScans = 142852;
+    let activeUsers = 24;
+
+    function updateLiveActive() {
+      const activeEl = document.getElementById('txtLiveActive');
+      if (activeEl && i18n[currentLang]) {
+        activeEl.innerText = `${activeUsers} ${i18n[currentLang].liveActive}`;
+      }
+    }
+
+    function initLiveTicker() {
+      const scansEl = document.getElementById('liveScansVal');
+      updateLiveActive();
+
+      setInterval(() => {
+        // Randomly increment total scans by 1, 2, or 3
+        const inc = Math.floor(Math.random() * 3) + 1;
+        currentScans += inc;
+        if (scansEl) {
+          scansEl.innerText = currentScans.toLocaleString() + '+';
+          scansEl.classList.add('flash');
+          setTimeout(() => scansEl.classList.remove('flash'), 500);
+        }
+
+        // Naturally fluctuate live active users between 19 and 36
+        const delta = Math.floor(Math.random() * 5) - 2;
+        activeUsers = Math.max(19, Math.min(36, activeUsers + delta));
+        updateLiveActive();
+      }, 3800);
+    }
+
     // Init on load
     renderQuestions();
+    initLiveTicker();
   </script>
 </body>
 </html>
