@@ -56,15 +56,15 @@
       justify-content: space-between;
       align-items: center;
       padding-top: 20px;
-      gap: 10px;
-      flex-wrap: wrap;
+      gap: 8px;
+      flex-wrap: nowrap;
     }
 
     .top-pill {
       background: rgba(255, 42, 95, 0.12);
       border: 1px solid rgba(255, 42, 95, 0.35);
       color: #FF7597;
-      padding: 5px 12px;
+      padding: 5px 10px;
       border-radius: 999px;
       font-size: 11px;
       font-weight: 700;
@@ -74,6 +74,10 @@
       gap: 6px;
       text-transform: uppercase;
       box-shadow: 0 0 15px rgba(255, 42, 95, 0.2);
+      white-space: nowrap;
+      flex-shrink: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .live-dot {
       width: 7px;
@@ -81,6 +85,7 @@
       background: var(--crimson);
       border-radius: 50%;
       animation: pulseDot 1.5s infinite;
+      flex-shrink: 0;
     }
     @keyframes pulseDot {
       0%, 100% { opacity: 1; transform: scale(1); }
@@ -90,25 +95,26 @@
     /* Language Switcher Selector */
     .lang-switcher {
       display: inline-flex;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 999px;
-      padding: 3px;
-      gap: 3px;
+      padding: 2px;
+      gap: 2px;
+      flex-shrink: 0;
     }
     .lang-btn {
       background: transparent;
       border: none;
       color: var(--text-muted);
-      padding: 4px 9px;
+      padding: 4px 8px;
       border-radius: 999px;
       font-size: 11px;
-      font-weight: 700;
+      font-weight: 800;
       cursor: pointer;
       transition: all 0.2s ease;
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 4px;
+      justify-content: center;
     }
     .lang-btn.active {
       background: var(--crimson);
@@ -572,14 +578,14 @@
     <div class="top-nav">
       <div class="top-pill">
         <span class="live-dot"></span>
-        <span id="txtSuiteBadge">AI Dating Forensic Suite v2.4</span>
+        <span id="txtSuiteBadge">AI FORENSIC v2.4</span>
       </div>
 
       <div class="lang-switcher">
-        <button type="button" class="lang-btn active" id="btnLang_en" onclick="changeLang('en')">🇺🇸 EN</button>
-        <button type="button" class="lang-btn" id="btnLang_es" onclick="changeLang('es')">🇪🇸 ES</button>
-        <button type="button" class="lang-btn" id="btnLang_de" onclick="changeLang('de')">🇩🇪 DE</button>
-        <button type="button" class="lang-btn" id="btnLang_fr" onclick="changeLang('fr')">🇫🇷 FR</button>
+        <button type="button" class="lang-btn active" id="btnLang_en" onclick="changeLang('en')">EN</button>
+        <button type="button" class="lang-btn" id="btnLang_es" onclick="changeLang('es')">ES</button>
+        <button type="button" class="lang-btn" id="btnLang_de" onclick="changeLang('de')">DE</button>
+        <button type="button" class="lang-btn" id="btnLang_fr" onclick="changeLang('fr')">FR</button>
       </div>
     </div>
 
@@ -750,7 +756,7 @@
     // Comprehensive 4-Language Database
     const i18n = {
       en: {
-        badge: "AI Dating Forensic Suite v2.4",
+        badge: "AI FORENSIC v2.4",
         heroTitle: 'The Red Flag <span>Scanner™</span>',
         heroDesc: "60-Second Relationship & Narcissist Behavior Audit. Pinpoint emotional traps and get 1-click savage exit texts.",
         statScans: "Scans Run",
@@ -815,7 +821,7 @@
       },
 
       es: {
-        badge: "Suite Forense de Citas IA v2.4",
+        badge: "FORENSE IA v2.4",
         heroTitle: 'El Escáner de <span>Banderas Rojas™</span>',
         heroDesc: "Auditoría en 60 segundos sobre narcisismo y comportamiento tóxico. Detecta trampas y obtén mensajes de salida letales.",
         statScans: "Escaneos",
@@ -880,7 +886,7 @@
       },
 
       de: {
-        badge: "KI-Dating Forensik Suite v2.4",
+        badge: "KI-FORENSIK v2.4",
         heroTitle: 'Der Red Flag <span>Scanner™</span>',
         heroDesc: "60-Sekunden Beziehungstest auf toxisches & narzisstisches Verhalten. Erkenne emotionale Fallen und erhalte eiskalte Exit-Texte.",
         statScans: "Durchgeführt",
@@ -945,7 +951,7 @@
       },
 
       fr: {
-        badge: "Suite Médico-Légale de Rencontres IA v2.4",
+        badge: "FORENSIQUE IA v2.4",
         heroTitle: 'Le Scanner de <span>Red Flags™</span>',
         heroDesc: "Audit relationnel en 60 secondes sur le narcissisme et la toxicité. Détecte les pièges et obtiens des messages de rupture cinglants.",
         statScans: "Analyses",
