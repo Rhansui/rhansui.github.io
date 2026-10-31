@@ -16,11 +16,10 @@
       --primary-rose: #E05A6D;
       --primary-hover: #C94356;
       --accent-gold: #D4A373;
-      --accent-green: #588157;
+      --accent-green: #2D6A4F;
       --text-main: #2B2D42;
       --text-muted: #6C757D;
       --border-soft: #F0EAE1;
-      --shadow-soft: 0 10px 25px rgba(224, 90, 109, 0.08);
     }
 
     body {
@@ -87,10 +86,6 @@
       color: var(--text-muted);
       line-height: 1.5;
       font-weight: 500;
-    }
-
-    .sub-headline strong {
-      color: var(--text-main);
     }
 
     /* INGREDIENT CATEGORY TABS */
@@ -270,6 +265,19 @@
     .result-banner p {
       font-size: 14px;
       color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .section-divider {
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #A3485E;
+      margin: 12px 0 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     /* RECIPE CARD */
@@ -277,13 +285,12 @@
       background: #FFFFFF;
       border: 1px solid var(--border-soft);
       border-radius: 24px;
-      padding: 24px 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      padding: 22px 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.03);
       position: relative;
-      overflow: hidden;
     }
 
-    .recipe-badge {
+    .recipe-badge-ready {
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -296,8 +303,21 @@
       margin-bottom: 12px;
     }
 
+    .recipe-badge-almost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FFF4E5;
+      color: #B25E00;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
     .recipe-title {
-      font-size: 22px;
+      font-size: 21px;
       font-weight: 800;
       color: var(--text-main);
       margin-bottom: 8px;
@@ -308,8 +328,19 @@
       gap: 14px;
       font-size: 13px;
       color: var(--text-muted);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       font-weight: 600;
+    }
+
+    .missing-alert {
+      background: #FFF8EE;
+      border: 1px dashed #E0A96D;
+      border-radius: 12px;
+      padding: 8px 12px;
+      font-size: 13px;
+      color: #8C4A00;
+      font-weight: 600;
+      margin-bottom: 14px;
     }
 
     .pairing-box {
@@ -317,7 +348,7 @@
       border: 1px dashed #E9D8A6;
       border-radius: 14px;
       padding: 12px 14px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .pairing-label {
@@ -338,7 +369,7 @@
     }
 
     .steps-label {
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 700;
       color: var(--text-muted);
       margin-bottom: 8px;
@@ -356,7 +387,7 @@
       display: flex;
       align-items: flex-start;
       gap: 10px;
-      font-size: 14px;
+      font-size: 13.5px;
       line-height: 1.45;
       color: #3D405B;
     }
@@ -449,7 +480,7 @@
         </div>
       </div>
 
-      <!-- Kategori 2: Sebzeler -->
+      <!-- Kategori 2: Sebzeler & Yeşillikler (Genişletildi!) -->
       <div class="category-title">🥔 Sebzeler & Yeşillikler</div>
       <div class="ingredients-grid">
         <div class="ing-btn" data-name="patates" onclick="toggleIng(this)">
@@ -479,6 +510,38 @@
         <div class="ing-btn" data-name="ispanak" onclick="toggleIng(this)">
           <span class="emoji">🥬</span>
           <span class="name">Ispanak</span>
+        </div>
+        <div class="ing-btn" data-name="pirasa" onclick="toggleIng(this)">
+          <span class="emoji">🌱</span>
+          <span class="name">Pırasa</span>
+        </div>
+        <div class="ing-btn" data-name="karnabahar" onclick="toggleIng(this)">
+          <span class="emoji">🥦</span>
+          <span class="name">Karnabahar</span>
+        </div>
+        <div class="ing-btn" data-name="brokoli" onclick="toggleIng(this)">
+          <span class="emoji">🥦</span>
+          <span class="name">Brokoli</span>
+        </div>
+        <div class="ing-btn" data-name="bezelye" onclick="toggleIng(this)">
+          <span class="emoji">🟢</span>
+          <span class="name">Bezelye</span>
+        </div>
+        <div class="ing-btn" data-name="bamya" onclick="toggleIng(this)">
+          <span class="emoji">🫛</span>
+          <span class="name">Bamya</span>
+        </div>
+        <div class="ing-btn" data-name="enginar" onclick="toggleIng(this)">
+          <span class="emoji">🪴</span>
+          <span class="name">Enginar</span>
+        </div>
+        <div class="ing-btn" data-name="kereviz" onclick="toggleIng(this)">
+          <span class="emoji">🥔</span>
+          <span class="name">Kereviz</span>
+        </div>
+        <div class="ing-btn" data-name="semizotu" onclick="toggleIng(this)">
+          <span class="emoji">🥗</span>
+          <span class="name">Semizotu</span>
         </div>
         <div class="ing-btn" data-name="havuc" onclick="toggleIng(this)">
           <span class="emoji">🥕</span>
@@ -567,162 +630,554 @@
   <script>
     const selectedIngredients = new Set();
 
-    // 40+ Turkish Home Classic Recipes Database
+    // Map ingredient slugs to friendly Turkish names
+    const ingNames = {
+      tavuk: "Tavuk",
+      kiyma: "Kıyma",
+      et: "Kuşbaşı Et",
+      sucuk: "Sucuk",
+      yumurta: "Yumurta",
+      balik: "Balık",
+      patates: "Patates",
+      domates: "Domates",
+      patlican: "Patlıcan",
+      biber: "Biber",
+      kabak: "Kabak",
+      fasulye: "Taze Fasulye",
+      ispanak: "Ispanak",
+      pirasa: "Pırasa",
+      karnabahar: "Karnabahar",
+      brokoli: "Brokoli",
+      bezelye: "Bezelye",
+      bamya: "Bamya",
+      enginar: "Enginar",
+      kereviz: "Kereviz",
+      semizotu: "Semizotu",
+      havuc: "Havuç",
+      mantar: "Mantar",
+      makarna: "Makarna",
+      pirinc: "Pirinç",
+      bulgur: "Bulgur",
+      mercimek: "Mercimek",
+      nohut: "Nohut",
+      kurufasulye: "Kuru Fasulye",
+      yogurt: "Yoğurt",
+      peynir: "Peynir",
+      sut: "Süt"
+    };
+
+    // 60+ Authentic Turkish Home Recipes Database
     const recipesDB = [
+      // SADECE KIYMA İLE YAPILABİLENLER (Evdeki soğan, baharat, un gibi temel şeylerle)
       {
-        name: "Fırında Patatesli Tavuk",
-        ingredients: ["tavuk", "patates"],
-        time: "40 dk",
-        difficulty: "Çok Kolay (Tepsiyi Fırına Ver)",
-        pairing: "Şehriyeli Pirinç Pilavı & Bol Köpüklü Ayran",
+        name: "Klasik Anne Köftesi (Kuru Köfte)",
+        required: ["kiyma"],
+        time: "25 dk",
+        difficulty: "Kolay & Garanti",
+        pairing: "Bol Köpüklü Ayran & Varsa Kızarmış Ekmek",
         steps: [
-          "Tavuk ve patatesleri iri iri doğra, zeytinyağı, kekik, salça ve pul biberle güzelce harmanla.",
-          "Fırın tepsisine diz, aralara varsa birkaç biber ve domates at.",
-          "200 derece fırında patatesler lokum gibi olana kadar yaklaşık 40 dakika pişir."
+          "Kıymayı rendelenmiş soğan, 1 yumurta (varsa), bayat ekmek içi, kimyon, karabiber ve tuzla 5-10 dk iyice yoğur.",
+          "Ceviz büyüklüğünde parçalar koparıp yassı köfte şekli ver.",
+          "Az yağlı tavada arkalı önlü nar gibi kızart. Sıcak sıcak servis et!"
         ]
       },
       {
-        name: "Kıymalı Patates Yemeği (Oturtma)",
-        ingredients: ["kiyma", "patates"],
+        name: "Kıymalı Soğan Yahnisi / Kavurma",
+        required: ["kiyma"],
+        time: "20 dk",
+        difficulty: "Şipşak & Çok Lezzetli",
+        pairing: "Sıcak Somun Ekmek ve Turşu",
+        steps: [
+          "Tavaya kıymayı al, suyunu salıp çekene kadar kavur.",
+          "Bolca piyazlık doğranmış soğan ve 1 kaşık salça ekleyip soğanlar karamelize olana dek kavurmaya devam et.",
+          "Pul biber ve karabiber atıp ekmeği bana bana ye!"
+        ]
+      },
+      {
+        name: "Terbiyeli Kıymalı Şehriye Çorbası",
+        required: ["kiyma"],
+        time: "20 dk",
+        difficulty: "Mideyi Isıtan Şifa",
+        pairing: "Limon ve Taze Ekmek",
+        steps: [
+          "Kıymadan minik misket köfteler yap veya kıymayı tencerede tereyağıyla kavur.",
+          "Salçasını ve sıcak suyunu ekle, kaynayınca varsa 1 avuç şehriye veya pirinç at.",
+          "15 dakikada mis gibi çorban hazır!"
+        ]
+      },
+      {
+        name: "Kıymalı Yumurta",
+        required: ["kiyma", "yumurta"],
+        time: "15 dk",
+        difficulty: "15 Dakikalık Akşam Kurtarıcısı",
+        pairing: "Çıtır Ekmek & Demli Çay",
+        steps: [
+          "Tavada kıymayı tereyağı ve tuzla suyunu çekene kadar kavurun.",
+          "Kıymanın ortasında kaşıkla yuvalar açın, yumurtaları kırın.",
+          "Kapağını kapatıp sarıları hafif sulu kalacak şekilde 3-4 dakika pişirin."
+        ]
+      },
+      {
+        name: "Fırında Kıymalı Patates Oturtma",
+        required: ["kiyma", "patates"],
         time: "35 dk",
-        difficulty: "Pratik Ev Yemeği",
+        difficulty: "Bereketli Tencere Yemeği",
         pairing: "Taze Ekmek, Turşu ve Bulgur Pilavı",
         steps: [
           "Tencerede soğanı ve kıymayı kavur, 1 kaşık salça ekleyip kokusu çıkana kadar karıştır.",
           "Küp doğranmış patatesleri ilave et, 2 dakika birlikte çevir.",
-          "Üzerini hafif geçecek kadar sıcak su ve tuz ekle, kısık ateşte patatesler yumuşayana dek pişir."
+          "Üzerini hafif geçecek kadar sıcak su ve tuz ekle, kısık ateşte patatesler lokum gibi olana dek pişir."
         ]
       },
       {
-        name: "Lokanta Usulü Mercimek Çorbası",
-        ingredients: ["mercimek", "patates", "havuc"],
-        time: "25 dk",
-        difficulty: "Şipşak & Şifalı",
-        pairing: "Limon, Kıtır Ekmek ve Yanına Fırın Makarna",
-        steps: [
-          "Tencerede soğan, havuç ve patatesi az yağda soteleyin.",
-          "Yıkanmış kırmızı mercimeği ve sıcak suyu ekleyin, mercimekler iyice açılana kadar kaynatın.",
-          "Blenderdan geçirip tereyağında hafif kızdırılmış nane ve pul biberle buluşturun."
-        ]
-      },
-      {
-        name: "Kıymalı / Peynirli Fırın Makarna",
-        ingredients: ["makarna", "peynir", "kiyma", "sut"],
-        time: "30 dk",
-        difficulty: "Çocukların & Herkesin Favorisi",
-        pairing: "Mevsim Yeşillikleri Salatası",
-        steps: [
-          "Makarnayı hafif diri kalacak şekilde haşlayın.",
-          "İster peynirli harçla ister kavrulmuş kıymayla karıştırıp borcama yayın.",
-          "Üzerine bol kaşar peyniri serpip fırında üzeri nar gibi kızarana kadar pişirin."
-        ]
-      },
-      {
-        name: "Karnıyarık / İmam Bayıldı",
-        ingredients: ["patlican", "kiyma", "domates", "biber"],
+        name: "Karnıyarık",
+        required: ["kiyma", "patlican"],
         time: "45 dk",
         difficulty: "Ziyafet Yemeği",
         pairing: "Tane Tane Pirinç Pilavı & Soğuk Cacık",
         steps: [
-          "Patlıcanları alacalı soyup ortasından boyuna çizik atın ve hafif kızartın veya fırınlayın.",
-          "Tavada kıyma, soğan, domates ve biberle leziz bir iç harç hazırlayın.",
-          "Patlıcanların karnını açıp harcı doldurun, salçalı su gezdirip fırında ya da tencerede 20 dk pişirin."
+          "Patlıcanları alacalı soyup ortasından boyuna çizik at ve hafif fırınla veya kızart.",
+          "Tavada kıyma, soğan ve salçayla leziz bir iç harç hazırla.",
+          "Patlıcanların karnını açıp harcı doldur, salçalı sıcak su gezdirip kısık ateşte 20 dk pişir."
         ]
       },
       {
-        name: "Tavuk Sote (Sebzeli)",
-        ingredients: ["tavuk", "biber", "domates", "mantar"],
-        time: "25 dk",
-        difficulty: "Hızlı & Hafif",
-        pairing: "Tereyağlı Bulgur Pilavı",
-        steps: [
-          "Kuşbaşı tavukları kızgın tavaya alıp suyunu salıp çekene kadar soteleyin.",
-          "Doğranmış biberleri ve mantarları ekleyip 3-4 dakika daha kavurun.",
-          "Küp domatesleri, tuz ve baharatları ekleyip kapağını kapatın, 10 dakika kısık ateşte demlensin."
-        ]
-      },
-      {
-        name: "Kuru Fasulye & Pilav İkilisi",
-        ingredients: ["kurufasulye", "et", "pirinc"],
-        time: "45 dk",
-        difficulty: "Milli Gururumuz",
-        pairing: "Kuru Soğan, Turşu ve Acı Biber",
-        steps: [
-          "Tencerede soğan ve eti kavurun, salçayı ekleyin.",
-          "Haşlanmış kuru fasulyeleri ilave edip üzerini geçecek kadar sıcak su dökün.",
-          "Kısık ateşte suyu özleşene kadar pişirin. Yanına bol tereyağlı pilav kondurun!"
-        ]
-      },
-      {
-        name: "Etli / Sade Nohut Yemeği",
-        ingredients: ["nohut", "et"],
-        time: "40 dk",
-        difficulty: "Bereketli & Doyurucu",
-        pairing: "Şehriyeli Bulgur Pilavı ve Cacık",
-        steps: [
-          "Eti düdüklüde hafif yumuşayana kadar pişirin.",
-          "Soğan ve salçayla kavurup haşlanmış nohutları ilave edin.",
-          "Suyunu ayarlayıp 20-25 dakika kısık ateşte lokum gibi olana kadar pişmeye bırakın."
-        ]
-      },
-      {
-        name: "Kabak Mücveri (Fırında veya Tavada)",
-        ingredients: ["kabak", "yumurta", "peynir"],
-        time: "25 dk",
-        difficulty: "Hafif & Pratik",
-        pairing: "Sarımsaklı Yoğurt",
-        steps: [
-          "Kabakları rendeleyip suyunu avucunuzda iyice sıkın (çıtır olması için püf nokta).",
-          "İçine yumurta, dereotu/maydanoz, beyaz peynir ve 2 kaşık un ekleyip karıştırın.",
-          "İster tavada kaşık kaşık kızartın, ister yağlı kağıtta fırına atıp hafifçe pişirin."
-        ]
-      },
-      {
-        name: "Kıymalı Yumurtalı Menemen",
-        ingredients: ["yumurta", "domates", "biber", "kiyma", "sucuk"],
-        time: "15 dk",
-        difficulty: "15 Dakikada Akşam Kurtarıcısı",
-        pairing: "Sıcak Çıtır Ekmek & Demli Çay",
-        steps: [
-          "Biberleri ve isteğe göre kıyma/sucuğu tereyağında çevirin.",
-          "Kabuğu soyulmuş bol sulu domatesleri ekleyip suyunu çekene kadar pişirin.",
-          "Yumurtaları kırıp sarılarını hafif patlatarak karıştırın, kapağını 2 dk kapatıp ocaktan alın."
-        ]
-      },
-      {
-        name: "Yayla Çorbası (Naneli Tereyağlı)",
-        ingredients: ["pirinc", "yogurt", "yumurta"],
+        name: "Kıymalı Makarna (Bolonez Usulü)",
+        required: ["kiyma", "makarna"],
         time: "20 dk",
-        difficulty: "Mideyi Rahatlatan Anne Çorbası",
-        pairing: "Yanına Fırında Patates veya Kıymalı Börek",
+        difficulty: "Çocukların & Herkesin Favorisi",
+        pairing: "Mevsim Yeşillikleri Salatası & Yoğurt",
         steps: [
-          "Pirinçleri az suda yumuşayana kadar haşlayın.",
-          "Bir kapta yoğurt, yumurta sarısı ve 1 kaşık unu çırpıp çorbanın suyundan ılıtarak tencereye ekleyin (kesilmesin).",
-          "Sürekli karıştırarak kaynatın. Üzerine tereyağında yakılmış kuru nane gezdirin."
-        ]
-      },
-      {
-        name: "Zeytinyağlı Taze Fasulye",
-        ingredients: ["fasulye", "domates"],
-        time: "35 dk",
-        difficulty: "Yaz-Kış Vazgeçilmez",
-        pairing: "Pirinç Pilavı & Yoğurt",
-        steps: [
-          "Ayıklanmış taze fasulyeleri, yemeklik doğranmış soğan ve bol domatesle tencereye çiğden dizin.",
-          "Zeytinyağı, tuz ve 1 çay kaşığı şeker gezdirin.",
-          "Kısık ateşte kendi buharında ve domatesin suyunda yumuşacık pişirin."
+          "Makarnayı tuzlu suda haşlayıp süzün.",
+          "Ayrı bir tavada kıymayı soğan, salça ve karabiberle güzelce kavurun.",
+          "Makarnayla kıymalı sosu buluşturun, sıcak servis yapın."
         ]
       },
       {
         name: "Kıymalı Ispanak Yemeği",
-        ingredients: ["ispanak", "kiyma", "pirinc"],
+        required: ["kiyma", "ispanak"],
         time: "25 dk",
         difficulty: "Tam Bir Demir Deposu",
         pairing: "Bol Sarımsaklı Yoğurt",
         steps: [
           "Kıymayı ve soğanı tencerede kavurun, salçasını ekleyin.",
-          "Doğranmış yıkanmış ıspanakları ve 1 avuç pirinci ilave edin.",
+          "Doğranmış yıkanmış ıspanakları ilave edin.",
           "Ispanak suyunu salıp çekerken kısık ateşte 15-20 dakikada pişirin."
+        ]
+      },
+      {
+        name: "Kıymalı Pırasa Yemeği",
+        required: ["kiyma", "pirasa"],
+        time: "30 dk",
+        difficulty: "Şifalı & Leziz",
+        pairing: "Limon & Taze Ekmek",
+        steps: [
+          "Kıymayı tencerede kavurun, salçasını ilave edin.",
+          "Verev doğranmış pırasaları ve 1 kaşık pirinci ekleyin.",
+          "Sıcak suyunu ve limon suyunu sıkıp kısık ateşte yumuşayana kadar pişirin."
+        ]
+      },
+      {
+        name: "Kıymalı Karnabahar Yemeği",
+        required: ["kiyma", "karnabahar"],
+        time: "30 dk",
+        difficulty: "Hafif & Şifalı",
+        pairing: "Sarımsaklı Yoğurt & Ekmek",
+        steps: [
+          "Kıymayı soğanla kavurun, çiçeklerine ayrılmış karnabaharları ekleyin.",
+          "Salçalı su ilavesiyle kısık ateşte karnabaharlar lokum gibi olana kadar pişirin."
+        ]
+      },
+      {
+        name: "Kıymalı Bezelye Yemeği",
+        required: ["kiyma", "bezelye"],
+        time: "30 dk",
+        difficulty: "Geleneksel Ev Yemeği",
+        pairing: "Pirinç Pilavı & Cacık",
+        steps: [
+          "Kıymayı ve soğanı tencerede kavurun.",
+          "Bezelyeleri (varsa küp patates/havuçla) ekleyin.",
+          "Salçalı sıcak suyla 25-30 dakika kısık ateşte pişmeye bırakın."
+        ]
+      },
+      {
+        name: "Kıymalı Taze Bamya",
+        required: ["kiyma", "bamya"],
+        time: "35 dk",
+        difficulty: "Usta İşi Lezzet",
+        pairing: "Şehriyeli Pirinç Pilavı",
+        steps: [
+          "Bamyaları baş kısımlarını koni şeklinde temizleyin, limonlu suda bekletin (sünmesin).",
+          "Tencerede kıymayı, soğanı ve bol domatesi kavurun.",
+          "Bamyaları ekleyin, bol limon suyu ve sıcak suyla karıştırmadan kısık ateşte pişirin."
+        ]
+      },
+      {
+        name: "Kıymalı Semizotu Yemeği",
+        required: ["kiyma", "semizotu"],
+        time: "20 dk",
+        difficulty: "Mideyi Yormayan Şifa",
+        pairing: "Sarımsaklı Yoğurt",
+        steps: [
+          "Kıymayı az yağda kavurun, ayıklanmış semizotlarını ekleyin.",
+          "Kendi suyunda 10-15 dakika hafifçe pişirin. Üzerine sarımsaklı yoğurt dökerek servis yapın."
+        ]
+      },
+
+      // YENİ SEBZE YEMEKLERİ (ETSIZ / ZEYTİNYAĞLI)
+      {
+        name: "Zeytinyağlı Havuçlu Pırasa",
+        required: ["pirasa", "havuc"],
+        time: "30 dk",
+        difficulty: "Hafif & Zeytinyağlı Klasik",
+        pairing: "Bol Limon & Yoğurt",
+        steps: [
+          "Pırasaları verev, havuçları yuvarlak doğrayın.",
+          "Zeytinyağında havuçları 2 dk çevirip pırasaları ve 1 kaşık pirinci ekleyin.",
+          "Portakal/limon suyu, az şeker ve tuz ekleyip kısık ateşte pişmeye bırakın."
+        ]
+      },
+      {
+        name: "Fırında Beşamel Soslu Kaşarlı Karnabahar",
+        required: ["karnabahar", "peynir", "sut"],
+        time: "35 dk",
+        difficulty: "Lokanta Usulü Nar Gibi",
+        pairing: "Domates Çorbası",
+        steps: [
+          "Karnabaharları hafif tuzlu suda 7-8 dk haşlayıp borcama dizin.",
+          "Tereyağı, un ve sütle akıcı bir beşamel sos hazırlayıp üzerine dökün.",
+          "Bol kaşar peyniri serpip 200 derece fırında üzeri kızarana dek pişirin."
+        ]
+      },
+      {
+        name: "Sarımsaklı Yoğurtlu Brokoli Salatası",
+        required: ["brokoli", "yogurt"],
+        time: "15 dk",
+        difficulty: "15 Dakikalık Vitamin Deposu",
+        pairing: "Her Türlü Et ve Tavuk Yanına Yakışır",
+        steps: [
+          "Brokolileri kaynar tuzlu suda 4-5 dakika canlı yeşil kalacak şekilde haşlayın, hemen soğuk suya alın.",
+          "Tabağa alıp üzerine bol sarımsaklı yoğurt ve tereyağlı pul biber gezdirin."
+        ]
+      },
+      {
+        name: "Zeytinyağlı Garnitürlü Enginar",
+        required: ["enginar"],
+        time: "30 dk",
+        difficulty: "Ege Usulü Karaciğer Dostu",
+        pairing: "Bol Dereotu & Limon",
+        steps: [
+          "Enginar çanaklarını tencereye dizin, üzerlerine varsa bezelye-patates-havuç garnitürü doldurun.",
+          "Bol zeytinyağı, limon suyu, tuz ve 1 çay kaşığı şekerli su ilave edip kısık ateşte lokum gibi pişirin."
+        ]
+      },
+      {
+        name: "Portakallı Zeytinyağlı Kereviz",
+        required: ["kereviz"],
+        time: "30 dk",
+        difficulty: "Şifalı & Aromatik",
+        pairing: "Kereviz Yaprakları & Taze Ekmek",
+        steps: [
+          "Kerevizleri küp doğrayıp kararmaması için limonlu suya atın.",
+          "Tencerede soğanla soteleyin, üzerine taze sıkılmış portakal suyu ve zeytinyağı ekleyin.",
+          "Kısık ateşte kerevizler yumuşayana dek pişirin. Soğuk servis edin."
+        ]
+      },
+      {
+        name: "Zeytinyağlı Taze Bamya",
+        required: ["bamya", "domates"],
+        time: "35 dk",
+        difficulty: "Hafif Ege Lezzeti",
+        pairing: "Pirinç Pilavı & Yoğurt",
+        steps: [
+          "Bamyaları koni biçiminde ayıklayıp bol domates ve soğanla tencereye dizin.",
+          "Bol limon suyu ve zeytinyağı ilavesiyle kaşık değdirmeden tencereyi sallayarak pişirin."
+        ]
+      },
+      {
+        name: "Yoğurtlu Semizotu Salatası",
+        required: ["semizotu", "yogurt"],
+        time: "10 dk",
+        difficulty: "10 Dakikada Pişirmeden Hazır",
+        pairing: "Yemeklerin Yanına Serinletici Meze",
+        steps: [
+          "Semizotlarını yıkayıp yapraklarını ayıklayın.",
+          "Süzme yoğurt, sarımsak, zeytinyağı ve az tuzla harmanlayıp servis yapın."
+        ]
+      },
+      {
+        name: "Zeytinyağlı Bezelye Yemeği",
+        required: ["bezelye", "patates", "havuc"],
+        time: "30 dk",
+        difficulty: "Hafif & Renkli",
+        pairing: "Bulgur Pilavı",
+        steps: [
+          "Soğanı zeytinyağında kavurun, küp doğranmış patates ve havuçları ekleyin.",
+          "Bezelyeleri ilave edip az salça ve sıcak suyla sebzeler yumuşayana dek pişirin."
+        ]
+      },
+
+      // TAVUK YEMEKLERİ
+      {
+        name: "Fırında Soslu Tavuk But / Pirzola",
+        required: ["tavuk"],
+        time: "40 dk",
+        difficulty: "Zahmetsiz (Fırına Ver Çık)",
+        pairing: "Mevsim Salatası & Pirinç Pilavı",
+        steps: [
+          "Tavukları zeytinyağı, yoğurt (varsa), salça, kekik, sarımsak ve pul biberle marine edin.",
+          "Tepsiye dizip 200 derece fırında üzeri nar gibi kızarana kadar yaklaşık 40 dk pişirin."
+        ]
+      },
+      {
+        name: "Lokanta Usulü Tavuk Çorbası",
+        required: ["tavuk"],
+        time: "30 dk",
+        difficulty: "Şifa Kaynağı",
+        pairing: "Bol Limon & Karabiber",
+        steps: [
+          "Tavuğu tuzlu suda haşlayıp etlerini tel tel didikleyin.",
+          "Tavuk suyuna biraz şehriye veya un terbiyesi ekleyip kaynatın.",
+          "Didiklenmiş tavukları ekleyip tereyağlı pul biberle servis yapın."
+        ]
+      },
+      {
+        name: "Fırında Patatesli Tavuk",
+        required: ["tavuk", "patates"],
+        time: "40 dk",
+        difficulty: "Çok Kolay (Tepsiyi Fırına Ver)",
+        pairing: "Şehriyeli Pirinç Pilavı & Bol Köpüklü Ayran",
+        steps: [
+          "Tavuk ve patatesleri iri iri doğra, zeytinyağı, kekik, salça ve pul biberle güzelce harmanla.",
+          "Fırın tepsisine diz, 200 derece fırında patatesler lokum gibi olana kadar 40 dakika pişir."
+        ]
+      },
+      {
+        name: "Tavuk Sote",
+        required: ["tavuk", "biber"],
+        time: "25 dk",
+        difficulty: "Hızlı & Leziz",
+        pairing: "Tereyağlı Bulgur Pilavı",
+        steps: [
+          "Kuşbaşı tavukları kızgın tavaya alıp suyunu salıp çekene kadar soteleyin.",
+          "Doğranmış biberleri ekleyip 3-4 dakika daha kavurun.",
+          "Salça, tuz ve baharatları ekleyip kapağını kapatın, 10 dakika kısık ateşte demlensin."
+        ]
+      },
+      {
+        name: "Kremalı / Soslu Tavuklu Mantar",
+        required: ["tavuk", "mantar"],
+        time: "25 dk",
+        difficulty: "Restoran Lezzeti",
+        pairing: "Makarna veya Pirinç Pilavı",
+        steps: [
+          "Tavukları yüksek ateşte soteleyin, ardından doğranmış mantarları ekleyin.",
+          "Mantarlar suyunu çekince varsa krema veya sütle un kavurup sos yapın, karabiberle tatlandırın."
+        ]
+      },
+
+      // ET (KUŞBAŞI) YEMEKLERİ
+      {
+        name: "Lokum Gibi Sac / Tava Kavurma",
+        required: ["et"],
+        time: "35 dk",
+        difficulty: "Geleneksel Anne Lezzeti",
+        pairing: "Kuru Soğan, Taze Somun Ekmek & Ayran",
+        steps: [
+          "Kuşbaşı etleri tavaya alıp kısık ateşte kendi suyunda yumuşayana kadar pişirin.",
+          "Suyunu çekince tereyağı, kekik ve tuz ekleyip hafif kızartın."
+        ]
+      },
+      {
+        name: "Etli Patates Yahnisi",
+        required: ["et", "patates"],
+        time: "40 dk",
+        difficulty: "Doyurucu Ev Yemeği",
+        pairing: "Pirinç Pilavı & Karışık Turşu",
+        steps: [
+          "Eti suyunu çekene kadar kavurun, soğanı ve salçayı ekleyin.",
+          "Küp patatesleri ilave edin, sıcak su ekleyip patatesler pişene kadar kısık ateşte kaynatın."
+        ]
+      },
+      {
+        name: "Etli Kuru Fasulye",
+        required: ["et", "kurufasulye"],
+        time: "45 dk",
+        difficulty: "Milli Klasiğimiz",
+        pairing: "Tereyağlı Pirinç Pilavı & Kuru Soğan",
+        steps: [
+          "Tencerede soğan ve eti kavurun, salçayı ekleyin.",
+          "Haşlanmış kuru fasulyeleri ilave edip üzerini geçecek kadar sıcak su dökün, özleşene kadar pişirin."
+        ]
+      },
+      {
+        name: "Etli Nohut Yemeği",
+        required: ["et", "nohut"],
+        time: "40 dk",
+        difficulty: "Bereketli & Doyurucu",
+        pairing: "Şehriyeli Bulgur Pilavı ve Cacık",
+        steps: [
+          "Eti hafif yumuşayana kadar kavurun, soğan ve salçayla birleştirin.",
+          "Haşlanmış nohutları ekleyip sıcak suyla 25 dakika kısık ateşte lokum gibi pişirin."
+        ]
+      },
+
+      // DİĞER SEVİLEN KLASİKLER
+      {
+        name: "Kırmızı Mercimek Çorbası",
+        required: ["mercimek"],
+        time: "20 dk",
+        difficulty: "Şipşak & Mide Dostu",
+        pairing: "Bol Limon & Kıtır Ekmek",
+        steps: [
+          "Tencerede soğanı kavurun, yıkanmış mercimeği ve suyu ekleyin.",
+          "Mercimekler yumuşayınca blenderdan geçirin, tereyağlı naneyle buluşturun."
+        ]
+      },
+      {
+        name: "Zeytinyağlı / Sade Taze Fasulye",
+        required: ["fasulye"],
+        time: "35 dk",
+        difficulty: "Hafif & Şifalı",
+        pairing: "Pirinç Pilavı & Soğuk Yoğurt",
+        steps: [
+          "Fasulyeleri ayıklayıp soğan ve zeytinyağıyla tencereye alın.",
+          "Varsa domates veya salçayla kısık ateşte kendi buharında lokum gibi pişirin."
+        ]
+      },
+      {
+        name: "Fırında Baharatlı Elma Dilim Patates",
+        required: ["patates"],
+        time: "30 dk",
+        difficulty: "Çıtır Çıtır Atıştırmalık",
+        pairing: "Yoğurtlu Sos & Yanına Köfte",
+        steps: [
+          "Patatesleri elma dilim doğrayın; zeytinyağı, kekik, pul biber, sarımsak tozu ve tuzla harmanlayın.",
+          "Yağlı kağıt serili tepsiye dizip 200 derece fırında çıtırlaşana dek pişirin."
+        ]
+      },
+      {
+        name: "Patates Püresi",
+        required: ["patates", "sut"],
+        time: "20 dk",
+        difficulty: "İpeksi Yumuşaklık",
+        pairing: "Her Türlü Et ve Tavuğun Yanına Yakışır",
+        steps: [
+          "Patatesleri haşlayıp kabuklarını soyun.",
+          "Sıcakken tereyağı, ılık süt, tuz ve karabiberle pürüzsüz olana kadar ezin."
+        ]
+      },
+      {
+        name: "Kabak Mücveri",
+        required: ["kabak", "yumurta"],
+        time: "25 dk",
+        difficulty: "Hafif & Pratik",
+        pairing: "Sarımsaklı Yoğurt",
+        steps: [
+          "Kabakları rendeleyip suyunu avucunuzda sıkın.",
+          "Yumurta, yeşillik ve un ekleyip kaşıkla tavada kızartın veya fırınlayın."
+        ]
+      },
+      {
+        name: "Zeytinyağlı Pirinçli Kabak Yemeği",
+        required: ["kabak", "pirinc"],
+        time: "25 dk",
+        difficulty: "Hafif & Şifalı",
+        pairing: "Dereotlu Yoğurt",
+        steps: [
+          "Kabakları küp küp doğrayın, soğanla hafif kavurun.",
+          "Yıkanmış pirinci ve az sıcak suyu ekleyip kısık ateşte kabaklar yumuşayana kadar pişirin."
+        ]
+      },
+      {
+        name: "Menemen",
+        required: ["yumurta", "domates", "biber"],
+        time: "15 dk",
+        difficulty: "Milli Kurtarıcı",
+        pairing: "Taze Ekmek & Beyaz Peynir",
+        steps: [
+          "Biberleri yağda soteleyin, küp doğranmış domatesleri ekleyin.",
+          "Domatesler eriyince yumurtaları kırıp karıştırın, 2 dakika pişirip ocaktan alın."
+        ]
+      },
+      {
+        name: "Tereyağlı Şehriyeli Pirinç Pilavı",
+        required: ["pirinc"],
+        time: "20 dk",
+        difficulty: "Tane Tane Dökülen Lezzet",
+        pairing: "Kuru Fasulye, Tavuk veya Yoğurt",
+        steps: [
+          "Pirinçleri ılık tuzlu suda 15 dk bekletip yıkayın.",
+          "Şehriyeyi tereyağında pembeleştirin, pirinci ekleyip şeffaflaşana kadar kavurun.",
+          "Bire bir buçuk ölçü sıcak su ve tuz ekleyip kısık ateşte suyunu çekene kadar pişirin, demlendirin."
+        ]
+      },
+      {
+        name: "Meyhane Usulü Bulgur Pilavı",
+        required: ["bulgur", "domates", "biber"],
+        time: "20 dk",
+        difficulty: "Bereketli Anadolu Lezzeti",
+        pairing: "Buz Gibi Cacık & Turşu",
+        steps: [
+          "Soğan, biber ve domatesi yağda soteleyin.",
+          "Bulguru ilave edip 2 dakika kavurun, sıcak suyunu ve tuzunu ekleyip suyunu çekene kadar pişirin."
+        ]
+      },
+      {
+        name: "Salçalı / Peynirli Anne Makarnası",
+        required: ["makarna"],
+        time: "15 dk",
+        difficulty: "15 Dakikada Hazır",
+        pairing: "Yoğurt & Turşu",
+        steps: [
+          "Makarnayı bol tuzlu suda 8-10 dakika haşlayıp süzün.",
+          "Tencerede tereyağı ve salçayı (veya peyniri) eritip makarnayla buluşturun."
+        ]
+      },
+      {
+        name: "Yayla Çorbası",
+        required: ["yogurt", "pirinc"],
+        time: "20 dk",
+        difficulty: "Mideyi Rahatlatan Çorba",
+        pairing: "Kıtır Ekmek & Naneli Tereyağı",
+        steps: [
+          "Pirinçleri az suda yumuşayana kadar haşlayın.",
+          "Yoğurt, 1 kaşık un ve yumurta sarısını çırpıp ılıtarak tencereye ekleyin, sürekli karıştırarak kaynatın.",
+          "Üzerine tereyağında kızdırılmış kuru nane gezdirin."
+        ]
+      },
+      {
+        name: "Çılbır (Sarımsaklı Yoğurtlu Poşe Yumurta)",
+        required: ["yumurta", "yogurt"],
+        time: "10 dk",
+        difficulty: "10 Dakikalık Gurme Lezzet",
+        pairing: "Kızarmış Ekmek",
+        steps: [
+          "Kaynar sirkeli suya yumurtaları kırıp 3-4 dakika poşeleyin.",
+          "Tabağa sarımsaklı yoğurt yayın, üzerine yumurtaları koyun.",
+          "Tereyağında kızdırılmış pul biberi gezdirip ekmek banın!"
+        ]
+      },
+      {
+        name: "Fırında Kaşarlı Mantar",
+        required: ["mantar", "peynir"],
+        time: "15 dk",
+        difficulty: "Nefis Başlangıç",
+        pairing: "Ana Yemeğin Yanına Garnitür",
+        steps: [
+          "Mantarların saplarını çıkarıp fırın kabına dizin, içlerine minik tereyağı parçaları koyun.",
+          "Üzerlerine bol kaşar peyniri yerleştirip fırında kaşarlar eriyip kızarana kadar 15 dk pişirin."
+        ]
+      },
+      {
+        name: "Tavada / Fırında Balık Buğulama",
+        required: ["balik"],
+        time: "25 dk",
+        difficulty: "Sağlıklı & Şifalı",
+        pairing: "Bol Yeşillikli Limonlu Salata",
+        steps: [
+          "Balıkları temizleyip tepsiye veya tavaya dizin.",
+          "Üzerine zeytinyağı, limon dilimleri, defne yaprağı ve tuz ekleyip fırında veya kısık ateşte pişirin."
         ]
       }
     ];
@@ -757,66 +1212,120 @@
 
     function findRecipes() {
       const selected = Array.from(selectedIngredients);
-      let matches = [];
-
-      if (selected.length === 0) {
-        // If no ingredients chosen, show 3 random beloved classics!
-        matches = [...recipesDB].sort(() => 0.5 - Math.random()).slice(0, 3);
-        document.getElementById("resultSubtitle").innerHTML = "Özel seçim yapmadın Zişan Sultan, sana günün en garanti 3 lezzetini seçtik! 💖";
-      } else {
-        // Score recipes based on matched ingredients
-        matches = recipesDB.map(recipe => {
-          let score = 0;
-          recipe.ingredients.forEach(ing => {
-            if (selected.includes(ing)) score += 1;
-          });
-          return { recipe, score };
-        })
-        .filter(item => item.score > 0)
-        .sort((a, b) => b.score - a.score)
-        .map(item => item.recipe);
-
-        if (matches.length === 0) {
-          // Fallback if no exact match
-          matches = recipesDB.slice(0, 2);
-          document.getElementById("resultSubtitle").innerHTML = "Seçtiğin malzemelerle birlikte yapabileceğin nefis alternatifler:";
-        } else {
-          document.getElementById("resultSubtitle").innerHTML = `Seçtiğin malzemelerle tam ${matches.length} nefis seçenek bulduk Zişan Sultan!`;
-        }
-      }
-
-      // Render cards
       const container = document.getElementById("recipesContainer");
       container.innerHTML = "";
 
-      matches.slice(0, 3).forEach((r, idx) => {
-        const card = document.createElement("div");
-        card.className = "recipe-card";
-        card.innerHTML = `
-          <div class="recipe-badge">✨ Seçenek #${idx + 1} · ${r.difficulty}</div>
-          <h2 class="recipe-title">${r.name}</h2>
-          <div class="recipe-meta">
-            <span>⏱️ ${r.time}</span>
-            <span>👩‍🍳 Anne Usulü</span>
-          </div>
-          <div class="pairing-box">
-            <div class="pairing-label">💡 ZİŞAN'IN MENÜ TAMAMLAYICISI:</div>
-            <div class="pairing-text">${r.pairing}</div>
-          </div>
-          <div class="steps-label">Pratik Yapılışı:</div>
-          <div class="step-list">
-            ${r.steps.map((st, i) => `
-              <div class="step-item">
-                <span class="step-num">${i + 1}</span>
-                <span>${st}</span>
-              </div>
-            `).join("")}
-          </div>
-        `;
-        container.appendChild(card);
+      if (selected.length === 0) {
+        // Rastgele 6 garanti sevilen klasik göster
+        const randomList = [...recipesDB].sort(() => 0.5 - Math.random()).slice(0, 6);
+        document.getElementById("resultSubtitle").innerHTML = 
+          "Özel bir malzeme seçmedin Zişan Sultan; senin için günün en bereketli ve garanti <strong>6 nefis yemeğini</strong> derledik! 💖";
+        
+        renderRecipeCards(randomList, true);
+        showResultsView();
+        return;
+      }
+
+      // 1. KURAL: %100 TAM UYANLAR (Gereken bütün malzemeler kullanıcının seçtiklerinde VAR!)
+      // Örn: Kıymalı Patates için HEM kıyma HEM patates seçilmiş olmalı! Sadece kıyma seçilirse patatesli yemek ÇIKMAZ!
+      const exactMatches = [];
+      const almostMatches = [];
+
+      recipesDB.forEach(recipe => {
+        // Eksik malzemeleri bul
+        const missing = recipe.required.filter(ing => !selected.includes(ing));
+
+        if (missing.length === 0) {
+          // Bütün gerekenler elinde var!
+          exactMatches.push(recipe);
+        } else if (missing.length === 1 && recipe.required.length > 1) {
+          // Sadece 1 malzeme eksik (öneri olarak sunulabilir)
+          almostMatches.push({ recipe, missing: missing[0] });
+        }
       });
 
-      // Switch views
+      // Başlık güncellemesi
+      if (exactMatches.length > 0) {
+        document.getElementById("resultSubtitle").innerHTML = 
+          `Dolaptaki malzemelerinle <strong>hemen eksiksiz yapabileceğin ${exactMatches.length} yemek</strong> bulduk! Afiyetle! 🌸`;
+      } else {
+        document.getElementById("resultSubtitle").innerHTML = 
+          "Seçtiğin malzemelerle tam eşleşen yemeklerin yanı sıra, evde küçük bir dokunuşla yapabileceğin en yakın alternatifleri hazırladık:";
+      }
+
+      // En fazla 6 tarif göstereceğiz
+      let count = 0;
+
+      // Önce %100 hazır olanları listele (en fazla 6)
+      exactMatches.slice(0, 6).forEach((recipe, idx) => {
+        count++;
+        container.appendChild(createRecipeCard(recipe, count, true, null));
+      });
+
+      // Eğer 6'dan azsa ve sadece 1 malzemesi eksik olan varsa, onları da ekle
+      if (count < 6 && almostMatches.length > 0) {
+        const remainingSlots = 6 - count;
+        
+        const divider = document.createElement("div");
+        divider.className = "section-divider";
+        divider.innerHTML = "💡 Evde Varsa 1 Malzeme Ekleyerek Yapabileceklerin:";
+        container.appendChild(divider);
+
+        almostMatches.slice(0, remainingSlots).forEach(item => {
+          count++;
+          container.appendChild(createRecipeCard(item.recipe, count, false, item.missing));
+        });
+      }
+
+      showResultsView();
+    }
+
+    function createRecipeCard(r, number, isExact, missingIng) {
+      const card = document.createElement("div");
+      card.className = "recipe-card";
+
+      const badgeHtml = isExact
+        ? `<div class="recipe-badge-ready">🟢 %100 Dolaptakilerle Hazır · ${r.difficulty}</div>`
+        : `<div class="recipe-badge-almost">🟡 Sadece 1 Malzeme Eksik · ${r.difficulty}</div>`;
+
+      const missingNotice = missingIng
+        ? `<div class="missing-alert">📌 <strong>Evde varsa:</strong> Bu yemek için sadece <strong>"${ingNames[missingIng] || missingIng}"</strong> gerekiyor.</div>`
+        : "";
+
+      card.innerHTML = `
+        ${badgeHtml}
+        <h2 class="recipe-title">${r.name}</h2>
+        <div class="recipe-meta">
+          <span>⏱️ ${r.time}</span>
+          <span>👩‍🍳 Anne Usulü</span>
+        </div>
+        ${missingNotice}
+        <div class="pairing-box">
+          <div class="pairing-label">💡 ZİŞAN'IN MENÜ TAMAMLAYICISI:</div>
+          <div class="pairing-text">${r.pairing}</div>
+        </div>
+        <div class="steps-label">Pratik Yapılışı:</div>
+        <div class="step-list">
+          ${r.steps.map((st, i) => `
+            <div class="step-item">
+              <span class="step-num">${i + 1}</span>
+              <span>${st}</span>
+            </div>
+          `).join("")}
+        </div>
+      `;
+      return card;
+    }
+
+    function renderRecipeCards(list, isExact) {
+      const container = document.getElementById("recipesContainer");
+      container.innerHTML = "";
+      list.forEach((r, idx) => {
+        container.appendChild(createRecipeCard(r, idx + 1, isExact, null));
+      });
+    }
+
+    function showResultsView() {
       document.getElementById("selectionArea").style.display = "none";
       document.getElementById("resultsArea").style.display = "flex";
       window.scrollTo({ top: 0, behavior: 'smooth' });
