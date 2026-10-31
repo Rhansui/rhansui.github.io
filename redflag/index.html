@@ -929,21 +929,39 @@
           "Synthesizing Diagnostic Forensic Dossier..."
         ],
         results: {
-          highLabel: "CRITICAL TOXIC HAZARD (RED CODE)",
-          highArch: "The Chameleon Gaslighter",
-          highDesc: "A textbook master of deflecting accountability. Whenever you bring up an issue, they skillfully maneuver the conversation until you end up apologizing for having feelings in the first place.",
-          modLabel: "MODERATE TOXICITY & BREADCRUMBER",
-          modArch: "The Phantom Dater",
-          modDesc: "Provides just enough attention to keep you hooked, but vanishes the moment real consistency or emotional vulnerability is required.",
-          lowLabel: "LOW THREAT / GREEN FLAG TRAITS",
-          lowArch: "The Clumsy Communicator",
-          lowDesc: "Shows minor miscommunication traits, but lacks the intentional manipulation of a classic narcissist. Direct, calm communication can resolve 90% of issues.",
-          cb1Tag: "1. ICE COLD CORPORATE",
-          cb1Text: `"I’ve decided to unsubscribe from your free trial of emotional availability. Wishing you the best!"`,
-          cb2Tag: "2. THE PHANTOM CLOSURE",
-          cb2Text: `"You wanted mystery and space. Now you have both, permanently."`,
-          cb3Tag: "3. THE REVERSE GASLIGHT",
-          cb3Text: `"I don’t argue with people who confuse drama with passion. Take care of yourself."`
+          high: {
+            label: "CRITICAL TOXIC HAZARD (RED CODE)",
+            arch: "The Chameleon Gaslighter",
+            desc: "A textbook master of deflecting accountability. Whenever you bring up an issue, they skillfully maneuver the conversation until you end up apologizing for having feelings in the first place.",
+            cb1Tag: "1. ICE COLD CORPORATE",
+            cb1Text: `"I’ve decided to unsubscribe from your free trial of emotional availability. Wishing you the best!"`,
+            cb2Tag: "2. THE PHANTOM CLOSURE",
+            cb2Text: `"You wanted mystery and space. Now you have both, permanently."`,
+            cb3Tag: "3. THE REVERSE GASLIGHT",
+            cb3Text: `"I don’t argue with people who confuse drama with passion. Take care of yourself."`
+          },
+          mod: {
+            label: "MODERATE TOXICITY & BREADCRUMBER",
+            arch: "The Phantom Dater",
+            desc: "Provides just enough attention to keep you hooked, but vanishes the moment real consistency or emotional vulnerability is required.",
+            cb1Tag: "1. THE ENERGY MIRROR",
+            cb1Text: `"I match energy, not mixed signals. Reach out when you're actually serious."`,
+            cb2Tag: "2. THE CASUAL BOUNDARY",
+            cb2Text: `"I'm looking for consistency, not breadcrumbs. Let's keep things casual or leave it here."`,
+            cb3Tag: "3. THE GRACEFUL FADE",
+            cb3Text: `"I don't wait around for people who treat me as an option. Wish you the best!"`
+          },
+          low: {
+            label: "LOW THREAT / GREEN FLAG TRAITS",
+            arch: "The Clumsy Communicator",
+            desc: "Shows minor miscommunication traits, but lacks intentional manipulation. Direct, calm communication can resolve 90% of issues.",
+            cb1Tag: "1. HEALTHY REASSURANCE",
+            cb1Text: `"Hey, I value our connection. Let's catch up whenever you're free, no pressure at all!"`,
+            cb2Tag: "2. OPEN COMMUNICATOR",
+            cb2Text: `"I’d love to talk through this calmly so we're on the same page. Let me know when suits."`,
+            cb3Tag: "3. CLEAR BOUNDARY",
+            cb3Text: `"Taking a little downtime tonight, but looking forward to seeing you soon!"`
+          }
         },
         questions: [
           { id: 1, text: "Does their phone stay face-down or suspiciously guarded when you're around?", weight: 12 },
@@ -995,21 +1013,39 @@
           "Sintetizando expediente forense de diagnóstico..."
         ],
         results: {
-          highLabel: "PELIGRO TÓXICO CRÍTICO (CÓDIGO ROJO)",
-          highArch: "El Camaleón Manipulador (Gaslighter)",
-          highDesc: "Un maestro consumado en eludir responsabilidades. Cada vez que planteas un problema, le da la vuelta magistralmente hasta que terminas disculpándote tú por haberlo mencionado.",
-          modLabel: "TOXICIDAD MODERADA (LANZA-MIGAJAS)",
-          modArch: "El Fantasma Intermitente",
-          modDesc: "Te da la atención justa para mantenerte enganchado/a, pero desaparece en el momento exacto en que se requiere compromiso o vulnerabilidad real.",
-          lowLabel: "BAJO RIESGO / BANDERAS VERDES",
-          lowArch: "El Comunicador Torpe",
-          lowDesc: "Presenta pequeñas fallas de comunicación, pero carece de la manipulación intencional de un narcisista. Una charla directa y calmada resuelve el 90% de los problemas.",
-          cb1Tag: "1. CORPORATIVO Y GLACIAL",
-          cb1Text: `"He decidido cancelar mi suscripción a tu prueba gratuita de disponibilidad emocional. ¡Te deseo lo mejor!"`,
-          cb2Tag: "2. EL CIERRE FANTASMA",
-          cb2Text: `"Querías misterio y espacio. Ahora tienes ambos, permanentemente."`,
-          cb3Tag: "3. EL REVERSO GASLIGHT",
-          cb3Text: `"No discuto con personas que confunden el drama con la pasión. Cuídate mucho."`
+          high: {
+            label: "PELIGRO TÓXICO CRÍTICO (CÓDIGO ROJO)",
+            arch: "El Camaleón Manipulador (Gaslighter)",
+            desc: "Un maestro consumado en eludir responsabilidades. Cada vez que planteas un problema, le da la vuelta magistralmente hasta que terminas disculpándote tú por haberlo mencionado.",
+            cb1Tag: "1. CORPORATIVO Y GLACIAL",
+            cb1Text: `"He decidido cancelar mi suscripción a tu prueba gratuita de disponibilidad emocional. ¡Te deseo lo mejor!"`,
+            cb2Tag: "2. EL CIERRE FANTASMA",
+            cb2Text: `"Querías misterio y espacio. Ahora tienes ambos, permanentemente."`,
+            cb3Tag: "3. EL REVERSO GASLIGHT",
+            cb3Text: `"No discuto con personas que confunden el drama con la pasión. Cuídate mucho."`
+          },
+          mod: {
+            label: "TOXICIDAD MODERADA (LANZA-MIGAJAS)",
+            arch: "El Fantasma Intermitente",
+            desc: "Te da la atención justa para mantenerte enganchado/a, pero desaparece en el momento exacto en que se requiere compromiso o vulnerabilidad real.",
+            cb1Tag: "1. EL ESPEJO DE ENERGÍA",
+            cb1Text: `"Respondo a la energía que recibo, no a señales contradictorias. Escríbeme cuando hables en serio."`,
+            cb2Tag: "2. LÍMITE SIN DRAMA",
+            cb2Text: `"Busco consistencia, no migajas. Mantengamos esto casual o mejor lo dejamos aquí."`,
+            cb3Tag: "3. DESPEDIDA ELEGANTE",
+            cb3Text: `"No estoy disponible para quienes me tratan como una opción secundaria. ¡Que te vaya genial!"`
+          },
+          low: {
+            label: "BAJO RIESGO / BANDERAS VERDES",
+            arch: "El Comunicador Torpe",
+            desc: "Presenta pequeñas fallas de comunicación, pero carece de manipulación intencional. Una charla directa y calmada resuelve el 90% de los problemas.",
+            cb1Tag: "1. CONEXIÓN SINCERA",
+            cb1Text: `"¡Hola! Valoro mucho nuestra química. Hablemos cuando tengas un momento libre, ¡sin presiones!"`,
+            cb2Tag: "2. COMUNICACIÓN ABIERTA",
+            cb2Text: `"Me gustaría que charlemos esto con calma para entendernos mejor. Avísame cuándo puedes."`,
+            cb3Tag: "3. LÍMITE SANO",
+            cb3Text: `"Hoy me tomaré un momento de descanso, pero me alegra verte pronto."`
+          }
         },
         questions: [
           { id: 1, text: "¿Deja su teléfono boca abajo o lo vigila sospechosamente cuando estás cerca?", weight: 12 },
@@ -1061,21 +1097,39 @@
           "Diagnostisches forensisches Dossier wird erstellt..."
         ],
         results: {
-          highLabel: "KRITISCHE TOXISCHE GEFAHR (CODE ROT)",
-          highArch: "Der Chamäleon-Gaslighter",
-          highDesc: "Ein absoluter Meister im Abschieben von Verantwortung. Jedes Mal, wenn du ein Problem ansprichst, dreht er/sie das Gespräch so lange, bis du dich am Ende dafür entschuldigst, überhaupt Gefühle gezeigt zu haben.",
-          modLabel: "MÄSSIGE TOXIZITÄT (BROTKRUMEN-WERFER)",
-          modArch: "Das Phantom-Date",
-          modDesc: "Gibt dir gerade genug Aufmerksamkeit, um dich bei der Stange zu halten, verschwindet aber in der Sekunde, in der echte Verlässlichkeit gefragt ist.",
-          lowLabel: "GERINGES RISIKO / GRÜNE FLAGGEN",
-          lowArch: "Der ungeschickte Kommunikator",
-          lowDesc: "Zeigt kleinere Kommunikationsschwächen, aber keine bösartige Manipulation. Ein ruhiges, offenes Gespräch löst 90% der Missverständnisse.",
-          cb1Tag: "1. EISKALT GESCHÄFTLICH",
-          cb1Text: `"Ich habe beschlossen, mein kostenloses Probeabo für deine emotionale Verfügbarkeit zu kündigen. Alles Gute für die Zukunft!"`,
-          cb2Tag: "2. DER PHANTOM-ABSCHIED",
-          cb2Text: `"Du wolltest Geheimnisse und Freiraum. Jetzt hast du beides – dauerhaft."`,
-          cb3Tag: "3. DER SCHULDUMKEHR-STOPP",
-          cb3Text: `"Ich diskutiere nicht mit Leuten, die Drama mit Leidenschaft verwechseln. Pass auf dich auf."`
+          high: {
+            label: "KRITISCHE TOXISCHE GEFAHR (CODE ROT)",
+            arch: "Der Chamäleon-Gaslighter",
+            desc: "Ein absoluter Meister im Abschieben von Verantwortung. Jedes Mal, wenn du ein Problem ansprichst, dreht er/sie das Gespräch so lange, bis du dich am Ende dafür entschuldigst, überhaupt Gefühle gezeigt zu haben.",
+            cb1Tag: "1. EISKALT GESCHÄFTLICH",
+            cb1Text: `"Ich habe beschlossen, mein kostenloses Probeabo für deine emotionale Verfügbarkeit zu kündigen. Alles Gute für die Zukunft!"`,
+            cb2Tag: "2. DER PHANTOM-ABSCHIED",
+            cb2Text: `"Du wolltest Geheimnisse und Freiraum. Jetzt hast du beides – dauerhaft."`,
+            cb3Tag: "3. DER SCHULDUMKEHR-STOPP",
+            cb3Text: `"Ich diskutiere nicht mit Leuten, die Drama mit Leidenschaft verwechseln. Pass auf dich auf."`
+          },
+          mod: {
+            label: "MÄSSIGE TOXIZITÄT (BROTKRUMEN-WERFER)",
+            arch: "Das Phantom-Date",
+            desc: "Gibt dir gerade genug Aufmerksamkeit, um dich bei der Stange zu halten, verschwindet aber in der Sekunde, in der echte Verlässlichkeit gefragt ist.",
+            cb1Tag: "1. DER ENERGIE-SPIEGEL",
+            cb1Text: `"Ich erwidere Verhalten, keine gemischten Signale. Melde dich, wenn du es ernst meinst."`,
+            cb2Tag: "2. DIE KLARE GRENZE",
+            cb2Text: `"Ich suche Verlässlichkeit, keine emotionalen Brotkrumen. Lass es uns locker belassen oder ganz beenden."`,
+            cb3Tag: "3. DER STILLE RÜCKZUG",
+            cb3Text: `"Ich stehe nicht als Notnagel zur Verfügung. Alles Gute für deinen Weg!"`
+          },
+          low: {
+            label: "GERINGES RISIKO / GRÜNE FLAGGEN",
+            arch: "Der ungeschickte Kommunikator",
+            desc: "Zeigt kleinere Kommunikationsschwächen, aber keine bösartige Manipulation. Ein ruhiges, offenes Gespräch löst 90% der Missverständnisse.",
+            cb1Tag: "1. ENTSPANNTE ANFRAGE",
+            cb1Text: `"Hey, ich schätze unsere Verbindung sehr. Lass uns entspannt quatschen, wenn du Zeit hast – kein Stress!"`,
+            cb2Tag: "2. OFFENER DIALOG",
+            cb2Text: `"Lass uns kurz in Ruhe sprechen, damit wir beide auf derselben Wellenlänge sind."`,
+            cb3Tag: "3. GESUNDE GRENZE",
+            cb3Text: `"Brauche heute kurz etwas Zeit für mich, freue mich aber auf unser nächstes Treffen!"`
+          }
         },
         questions: [
           { id: 1, text: "Liegt das Handy verdächtig mit dem Display nach unten oder wird eifersüchtig bewacht?", weight: 12 },
@@ -1127,21 +1181,39 @@
           "Synthèse du dossier forensique de diagnostic..."
         ],
         results: {
-          highLabel: "DANGER TOXIQUE CRITIQUE (CODE ROUGE)",
-          highArch: "Le Caméléon Manipulateur (Gaslighter)",
-          highDesc: "Un virtuose dans l'art de fuir ses responsabilités. Chaque fois que tu soulèves un problème, il/elle retourne la situation jusqu'à ce que tu finisses par t'excuser d'avoir osé en parler.",
-          modLabel: "TOXICITÉ MODÉRÉE (DISTRIBUTEUR DE MIETTES)",
-          modArch: "Le Fantôme Intermittent",
-          modDesc: "Te donne juste assez d'attention pour te garder sous le coude, mais s'évapore dès qu'un réel engagement ou de la sincérité est requis.",
-          lowLabel: "FAIBLE RISQUE / DRAPEAUX VERTS",
-          lowArch: "Le Communicant Maladroit",
-          lowDesc: "Présente quelques maladresses de communication, mais sans malice manipulatrice. Une discussion calme et directe résout 90% des soucis.",
-          cb1Tag: "1. GLACIAL ET FORMEL",
-          cb1Text: `"J'ai décidé de résilier mon essai gratuit de ta disponibilité émotionnelle. Je te souhaite le meilleur !"`,
-          cb2Tag: "2. LA RUPTURE FANTÔME",
-          cb2Text: `"Tu voulais du mystère et de l'espace. Maintenant tu as les deux, pour toujours."`,
-          cb3Tag: "3. LE RETOURNEMENT DE SITUATION",
-          cb3Text: `"Je ne discute pas avec les personnes qui confondent drame et passion. Prends soin de toi."`
+          high: {
+            label: "DANGER TOXIQUE CRITIQUE (CODE ROUGE)",
+            arch: "Le Caméléon Manipulateur (Gaslighter)",
+            desc: "Un virtuose dans l'art de fuir ses responsabilités. Chaque fois que tu soulèves un problème, il/elle retourne la situation jusqu'à ce que tu finisses par t'excuser d'avoir osé en parler.",
+            cb1Tag: "1. GLACIAL ET FORMEL",
+            cb1Text: `"J'ai décidé de résilier mon essai gratuit de ta disponibilité émotionnelle. Je te souhaite le meilleur !"`,
+            cb2Tag: "2. LA RUPTURE FANTÔME",
+            cb2Text: `"Tu voulais du mystère et de l'espace. Maintenant tu as les deux, pour toujours."`,
+            cb3Tag: "3. LE RETOURNEMENT DE SITUATION",
+            cb3Text: `"Je ne discute pas avec les personnes qui confondent drame et passion. Prends soin de toi."`
+          },
+          mod: {
+            label: "TOXICITÉ MODÉRÉE (DISTRIBUTEUR DE MIETTES)",
+            arch: "Le Fantôme Intermittent",
+            desc: "Te donne juste assez d'attention pour te garder sous le coude, mais s'évapore dès qu'un réel engagement ou de la sincérité est requis.",
+            cb1Tag: "1. LE MIROIR D'ÉNERGIE",
+            cb1Text: `"Je m'aligne sur tes actes, pas sur des signaux contradictoires. Fais-moi signe quand tu seras sérieux/se."`,
+            cb2Tag: "2. LA LIMITE TRANQUILLE",
+            cb2Text: `"Je cherche de la cohérence, pas des miettes d'attention. Restons-en là ou gardons ça simple."`,
+            cb3Tag: "3. LE DÉPART ÉLÉGANT",
+            cb3Text: `"Je ne reste pas dans l'attente avec ceux qui me traitent comme une option de secours. Bon vent !"`
+          },
+          low: {
+            label: "FAIBLE RISQUE / DRAPEAUX VERTS",
+            arch: "Le Communicant Maladroit",
+            desc: "Présente quelques maladresses de communication, mais sans malice manipulatrice. Une discussion calme et directe résout 90% des soucis.",
+            cb1Tag: "1. BIENVEILLANCE SINCÈRE",
+            cb1Text: `"Coucou, j'apprécie beaucoup notre relation. Parlons-en tranquillement dès que tu as un moment, zéro pression !"` ,
+            cb2Tag: "2. DIALOGUE OUVERT",
+            cb2Text: `"J'aimerais qu'on mette les choses à plat sereinement pour être sur la même longueur d'onde."`,
+            cb3Tag: "3. LIMITE SAINE",
+            cb3Text: `"Je prends un peu de temps pour moi ce soir, mais j'ai hâte qu'on se retrouve bientôt !"`
+          }
         },
         questions: [
           { id: 1, text: "Laisse-t-il/elle son téléphone face contre table ou le surveille-t-il/elle bizarrement ?", weight: 12 },
@@ -1196,6 +1268,11 @@
       document.getElementById('txtFooter').innerText = data.footer;
       document.getElementById('txtDisclaimer').innerText = data.disclaimer;
       updateLiveActive();
+
+      // If results are currently showing, immediately translate the dossier into the new language!
+      if (lastCalculatedScore !== null && document.getElementById('resultSection').style.display === 'block') {
+        renderDossier(lastCalculatedScore, lang);
+      }
 
       // Re-render questions in the chosen language while preserving user's choices
       renderQuestions();
@@ -1280,9 +1357,54 @@
       }, 2800);
     }
 
+    let lastCalculatedScore = null;
+
+    function renderDossier(score, lang) {
+      if (score === null) return;
+      const resGroup = i18n[lang].results;
+      const scoreEl = document.getElementById('toxicityScore');
+      const labelEl = document.getElementById('toxicityLabel');
+      const archTitle = document.getElementById('archTitle');
+      const archDesc = document.getElementById('archDesc');
+
+      scoreEl.innerText = score + '%';
+
+      let tierData;
+      if (score >= 75) {
+        scoreEl.style.color = 'var(--crimson)';
+        labelEl.style.color = 'var(--crimson)';
+        tierData = resGroup.high;
+      } else if (score >= 50) {
+        scoreEl.style.color = 'var(--amber)';
+        labelEl.style.color = 'var(--amber)';
+        tierData = resGroup.mod;
+      } else {
+        scoreEl.style.color = 'var(--emerald)';
+        labelEl.style.color = 'var(--emerald)';
+        tierData = resGroup.low;
+      }
+
+      labelEl.innerText = tierData.label;
+      archTitle.innerText = tierData.arch;
+      archDesc.innerText = tierData.desc;
+
+      // Update Exit Texts with tier-specific messages in the selected language!
+      document.getElementById('txtCbTag1').innerText = tierData.cb1Tag;
+      document.getElementById('cbText1').innerText = tierData.cb1Text;
+      document.getElementById('txtCbTag2').innerText = tierData.cb2Tag;
+      document.getElementById('cbText2').innerText = tierData.cb2Text;
+      document.getElementById('txtCbTag3').innerText = tierData.cb3Tag;
+      document.getElementById('cbText3').innerText = tierData.cb3Text;
+
+      // Sub indices
+      document.getElementById('idxGaslight').innerText = `${Math.min(96, score + 4)}%`;
+      document.getElementById('idxBreadcrumb').innerText = `${Math.min(94, Math.round(score * 0.95))}%`;
+      document.getElementById('idxNarcissist').innerText = `${Math.min(98, Math.round(score * 1.05))}%`;
+      document.getElementById('idxFutureFake').innerText = `${Math.min(92, Math.round(score * 0.88))}%`;
+    }
+
     function calculateAndShowResults() {
       const qList = i18n[currentLang].questions;
-      const resData = i18n[currentLang].results;
 
       let totalEarned = 0;
       let totalMax = 0;
@@ -1298,53 +1420,16 @@
 
       let rawPercent = Math.round((totalEarned / totalMax) * 100);
       let score = Math.min(98, Math.max(18, rawPercent));
+      lastCalculatedScore = score;
 
       document.getElementById('scanningOverlay').style.display = 'none';
       document.getElementById('resultSection').style.display = 'block';
 
-      const scoreEl = document.getElementById('toxicityScore');
-      const labelEl = document.getElementById('toxicityLabel');
-      const archTitle = document.getElementById('archTitle');
-      const archDesc = document.getElementById('archDesc');
+      renderDossier(score, currentLang);
 
-      scoreEl.innerText = score + '%';
-
-      if (score >= 75) {
-        scoreEl.style.color = 'var(--crimson)';
-        labelEl.style.color = 'var(--crimson)';
-        labelEl.innerText = resData.highLabel;
-        archTitle.innerText = resData.highArch;
-        archDesc.innerText = resData.highDesc;
-        playBeep(260, 'sawtooth', 0.25);
-      } else if (score >= 50) {
-        scoreEl.style.color = 'var(--amber)';
-        labelEl.style.color = 'var(--amber)';
-        labelEl.innerText = resData.modLabel;
-        archTitle.innerText = resData.modArch;
-        archDesc.innerText = resData.modDesc;
-        playBeep(440, 'triangle', 0.2);
-      } else {
-        scoreEl.style.color = 'var(--emerald)';
-        labelEl.style.color = 'var(--emerald)';
-        labelEl.innerText = resData.lowLabel;
-        archTitle.innerText = resData.lowArch;
-        archDesc.innerText = resData.lowDesc;
-        playBeep(660, 'sine', 0.2);
-      }
-
-      // Exit Texts
-      document.getElementById('txtCbTag1').innerText = resData.cb1Tag;
-      document.getElementById('cbText1').innerText = resData.cb1Text;
-      document.getElementById('txtCbTag2').innerText = resData.cb2Tag;
-      document.getElementById('cbText2').innerText = resData.cb2Text;
-      document.getElementById('txtCbTag3').innerText = resData.cb3Tag;
-      document.getElementById('cbText3').innerText = resData.cb3Text;
-
-      // Sub indices
-      document.getElementById('idxGaslight').innerText = `${Math.min(96, score + 4)}%`;
-      document.getElementById('idxBreadcrumb').innerText = `${Math.min(94, Math.round(score * 0.95))}%`;
-      document.getElementById('idxNarcissist').innerText = `${Math.min(98, Math.round(score * 1.05))}%`;
-      document.getElementById('idxFutureFake').innerText = `${Math.min(92, Math.round(score * 0.88))}%`;
+      if (score >= 75) playBeep(260, 'sawtooth', 0.25);
+      else if (score >= 50) playBeep(440, 'triangle', 0.2);
+      else playBeep(660, 'sine', 0.2);
 
       document.getElementById('dossierTime').innerText = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
       window.scrollTo({ top: 0, behavior: 'smooth' });
