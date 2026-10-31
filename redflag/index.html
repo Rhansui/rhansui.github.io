@@ -127,6 +127,35 @@
       text-align: center;
       margin: 18px 0 24px;
     }
+    /* Hologram Visual Artwork */
+    .hero-hologram-wrap {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 14px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hologram-glow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255, 42, 95, 0.4) 0%, rgba(157, 78, 221, 0.2) 50%, transparent 75%);
+      filter: blur(12px);
+      border-radius: 50%;
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
+    .hologram-svg {
+      width: 72px;
+      height: 72px;
+      z-index: 2;
+      filter: drop-shadow(0 0 12px rgba(255, 42, 95, 0.6));
+    }
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.15); opacity: 1; }
+    }
     .hero-title {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 32px;
@@ -443,9 +472,37 @@
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 12px;
-      padding: 14px 16px;
+      padding: 18px 16px;
       margin-bottom: 20px;
       text-align: center;
+    }
+    .biometric-box {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 12px;
+      border: 1px solid rgba(255, 42, 95, 0.4);
+      background: rgba(255, 42, 95, 0.08);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(255, 42, 95, 0.2);
+    }
+    .bio-laser {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #00F59B;
+      box-shadow: 0 0 8px #00F59B;
+      animation: laserMove 2s ease-in-out infinite alternate;
+    }
+    @keyframes laserMove {
+      0% { top: 0%; }
+      100% { top: 95%; }
     }
     .arch-sub {
       font-size: 11px;
@@ -624,6 +681,38 @@
 
     <!-- Hero Header -->
     <header class="hero-header">
+      <!-- Futuristic Cyber-Heart Hologram Visual -->
+      <div class="hero-hologram-wrap">
+        <div class="hologram-glow"></div>
+        <svg class="hologram-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Cyber Targeting Ring -->
+          <circle cx="50" cy="50" r="44" stroke="rgba(255,42,95,0.3)" stroke-width="1.5" stroke-dasharray="4 4" />
+          <circle cx="50" cy="50" r="38" stroke="url(#hologramGrad)" stroke-width="2" />
+          <!-- Crosshairs -->
+          <line x1="50" y1="6" x2="50" y2="16" stroke="#FF2A5F" stroke-width="2" />
+          <line x1="50" y1="84" x2="50" y2="94" stroke="#FF2A5F" stroke-width="2" />
+          <line x1="6" y1="50" x2="16" y2="50" stroke="#FF2A5F" stroke-width="2" />
+          <line x1="84" y1="50" x2="94" y2="50" stroke="#FF2A5F" stroke-width="2" />
+          <!-- Neon Glowing Heart -->
+          <path d="M50 72C50 72 26 56 26 40C26 31.7 32.7 25 41 25C46 25 48.5 28 50 30C51.5 28 54 25 59 25C67.3 25 74 31.7 74 40C74 56 50 72 50 72Z" fill="url(#heartGrad)" filter="url(#heartGlow)" />
+          <!-- Heartbeat ECG line cutting across -->
+          <path d="M28 42L40 42L44 34L48 50L52 38L56 44L72 44" stroke="#00F59B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          <defs>
+            <linearGradient id="hologramGrad" x1="0" y1="0" x2="100" y2="100">
+              <stop offset="0%" stop-color="#FF2A5F" />
+              <stop offset="100%" stop-color="#9D4EDD" />
+            </linearGradient>
+            <linearGradient id="heartGrad" x1="26" y1="25" x2="74" y2="72">
+              <stop offset="0%" stop-color="#FF2A5F" />
+              <stop offset="100%" stop-color="#E60042" />
+            </linearGradient>
+            <filter id="heartGlow" x="16" y="15" width="68" height="68" filterUnits="userSpaceOnUse">
+              <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#FF2A5F" flood-opacity="0.8" />
+            </filter>
+          </defs>
+        </svg>
+      </div>
+
       <h1 class="hero-title" id="txtHeroTitle">The Red Flag <span>Scanner™</span></h1>
       <p class="hero-desc" id="txtHeroDesc">
         60-Second Relationship & Narcissist Behavior Audit. Pinpoint emotional traps and get 1-click savage exit texts.
@@ -697,6 +786,16 @@
 
         <!-- Archetype Box -->
         <div class="archetype-box">
+          <div class="biometric-box">
+            <div class="bio-laser"></div>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF7597" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a10 10 0 0 0-10 10c0 4.4 2.9 8.2 7 9.5"/>
+              <path d="M12 6a6 6 0 0 0-6 6c0 3.3 2.7 6 6 6s6-2.7 6-6a6 6 0 0 0-6-6z"/>
+              <path d="M12 10a2 2 0 0 0-2 2c0 1.1.9 2 2 2s2-.9 2-2a2 2 0 0 0-2-2z"/>
+              <path d="M22 12c0-5.5-4.5-10-10-10"/>
+              <path d="M19 19c1.9-1.8 3-4.3 3-7"/>
+            </svg>
+          </div>
           <div class="arch-sub" id="txtArchSub">Diagnosed Behavioral Archetype</div>
           <div class="arch-title" id="archTitle">The Chameleon Gaslighter</div>
           <div class="arch-desc" id="archDesc">
