@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>The Red Flag Scanner™ | AI Toxicity & Narcissist Dating Audit</title>
+  <meta name="description" content="Instant 60-second dating red flag test. Scan their behavior, detect gaslighting and narcissistic traits, and get 1-click savage exit texts.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #07090E;
+      --card-bg: rgba(18, 22, 33, 0.75);
+      --card-border: rgba(255, 42, 95, 0.2);
+      --crimson: #FF2A5F;
+      --crimson-glow: rgba(255, 42, 95, 0.45);
+      --emerald: #00F59B;
+      --amber: #FFB020;
+      --purple: #9D4EDD;
+      --text: #F0F4F8;
+      --text-muted: #8A99AD;
+      --surface: #101420;
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 42, 95, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(157, 78, 221, 0.12) 0%, transparent 45%);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      padding-bottom: 60px;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 540px;
+      margin: 0 auto;
+      padding: 0 18px;
+    }
+
+    /* Top Badge Bar */
+    .top-pill-wrap {
+      display: flex;
+      justify-content: center;
+      padding-top: 24px;
+    }
+    .top-pill {
+      background: rgba(255, 42, 95, 0.12);
+      border: 1px solid rgba(255, 42, 95, 0.35);
+      color: #FF7597;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-transform: uppercase;
+      box-shadow: 0 0 20px rgba(255, 42, 95, 0.2);
+    }
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--crimson);
+      border-radius: 50%;
+      animation: pulseDot 1.5s infinite;
+    }
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    /* Hero Header */
+    .hero-header {
+      text-align: center;
+      margin: 20px 0 26px;
+    }
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+    .hero-title span {
+      background: linear-gradient(135deg, #FF2A5F 0%, #FF7597 50%, #9D4EDD 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 14px;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    /* Live Stats Ribbon */
+    .stats-ribbon {
+      background: var(--surface);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      padding: 10px 14px;
+      text-align: center;
+      margin-bottom: 24px;
+      gap: 8px;
+    }
+    .stat-box-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+    .stat-box-lbl {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* Quiz Container */
+    .quiz-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 22px 18px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      margin-bottom: 24px;
+    }
+    .quiz-sec-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .quiz-sec-title {
+      font-size: 15px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .quiz-progress-text {
+      font-size: 12px;
+      color: var(--crimson);
+      font-weight: 700;
+      background: rgba(255, 42, 95, 0.1);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    /* Question Item */
+    .q-item {
+      margin-bottom: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.06);
+    }
+    .q-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .q-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .q-num {
+      color: var(--crimson);
+      font-weight: 800;
+      font-size: 13px;
+      min-width: 20px;
+    }
+
+    /* Options Chips */
+    .opt-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .opt-btn {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      border-radius: 10px;
+      padding: 10px 4px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+    }
+    .opt-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .opt-btn.active-no {
+      background: rgba(0, 245, 155, 0.15);
+      border-color: var(--emerald);
+      color: #92FFD4;
+    }
+    .opt-btn.active-sometimes {
+      background: rgba(255, 176, 32, 0.15);
+      border-color: var(--amber);
+      color: #FFE08A;
+    }
+    .opt-btn.active-yes {
+      background: rgba(255, 42, 95, 0.22);
+      border-color: var(--crimson);
+      color: #FF94AD;
+      box-shadow: 0 0 15px rgba(255, 42, 95, 0.25);
+    }
+
+    /* Scan Action Button */
+    .btn-scan {
+      width: 100%;
+      background: linear-gradient(135deg, #FF2A5F 0%, #E60042 100%);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 14px;
+      padding: 18px 24px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      box-shadow: 0 8px 28px rgba(255, 42, 95, 0.45);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .btn-scan:active {
+      transform: scale(0.98);
+    }
+
+    /* Scanning Radar State */
+    .scanning-overlay {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .radar-circle {
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      border: 2px dashed rgba(255, 42, 95, 0.4);
+      position: relative;
+      animation: radarSpin 3s linear infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .radar-sweep {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, rgba(255, 42, 95, 0.45) 0deg, transparent 70deg);
+    }
+    .radar-icon {
+      font-size: 38px;
+      z-index: 2;
+    }
+    @keyframes radarSpin {
+      100% { transform: rotate(360deg); }
+    }
+    .scan-status-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+    }
+    .scan-sub-text {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Result Dossier Area */
+    .result-dossier {
+      display: none;
+      animation: fadeInUp 0.4s ease forwards;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .dossier-card {
+      background: #0E1320;
+      border: 2px solid var(--crimson);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      box-shadow: 0 0 40px rgba(255, 42, 95, 0.25);
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .dossier-badge-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .dossier-tag {
+      background: rgba(255, 42, 95, 0.2);
+      border: 1px solid var(--crimson);
+      color: #FF85A2;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 6px;
+      letter-spacing: 1px;
+    }
+    .dossier-timestamp {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* Big Score Gauge */
+    .gauge-wrap {
+      text-align: center;
+      margin: 10px 0 22px;
+    }
+    .gauge-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 64px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .gauge-label {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* Archetype Banner */
+    .archetype-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .arch-sub {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .arch-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+    }
+    .arch-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* Sub Indices Grid */
+    .sub-indices {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+    .sub-idx-card {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 12px;
+    }
+    .sub-idx-title {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .sub-idx-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    /* Savage Exit Texts */
+    .clapbacks-sec {
+      margin-top: 24px;
+    }
+    .clapbacks-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .clapbacks-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .clapback-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      transition: border-color 0.2s ease;
+    }
+    .clapback-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .cb-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: #FF85A2;
+      margin-bottom: 3px;
+      display: block;
+    }
+    .cb-text {
+      font-size: 13px;
+      color: #E2E8F0;
+      font-style: italic;
+    }
+    .btn-copy {
+      background: rgba(255, 42, 95, 0.15);
+      border: 1px solid rgba(255, 42, 95, 0.4);
+      color: #FF94AD;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .btn-copy:active {
+      transform: scale(0.92);
+      background: var(--crimson);
+      color: #FFFFFF;
+    }
+
+    /* Reset / Retake Button */
+    .btn-retake {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* Footer Note */
+    .site-footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .site-footer a {
+      color: #FF85A2;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #1A2130;
+      border: 1px solid var(--emerald);
+      color: var(--emerald);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      pointer-events: none;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 9999;
+    }
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Top Pill -->
+    <div class="top-pill-wrap">
+      <div class="top-pill">
+        <span class="live-dot"></span>
+        AI Dating Forensic Suite v2.4
+      </div>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="hero-header">
+      <h1 class="hero-title">The Red Flag <span>Scanner™</span></h1>
+      <p class="hero-desc">
+        60-Second Relationship & Narcissist Behavior Audit. Pinpoint emotional traps and get 1-click savage exit texts.
+      </p>
+    </header>
+
+    <!-- Live Stats -->
+    <div class="stats-ribbon">
+      <div>
+        <div class="stat-box-val">142,850+</div>
+        <div class="stat-box-lbl">Scans Run</div>
+      </div>
+      <div>
+        <div class="stat-box-val">76.4%</div>
+        <div class="stat-box-lbl">Avg Toxicity</div>
+      </div>
+      <div>
+        <div class="stat-box-val">99.1%</div>
+        <div class="stat-box-lbl">Accuracy</div>
+      </div>
+    </div>
+
+    <!-- Main Quiz Card -->
+    <div class="quiz-card" id="quizSection">
+      <div class="quiz-sec-header">
+        <div class="quiz-sec-title">
+          <span>🚩</span> Behavioral Checklist
+        </div>
+        <div class="quiz-progress-text" id="answeredCount">0 / 10 Selected</div>
+      </div>
+
+      <!-- Question List -->
+      <div id="questionsContainer"></div>
+
+      <!-- Submit Scan Button -->
+      <div style="margin-top: 24px;">
+        <button class="btn-scan" onclick="runAnalysis()">
+          <span>⚡ RUN TOXICITY SCAN</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Radar Scanning Animation -->
+    <div class="quiz-card scanning-overlay" id="scanningOverlay">
+      <div class="radar-circle">
+        <div class="radar-sweep"></div>
+        <div class="radar-icon">🚨</div>
+      </div>
+      <div class="scan-status-text" id="scanStatus">Scanning Text Frequency...</div>
+      <div class="scan-sub-text">Cross-referencing 40,000+ toxic archetype patterns</div>
+    </div>
+
+    <!-- Result Dossier -->
+    <div class="result-dossier" id="resultSection">
+      <div class="dossier-card">
+        <div class="dossier-badge-top">
+          <span class="dossier-tag">CONFIDENTIAL FORENSIC DOSSIER</span>
+          <span class="dossier-timestamp" id="dossierTime">JUST NOW</span>
+        </div>
+
+        <div class="gauge-wrap">
+          <div class="gauge-number" id="toxicityScore" style="color: var(--crimson);">84%</div>
+          <div class="gauge-label" id="toxicityLabel" style="color: var(--crimson);">CRITICAL TOXIC HAZARD</div>
+        </div>
+
+        <!-- Archetype Box -->
+        <div class="archetype-box">
+          <div class="arch-sub">Diagnosed Behavioral Archetype</div>
+          <div class="arch-title" id="archTitle">The Chameleon Gaslighter</div>
+          <div class="arch-desc" id="archDesc">
+            Masters the art of shifting blame. Whenever you bring up an issue, they turn it around until you apologize for bringing it up in the first place.
+          </div>
+        </div>
+
+        <!-- Sub Indices -->
+        <div class="sub-indices">
+          <div class="sub-idx-card">
+            <div class="sub-idx-title">Gaslighting Index</div>
+            <div class="sub-idx-val" id="idxGaslight" style="color: #FF5A82;">HIGH (88%)</div>
+          </div>
+          <div class="sub-idx-card">
+            <div class="sub-idx-title">Emotional Breadcrumbs</div>
+            <div class="sub-idx-val" id="idxBreadcrumb" style="color: #FFB020;">ACUTE (74%)</div>
+          </div>
+          <div class="sub-idx-card">
+            <div class="sub-idx-title">Narcissist Traits</div>
+            <div class="sub-idx-val" id="idxNarcissist" style="color: #FF2A5F;">CRITICAL (91%)</div>
+          </div>
+          <div class="sub-idx-card">
+            <div class="sub-idx-title">Future-Faking Risk</div>
+            <div class="sub-idx-val" id="idxFutureFake" style="color: #9D4EDD;">ELEVATED (80%)</div>
+          </div>
+        </div>
+
+        <!-- Savage Clapbacks -->
+        <div class="clapbacks-sec">
+          <div class="clapbacks-title">
+            <span>💬</span> 1-Click Savage Exit Texts
+          </div>
+          <div class="clapbacks-sub">Tap copy and paste directly into iMessage / WhatsApp / DM.</div>
+
+          <div class="clapback-card">
+            <div>
+              <span class="cb-tag">1. ICE COLD CORPORATE</span>
+              <div class="cb-text" id="cbText1">"I’ve decided to unsubscribe from your free trial of emotional availability. Wishing you the best!"</div>
+            </div>
+            <button class="btn-copy" onclick="copyText('cbText1')">Copy</button>
+          </div>
+
+          <div class="clapback-card">
+            <div>
+              <span class="cb-tag">2. THE PHANTOM CLOSURE</span>
+              <div class="cb-text" id="cbText2">"You wanted mystery and space. Now you have both, permanently."</div>
+            </div>
+            <button class="btn-copy" onclick="copyText('cbText2')">Copy</button>
+          </div>
+
+          <div class="clapback-card">
+            <div>
+              <span class="cb-tag">3. THE REVERSE GASLIGHT</span>
+              <div class="cb-text" id="cbText3">"I don’t argue with people who confuse drama with passion. Take care of yourself."</div>
+            </div>
+            <button class="btn-copy" onclick="copyText('cbText3')">Copy</button>
+          </div>
+        </div>
+
+        <!-- Retake Button -->
+        <button class="btn-retake" onclick="resetAudit()">
+          🔄 Scan Another Person
+        </button>
+      </div>
+    </div>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <p>© 2026 The Red Flag Scanner™ • Powered by Aura Behavioral Intelligence</p>
+      <p style="margin-top: 6px;">For entertainment & forensic relationship clarity purposes.</p>
+    </footer>
+
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">Copied to clipboard! 📋</div>
+
+  <script>
+    // Audio synthesis for haptics
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    function playBeep(freq = 440, type = 'sine', duration = 0.08) {
+      try {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.value = freq;
+        gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (e) {}
+    }
+
+    // 10 Relatable High-Frequency Red Flag Questions
+    const questions = [
+      {
+        id: 1,
+        title: "Does their phone stay face-down or suspiciously guarded when you're around?",
+        weight: 12
+      },
+      {
+        id: 2,
+        title: "Do they take 6+ hours to reply, but are actively posting stories / active 2 mins ago?",
+        weight: 10
+      },
+      {
+        id: 3,
+        title: "When you share a concern, do they flip it so YOU end up apologizing to THEM?",
+        weight: 15
+      },
+      {
+        id: 4,
+        title: "Are literally ALL of their exes described as 'crazy' or 'toxic'?",
+        weight: 12
+      },
+      {
+        id: 5,
+        title: "Do they shower you with love for 3 days, then act distant and cold for a week?",
+        weight: 14
+      },
+      {
+        id: 6,
+        title: "Do they cancel plans last-minute with vague excuses, but expect you to be on-call 24/7?",
+        weight: 9
+      },
+      {
+        id: 7,
+        title: "Do they disguise mean or condescending remarks as 'just joking, you're too sensitive'?",
+        weight: 13
+      },
+      {
+        id: 8,
+        title: "Do they talk big about future vacations/plans together, but rarely follow through?",
+        weight: 11
+      },
+      {
+        id: 9,
+        title: "Do they remember and bring up small mistakes you made months ago during fights?",
+        weight: 12
+      },
+      {
+        id: 10,
+        title: "Does hanging out with them leave you feeling drained, confused, or walking on eggshells?",
+        weight: 16
+      }
+    ];
+
+    const answers = {};
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      container.innerHTML = questions.map(q => `
+        <div class="q-item">
+          <div class="q-title">
+            <span class="q-num">0${q.id}</span>
+            <span>${q.title}</span>
+          </div>
+          <div class="opt-grid">
+            <button type="button" class="opt-btn" id="btn_${q.id}_no" onclick="selectOpt(${q.id}, 'no', 0)">
+              <span>🟢 Never</span>
+            </button>
+            <button type="button" class="opt-btn" id="btn_${q.id}_some" onclick="selectOpt(${q.id}, 'some', 0.5)">
+              <span>🟡 Sometimes</span>
+            </button>
+            <button type="button" class="opt-btn" id="btn_${q.id}_yes" onclick="selectOpt(${q.id}, 'yes', 1.0)">
+              <span>🚩 Often</span>
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function selectOpt(qId, val, factor) {
+      playBeep(val === 'yes' ? 320 : (val === 'some' ? 440 : 660), 'sine', 0.05);
+      answers[qId] = { val, factor, weight: questions.find(q => q.id === qId).weight };
+
+      // Update UI buttons
+      document.getElementById(`btn_${qId}_no`).className = 'opt-btn' + (val === 'no' ? ' active-no' : '');
+      document.getElementById(`btn_${qId}_some`).className = 'opt-btn' + (val === 'some' ? ' active-sometimes' : '');
+      document.getElementById(`btn_${qId}_yes`).className = 'opt-btn' + (val === 'yes' ? ' active-yes' : '');
+
+      const count = Object.keys(answers).length;
+      document.getElementById('answeredCount').innerText = `${count} / 10 Selected`;
+    }
+
+    function runAnalysis() {
+      const count = Object.keys(answers).length;
+      if (count < 5) {
+        showToast('⚠️ Please answer at least 5 questions for accuracy!');
+        playBeep(220, 'sawtooth', 0.15);
+        return;
+      }
+
+      playBeep(520, 'square', 0.1);
+      document.getElementById('quizSection').style.display = 'none';
+      document.getElementById('scanningOverlay').style.display = 'block';
+
+      // Animated scanner status changes
+      const statuses = [
+        "Analyzing Defensive Language Patterns...",
+        "Measuring Love-Bombing to Ghosting Cycles...",
+        "Calculating Gaslight-to-Accountability Ratio...",
+        "Synthesizing Diagnostic Forensic Dossier..."
+      ];
+
+      let idx = 0;
+      const interval = setInterval(() => {
+        idx++;
+        if (idx < statuses.length) {
+          document.getElementById('scanStatus').innerText = statuses[idx];
+          playBeep(600 + (idx * 80), 'sine', 0.06);
+        }
+      }, 700);
+
+      setTimeout(() => {
+        clearInterval(interval);
+        calculateAndShowResults();
+      }, 2800);
+    }
+
+    function calculateAndShowResults() {
+      // Calculate score
+      let totalEarned = 0;
+      let totalMax = 0;
+
+      questions.forEach(q => {
+        totalMax += q.weight;
+        if (answers[q.id]) {
+          totalEarned += (answers[q.id].factor * q.weight);
+        } else {
+          totalEarned += (0.2 * q.weight); // default low weight if unselected
+        }
+      });
+
+      let rawPercent = Math.round((totalEarned / totalMax) * 100);
+      let score = Math.min(98, Math.max(18, rawPercent));
+
+      document.getElementById('scanningOverlay').style.display = 'none';
+      document.getElementById('resultSection').style.display = 'block';
+
+      const scoreEl = document.getElementById('toxicityScore');
+      const labelEl = document.getElementById('toxicityLabel');
+      const archTitle = document.getElementById('archTitle');
+      const archDesc = document.getElementById('archDesc');
+
+      scoreEl.innerText = score + '%';
+
+      if (score >= 75) {
+        scoreEl.style.color = 'var(--crimson)';
+        labelEl.style.color = 'var(--crimson)';
+        labelEl.innerText = 'CRITICAL TOXIC HAZARD (RED CODE)';
+        archTitle.innerText = 'The Chameleon Gaslighter';
+        archDesc.innerText = 'A textbook master of deflecting accountability. Every time you bring up an issue, they skillfully maneuver the conversation until you end up apologizing for having feelings in the first place.';
+        playBeep(260, 'sawtooth', 0.25);
+      } else if (score >= 50) {
+        scoreEl.style.color = 'var(--amber)';
+        labelEl.style.color = 'var(--amber)';
+        labelEl.innerText = 'MODERATE TOXICITY & BREADCRUMBER';
+        archTitle.innerText = 'The Phantom Dater';
+        archDesc.innerText = 'Provides just enough attention to keep you hooked, but vanishes the moment real consistency or emotional vulnerability is required.';
+        playBeep(440, 'triangle', 0.2);
+      } else {
+        scoreEl.style.color = 'var(--emerald)';
+        labelEl.style.color = 'var(--emerald)';
+        labelEl.innerText = 'LOW THREAT / GREEN FLAG TRAITS';
+        archTitle.innerText = 'The Occasional Clumsy Communicator';
+        archDesc.innerText = 'Shows minor miscommunication traits, but lacks the intentional manipulation of a classic narcissist. Direct, calm communication can resolve 90% of issues.';
+        playBeep(660, 'sine', 0.2);
+      }
+
+      // Sub indices
+      document.getElementById('idxGaslight').innerText = `${Math.min(96, score + 4)}%`;
+      document.getElementById('idxBreadcrumb').innerText = `${Math.min(94, Math.round(score * 0.95))}%`;
+      document.getElementById('idxNarcissist').innerText = `${Math.min(98, Math.round(score * 1.05))}%`;
+      document.getElementById('idxFutureFake').innerText = `${Math.min(92, Math.round(score * 0.88))}%`;
+
+      document.getElementById('dossierTime').innerText = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function resetAudit() {
+      playBeep(440, 'sine', 0.08);
+      document.getElementById('resultSection').style.display = 'none';
+      document.getElementById('quizSection').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function copyText(elemId) {
+      const text = document.getElementById(elemId).innerText.replace(/"/g, '');
+      navigator.clipboard.writeText(text).then(() => {
+        playBeep(880, 'sine', 0.08);
+        showToast('Exit text copied! Paste into chat 📋');
+      });
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.innerText = msg;
+      t.classList.add('show');
+      setTimeout(() => {
+        t.classList.remove('show');
+      }, 2500);
+    }
+
+    // Init on load
+    renderQuestions();
+  </script>
+</body>
+</html>
