@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Her Şeyimiz Var Çok Şükür · Zişan Sultan'ın Mutfağı</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    
+    :root {
+      --bg-warm: #FFFDF9;
+      --card-bg: #FFFFFF;
+      --primary-rose: #E05A6D;
+      --primary-hover: #C94356;
+      --accent-gold: #D4A373;
+      --accent-green: #588157;
+      --text-main: #2B2D42;
+      --text-muted: #6C757D;
+      --border-soft: #F0EAE1;
+      --shadow-soft: 0 10px 25px rgba(224, 90, 109, 0.08);
+    }
+
+    body {
+      background: var(--bg-warm);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      padding: 24px 16px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(224, 90, 109, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(88, 129, 87, 0.05) 0%, transparent 40%);
+    }
+
+    .app-container {
+      width: 100%;
+      max-width: 580px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* TOP HEADER & BLESSING */
+    .header-box {
+      text-align: center;
+      margin-bottom: 24px;
+      width: 100%;
+    }
+
+    .blessing-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FFF5F5;
+      border: 1px solid #FFE3E6;
+      padding: 6px 18px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+      color: var(--primary-rose);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .main-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: #A3485E;
+      line-height: 1.25;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .main-headline span {
+      color: #D48B47;
+      font-style: italic;
+    }
+
+    .sub-headline {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    .sub-headline strong {
+      color: var(--text-main);
+    }
+
+    /* INGREDIENT CATEGORY TABS */
+    .category-title {
+      align-self: flex-start;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-gold);
+      margin: 18px 0 10px 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ingredients-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      width: 100%;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 420px) {
+      .ingredients-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+    }
+
+    .ing-btn {
+      background: var(--card-bg);
+      border: 1.5px solid var(--border-soft);
+      border-radius: 16px;
+      padding: 12px 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      user-select: none;
+    }
+
+    .ing-btn:active {
+      transform: scale(0.96);
+    }
+
+    .ing-btn .emoji {
+      font-size: 26px;
+      transition: transform 0.2s ease;
+    }
+
+    .ing-btn .name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-main);
+      text-align: center;
+    }
+
+    /* SELECTED STATE */
+    .ing-btn.selected {
+      background: #FFF0F2;
+      border-color: var(--primary-rose);
+      box-shadow: 0 4px 14px rgba(224, 90, 109, 0.2);
+    }
+
+    .ing-btn.selected .emoji {
+      transform: scale(1.15);
+    }
+
+    .ing-btn.selected .name {
+      color: var(--primary-rose);
+      font-weight: 700;
+    }
+
+    /* SELECTION STATUS BAR */
+    .selection-bar {
+      margin: 16px 0 12px;
+      width: 100%;
+      background: #FFFFFF;
+      border: 1px dashed var(--accent-gold);
+      border-radius: 14px;
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .clear-btn {
+      background: none;
+      border: none;
+      color: #A3485E;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    /* MOTHER'S SPECIAL BUTTON */
+    .action-container {
+      width: 100%;
+      margin: 16px 0 28px;
+      position: sticky;
+      bottom: 16px;
+      z-index: 100;
+    }
+
+    .mother-main-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #E05A6D 0%, #D44358 100%);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 20px;
+      padding: 18px 20px;
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 1.35;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(224, 90, 109, 0.38);
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .mother-main-btn:active {
+      transform: scale(0.98);
+      box-shadow: 0 5px 15px rgba(224, 90, 109, 0.3);
+    }
+
+    .mother-main-btn .btn-sub {
+      font-size: 12.5px;
+      font-weight: 500;
+      opacity: 0.92;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* RESULT SECTION */
+    .results-wrap {
+      width: 100%;
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .result-banner {
+      background: linear-gradient(135deg, #FFF9F5 0%, #FFF0F2 100%);
+      border: 1px solid #FFE4E8;
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .result-banner h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: #A3485E;
+      margin-bottom: 6px;
+    }
+
+    .result-banner p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* RECIPE CARD */
+    .recipe-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-soft);
+      border-radius: 24px;
+      padding: 24px 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .recipe-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #EAF4EC;
+      color: #2D6A4F;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    .recipe-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .recipe-meta {
+      display: flex;
+      gap: 14px;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .pairing-box {
+      background: #FFFDF5;
+      border: 1px dashed #E9D8A6;
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 18px;
+    }
+
+    .pairing-label {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #B07D38;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .pairing-text {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .steps-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      line-height: 1.45;
+      color: #3D405B;
+    }
+
+    .step-num {
+      width: 22px;
+      height: 22px;
+      background: #FFF0F2;
+      color: var(--primary-rose);
+      font-weight: 700;
+      font-size: 12px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .reset-btn {
+      width: 100%;
+      background: #F8F9FA;
+      color: var(--text-muted);
+      border: 1px solid var(--border-soft);
+      border-radius: 16px;
+      padding: 14px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .reset-btn:active {
+      background: #E9ECEF;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- HEADER -->
+    <header class="header-box">
+      <div class="blessing-pill">
+        🌸 ZİŞAN SULTAN'IN MUTFAK YOLDAŞI
+      </div>
+      <h1 class="main-headline">
+        Her Şeyimiz Var <span>Çok Şükür</span> ✨
+      </h1>
+      <p class="sub-headline">
+        Dolapta ne varsa dokun anneciğim, gerisini hiç düşünme.
+      </p>
+    </header>
+
+    <!-- INGREDIENT SELECTION -->
+    <div id="selectionArea" style="width: 100%;">
+      
+      <!-- SELECTION STATUS -->
+      <div class="selection-bar">
+        <span id="selectedCountText">Henüz malzeme seçilmedi</span>
+        <button class="clear-btn" onclick="clearSelection()">Temizle</button>
+      </div>
+
+      <!-- Kategori 1: Et & Şarküteri -->
+      <div class="category-title">🥩 Et, Tavuk ve Şarküteri</div>
+      <div class="ingredients-grid">
+        <div class="ing-btn" data-name="tavuk" onclick="toggleIng(this)">
+          <span class="emoji">🍗</span>
+          <span class="name">Tavuk</span>
+        </div>
+        <div class="ing-btn" data-name="kiyma" onclick="toggleIng(this)">
+          <span class="emoji">🥩</span>
+          <span class="name">Kıyma</span>
+        </div>
+        <div class="ing-btn" data-name="et" onclick="toggleIng(this)">
+          <span class="emoji">🥩</span>
+          <span class="name">Kuşbaşı Et</span>
+        </div>
+        <div class="ing-btn" data-name="sucuk" onclick="toggleIng(this)">
+          <span class="emoji">🥓</span>
+          <span class="name">Sucuk</span>
+        </div>
+        <div class="ing-btn" data-name="yumurta" onclick="toggleIng(this)">
+          <span class="emoji">🥚</span>
+          <span class="name">Yumurta</span>
+        </div>
+        <div class="ing-btn" data-name="balik" onclick="toggleIng(this)">
+          <span class="emoji">🐟</span>
+          <span class="name">Balık</span>
+        </div>
+      </div>
+
+      <!-- Kategori 2: Sebzeler -->
+      <div class="category-title">🥔 Sebzeler & Yeşillikler</div>
+      <div class="ingredients-grid">
+        <div class="ing-btn" data-name="patates" onclick="toggleIng(this)">
+          <span class="emoji">🥔</span>
+          <span class="name">Patates</span>
+        </div>
+        <div class="ing-btn" data-name="domates" onclick="toggleIng(this)">
+          <span class="emoji">🍅</span>
+          <span class="name">Domates</span>
+        </div>
+        <div class="ing-btn" data-name="patlican" onclick="toggleIng(this)">
+          <span class="emoji">🍆</span>
+          <span class="name">Patlıcan</span>
+        </div>
+        <div class="ing-btn" data-name="biber" onclick="toggleIng(this)">
+          <span class="emoji">🫑</span>
+          <span class="name">Biber</span>
+        </div>
+        <div class="ing-btn" data-name="kabak" onclick="toggleIng(this)">
+          <span class="emoji">🥒</span>
+          <span class="name">Kabak</span>
+        </div>
+        <div class="ing-btn" data-name="fasulye" onclick="toggleIng(this)">
+          <span class="emoji">🫘</span>
+          <span class="name">Taze Fasulye</span>
+        </div>
+        <div class="ing-btn" data-name="ispanak" onclick="toggleIng(this)">
+          <span class="emoji">🥬</span>
+          <span class="name">Ispanak</span>
+        </div>
+        <div class="ing-btn" data-name="havuc" onclick="toggleIng(this)">
+          <span class="emoji">🥕</span>
+          <span class="name">Havuç</span>
+        </div>
+        <div class="ing-btn" data-name="mantar" onclick="toggleIng(this)">
+          <span class="emoji">🍄</span>
+          <span class="name">Mantar</span>
+        </div>
+      </div>
+
+      <!-- Kategori 3: Bakliyat & Tahıl -->
+      <div class="category-title">🍚 Bakliyat, Makarna ve Tahıllar</div>
+      <div class="ingredients-grid">
+        <div class="ing-btn" data-name="makarna" onclick="toggleIng(this)">
+          <span class="emoji">🍝</span>
+          <span class="name">Makarna</span>
+        </div>
+        <div class="ing-btn" data-name="pirinc" onclick="toggleIng(this)">
+          <span class="emoji">🍚</span>
+          <span class="name">Pirinç</span>
+        </div>
+        <div class="ing-btn" data-name="bulgur" onclick="toggleIng(this)">
+          <span class="emoji">🌾</span>
+          <span class="name">Bulgur</span>
+        </div>
+        <div class="ing-btn" data-name="mercimek" onclick="toggleIng(this)">
+          <span class="emoji">🥣</span>
+          <span class="name">Mercimek</span>
+        </div>
+        <div class="ing-btn" data-name="nohut" onclick="toggleIng(this)">
+          <span class="emoji">🫘</span>
+          <span class="name">Nohut</span>
+        </div>
+        <div class="ing-btn" data-name="kurufasulye" onclick="toggleIng(this)">
+          <span class="emoji">🍲</span>
+          <span class="name">Kuru Fasulye</span>
+        </div>
+      </div>
+
+      <!-- Kategori 4: Süt Ürünleri -->
+      <div class="category-title">🧀 Süt, Yoğurt ve Peynir</div>
+      <div class="ingredients-grid">
+        <div class="ing-btn" data-name="yogurt" onclick="toggleIng(this)">
+          <span class="emoji">🥣</span>
+          <span class="name">Yoğurt</span>
+        </div>
+        <div class="ing-btn" data-name="peynir" onclick="toggleIng(this)">
+          <span class="emoji">🧀</span>
+          <span class="name">Peynir/Kaşar</span>
+        </div>
+        <div class="ing-btn" data-name="sut" onclick="toggleIng(this)">
+          <span class="emoji">🥛</span>
+          <span class="name">Süt</span>
+        </div>
+      </div>
+
+      <!-- MOTHER'S MAIN BUTTON -->
+      <div class="action-container">
+        <button class="mother-main-btn" onclick="findRecipes()">
+          <span>Zişan hiç düşünme birlikte yaparız sıkma canını 💖</span>
+          <span class="btn-sub">✨ Seçtiğin malzemelerle nefis yemekleri bul</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- RESULTS SECTION -->
+    <div id="resultsArea" class="results-wrap">
+      
+      <div class="result-banner">
+        <h3>Zişan Sultan İçin Seçtiklerimiz 🌸</h3>
+        <p id="resultSubtitle">Dolabındaki bereketle harikalar yaratıyoruz!</p>
+      </div>
+
+      <div id="recipesContainer" style="display:flex; flex-direction:column; gap:16px;"></div>
+
+      <button class="reset-btn" onclick="backToSelection()">
+        🔄 Başka Malzemeler Seç
+      </button>
+
+    </div>
+
+  </div>
+
+  <script>
+    const selectedIngredients = new Set();
+
+    // 40+ Turkish Home Classic Recipes Database
+    const recipesDB = [
+      {
+        name: "Fırında Patatesli Tavuk",
+        ingredients: ["tavuk", "patates"],
+        time: "40 dk",
+        difficulty: "Çok Kolay (Tepsiyi Fırına Ver)",
+        pairing: "Şehriyeli Pirinç Pilavı & Bol Köpüklü Ayran",
+        steps: [
+          "Tavuk ve patatesleri iri iri doğra, zeytinyağı, kekik, salça ve pul biberle güzelce harmanla.",
+          "Fırın tepsisine diz, aralara varsa birkaç biber ve domates at.",
+          "200 derece fırında patatesler lokum gibi olana kadar yaklaşık 40 dakika pişir."
+        ]
+      },
+      {
+        name: "Kıymalı Patates Yemeği (Oturtma)",
+        ingredients: ["kiyma", "patates"],
+        time: "35 dk",
+        difficulty: "Pratik Ev Yemeği",
+        pairing: "Taze Ekmek, Turşu ve Bulgur Pilavı",
+        steps: [
+          "Tencerede soğanı ve kıymayı kavur, 1 kaşık salça ekleyip kokusu çıkana kadar karıştır.",
+          "Küp doğranmış patatesleri ilave et, 2 dakika birlikte çevir.",
+          "Üzerini hafif geçecek kadar sıcak su ve tuz ekle, kısık ateşte patatesler yumuşayana dek pişir."
+        ]
+      },
+      {
+        name: "Lokanta Usulü Mercimek Çorbası",
+        ingredients: ["mercimek", "patates", "havuc"],
+        time: "25 dk",
+        difficulty: "Şipşak & Şifalı",
+        pairing: "Limon, Kıtır Ekmek ve Yanına Fırın Makarna",
+        steps: [
+          "Tencerede soğan, havuç ve patatesi az yağda soteleyin.",
+          "Yıkanmış kırmızı mercimeği ve sıcak suyu ekleyin, mercimekler iyice açılana kadar kaynatın.",
+          "Blenderdan geçirip tereyağında hafif kızdırılmış nane ve pul biberle buluşturun."
+        ]
+      },
+      {
+        name: "Kıymalı / Peynirli Fırın Makarna",
+        ingredients: ["makarna", "peynir", "kiyma", "sut"],
+        time: "30 dk",
+        difficulty: "Çocukların & Herkesin Favorisi",
+        pairing: "Mevsim Yeşillikleri Salatası",
+        steps: [
+          "Makarnayı hafif diri kalacak şekilde haşlayın.",
+          "İster peynirli harçla ister kavrulmuş kıymayla karıştırıp borcama yayın.",
+          "Üzerine bol kaşar peyniri serpip fırında üzeri nar gibi kızarana kadar pişirin."
+        ]
+      },
+      {
+        name: "Karnıyarık / İmam Bayıldı",
+        ingredients: ["patlican", "kiyma", "domates", "biber"],
+        time: "45 dk",
+        difficulty: "Ziyafet Yemeği",
+        pairing: "Tane Tane Pirinç Pilavı & Soğuk Cacık",
+        steps: [
+          "Patlıcanları alacalı soyup ortasından boyuna çizik atın ve hafif kızartın veya fırınlayın.",
+          "Tavada kıyma, soğan, domates ve biberle leziz bir iç harç hazırlayın.",
+          "Patlıcanların karnını açıp harcı doldurun, salçalı su gezdirip fırında ya da tencerede 20 dk pişirin."
+        ]
+      },
+      {
+        name: "Tavuk Sote (Sebzeli)",
+        ingredients: ["tavuk", "biber", "domates", "mantar"],
+        time: "25 dk",
+        difficulty: "Hızlı & Hafif",
+        pairing: "Tereyağlı Bulgur Pilavı",
+        steps: [
+          "Kuşbaşı tavukları kızgın tavaya alıp suyunu salıp çekene kadar soteleyin.",
+          "Doğranmış biberleri ve mantarları ekleyip 3-4 dakika daha kavurun.",
+          "Küp domatesleri, tuz ve baharatları ekleyip kapağını kapatın, 10 dakika kısık ateşte demlensin."
+        ]
+      },
+      {
+        name: "Kuru Fasulye & Pilav İkilisi",
+        ingredients: ["kurufasulye", "et", "pirinc"],
+        time: "45 dk",
+        difficulty: "Milli Gururumuz",
+        pairing: "Kuru Soğan, Turşu ve Acı Biber",
+        steps: [
+          "Tencerede soğan ve eti kavurun, salçayı ekleyin.",
+          "Haşlanmış kuru fasulyeleri ilave edip üzerini geçecek kadar sıcak su dökün.",
+          "Kısık ateşte suyu özleşene kadar pişirin. Yanına bol tereyağlı pilav kondurun!"
+        ]
+      },
+      {
+        name: "Etli / Sade Nohut Yemeği",
+        ingredients: ["nohut", "et"],
+        time: "40 dk",
+        difficulty: "Bereketli & Doyurucu",
+        pairing: "Şehriyeli Bulgur Pilavı ve Cacık",
+        steps: [
+          "Eti düdüklüde hafif yumuşayana kadar pişirin.",
+          "Soğan ve salçayla kavurup haşlanmış nohutları ilave edin.",
+          "Suyunu ayarlayıp 20-25 dakika kısık ateşte lokum gibi olana kadar pişmeye bırakın."
+        ]
+      },
+      {
+        name: "Kabak Mücveri (Fırında veya Tavada)",
+        ingredients: ["kabak", "yumurta", "peynir"],
+        time: "25 dk",
+        difficulty: "Hafif & Pratik",
+        pairing: "Sarımsaklı Yoğurt",
+        steps: [
+          "Kabakları rendeleyip suyunu avucunuzda iyice sıkın (çıtır olması için püf nokta).",
+          "İçine yumurta, dereotu/maydanoz, beyaz peynir ve 2 kaşık un ekleyip karıştırın.",
+          "İster tavada kaşık kaşık kızartın, ister yağlı kağıtta fırına atıp hafifçe pişirin."
+        ]
+      },
+      {
+        name: "Kıymalı Yumurtalı Menemen",
+        ingredients: ["yumurta", "domates", "biber", "kiyma", "sucuk"],
+        time: "15 dk",
+        difficulty: "15 Dakikada Akşam Kurtarıcısı",
+        pairing: "Sıcak Çıtır Ekmek & Demli Çay",
+        steps: [
+          "Biberleri ve isteğe göre kıyma/sucuğu tereyağında çevirin.",
+          "Kabuğu soyulmuş bol sulu domatesleri ekleyip suyunu çekene kadar pişirin.",
+          "Yumurtaları kırıp sarılarını hafif patlatarak karıştırın, kapağını 2 dk kapatıp ocaktan alın."
+        ]
+      },
+      {
+        name: "Yayla Çorbası (Naneli Tereyağlı)",
+        ingredients: ["pirinc", "yogurt", "yumurta"],
+        time: "20 dk",
+        difficulty: "Mideyi Rahatlatan Anne Çorbası",
+        pairing: "Yanına Fırında Patates veya Kıymalı Börek",
+        steps: [
+          "Pirinçleri az suda yumuşayana kadar haşlayın.",
+          "Bir kapta yoğurt, yumurta sarısı ve 1 kaşık unu çırpıp çorbanın suyundan ılıtarak tencereye ekleyin (kesilmesin).",
+          "Sürekli karıştırarak kaynatın. Üzerine tereyağında yakılmış kuru nane gezdirin."
+        ]
+      },
+      {
+        name: "Zeytinyağlı Taze Fasulye",
+        ingredients: ["fasulye", "domates"],
+        time: "35 dk",
+        difficulty: "Yaz-Kış Vazgeçilmez",
+        pairing: "Pirinç Pilavı & Yoğurt",
+        steps: [
+          "Ayıklanmış taze fasulyeleri, yemeklik doğranmış soğan ve bol domatesle tencereye çiğden dizin.",
+          "Zeytinyağı, tuz ve 1 çay kaşığı şeker gezdirin.",
+          "Kısık ateşte kendi buharında ve domatesin suyunda yumuşacık pişirin."
+        ]
+      },
+      {
+        name: "Kıymalı Ispanak Yemeği",
+        ingredients: ["ispanak", "kiyma", "pirinc"],
+        time: "25 dk",
+        difficulty: "Tam Bir Demir Deposu",
+        pairing: "Bol Sarımsaklı Yoğurt",
+        steps: [
+          "Kıymayı ve soğanı tencerede kavurun, salçasını ekleyin.",
+          "Doğranmış yıkanmış ıspanakları ve 1 avuç pirinci ilave edin.",
+          "Ispanak suyunu salıp çekerken kısık ateşte 15-20 dakikada pişirin."
+        ]
+      }
+    ];
+
+    function toggleIng(elem) {
+      const name = elem.getAttribute("data-name");
+      if (selectedIngredients.has(name)) {
+        selectedIngredients.delete(name);
+        elem.classList.remove("selected");
+      } else {
+        selectedIngredients.add(name);
+        elem.classList.add("selected");
+      }
+      updateStatus();
+    }
+
+    function clearSelection() {
+      selectedIngredients.clear();
+      document.querySelectorAll(".ing-btn").forEach(b => b.classList.remove("selected"));
+      updateStatus();
+    }
+
+    function updateStatus() {
+      const count = selectedIngredients.size;
+      const textElem = document.getElementById("selectedCountText");
+      if (count === 0) {
+        textElem.innerHTML = "Henüz malzeme seçilmedi";
+      } else {
+        textElem.innerHTML = `✨ <strong>${count} malzeme</strong> seçildi, harika şeyler çıkacak!`;
+      }
+    }
+
+    function findRecipes() {
+      const selected = Array.from(selectedIngredients);
+      let matches = [];
+
+      if (selected.length === 0) {
+        // If no ingredients chosen, show 3 random beloved classics!
+        matches = [...recipesDB].sort(() => 0.5 - Math.random()).slice(0, 3);
+        document.getElementById("resultSubtitle").innerHTML = "Özel seçim yapmadın Zişan Sultan, sana günün en garanti 3 lezzetini seçtik! 💖";
+      } else {
+        // Score recipes based on matched ingredients
+        matches = recipesDB.map(recipe => {
+          let score = 0;
+          recipe.ingredients.forEach(ing => {
+            if (selected.includes(ing)) score += 1;
+          });
+          return { recipe, score };
+        })
+        .filter(item => item.score > 0)
+        .sort((a, b) => b.score - a.score)
+        .map(item => item.recipe);
+
+        if (matches.length === 0) {
+          // Fallback if no exact match
+          matches = recipesDB.slice(0, 2);
+          document.getElementById("resultSubtitle").innerHTML = "Seçtiğin malzemelerle birlikte yapabileceğin nefis alternatifler:";
+        } else {
+          document.getElementById("resultSubtitle").innerHTML = `Seçtiğin malzemelerle tam ${matches.length} nefis seçenek bulduk Zişan Sultan!`;
+        }
+      }
+
+      // Render cards
+      const container = document.getElementById("recipesContainer");
+      container.innerHTML = "";
+
+      matches.slice(0, 3).forEach((r, idx) => {
+        const card = document.createElement("div");
+        card.className = "recipe-card";
+        card.innerHTML = `
+          <div class="recipe-badge">✨ Seçenek #${idx + 1} · ${r.difficulty}</div>
+          <h2 class="recipe-title">${r.name}</h2>
+          <div class="recipe-meta">
+            <span>⏱️ ${r.time}</span>
+            <span>👩‍🍳 Anne Usulü</span>
+          </div>
+          <div class="pairing-box">
+            <div class="pairing-label">💡 ZİŞAN'IN MENÜ TAMAMLAYICISI:</div>
+            <div class="pairing-text">${r.pairing}</div>
+          </div>
+          <div class="steps-label">Pratik Yapılışı:</div>
+          <div class="step-list">
+            ${r.steps.map((st, i) => `
+              <div class="step-item">
+                <span class="step-num">${i + 1}</span>
+                <span>${st}</span>
+              </div>
+            `).join("")}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      // Switch views
+      document.getElementById("selectionArea").style.display = "none";
+      document.getElementById("resultsArea").style.display = "flex";
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function backToSelection() {
+      document.getElementById("selectionArea").style.display = "block";
+      document.getElementById("resultsArea").style.display = "none";
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
