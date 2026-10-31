@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GÖKSU A.Ş. | Tarımda Sürdürülebilir Güç ve Yüksek Verimli Gübre Çözümleri</title>
+  <meta name="description" content="GÖKSU A.Ş. - T.C. Tarım Bakanlığı Devlet Teşvikli organomineral, sıvı, damlama ve toz gübre çeşitleri. Niğde Merkezli güvenilir gübre üretimi, GTS fatura garantisi ve toptan satış.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0C3854;       /* Derin Göksu Mavisi */
+      --primary-dark: #072335;
+      --secondary: #5C942B;     /* Doğa ve Bereket Yeşili */
+      --secondary-light: #76B33D;
+      --gold: #D4A034;          /* Olgun Başak Sarısı */
+      --gold-light: #F9E8C6;
+      --bg-light: #F5F7F6;
+      --card-bg: #FFFFFF;
+      --text: #1E262B;
+      --text-muted: #56646D;
+      --border: #DDE5E8;
+      --radius: 12px;
+      --shadow: 0 10px 30px rgba(12, 56, 84, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Emergency / Info Bar */
+    .top-bar {
+      background: var(--primary-dark);
+      color: #D1E1EB;
+      font-size: 13px;
+      padding: 9px 0;
+      border-bottom: 2px solid var(--secondary);
+    }
+    .top-bar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .top-bar-left a {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .top-bar-badge {
+      background: rgba(92, 148, 43, 0.25);
+      color: #A9E27E;
+      border: 1px solid var(--secondary);
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Main Navigation */
+    .site-nav {
+      background: #FFFFFF;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 12px 0;
+    }
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .brand-logo img {
+      max-height: 60px;
+      width: auto;
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 14.5px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--secondary);
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-call {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-light);
+      color: var(--primary);
+      border: 1.5px solid var(--border);
+      padding: 9px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13.5px;
+      transition: all 0.2s;
+    }
+    .btn-call:hover {
+      border-color: var(--primary);
+      background: #FFFFFF;
+    }
+    .btn-quote {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--secondary);
+      color: #FFFFFF;
+      padding: 10px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 13.5px;
+      box-shadow: 0 4px 14px rgba(92, 148, 43, 0.35);
+      transition: all 0.2s;
+    }
+    .btn-quote:hover {
+      background: var(--secondary-light);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, #09283C 0%, #061925 100%);
+      color: #FFFFFF;
+      padding: 70px 0 60px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 4px solid var(--secondary);
+    }
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(92, 148, 43, 0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(212, 160, 52, 0.15);
+      border: 1px solid var(--gold);
+      color: #F8DE9F;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      line-height: 1.2;
+      color: #FFFFFF;
+      margin-bottom: 18px;
+    }
+    .hero-title span {
+      color: var(--secondary-light);
+    }
+    .hero-subtitle {
+      font-size: 16.5px;
+      color: #CFE0EA;
+      line-height: 1.6;
+      margin-bottom: 26px;
+    }
+    .hero-cta-group {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .btn-hero-main {
+      background: var(--secondary);
+      color: #FFFFFF;
+      padding: 13px 28px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 6px 20px rgba(92, 148, 43, 0.4);
+      transition: all 0.2s;
+    }
+    .btn-hero-main:hover {
+      background: var(--secondary-light);
+      transform: translateY(-2px);
+    }
+    .btn-hero-sub {
+      background: rgba(255,255,255,0.08);
+      color: #FFFFFF;
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 13px 26px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-hero-sub:hover {
+      background: rgba(255,255,255,0.18);
+    }
+
+    /* Hero Right Card (Devlet Teşviki & GTS) */
+    .hero-card {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      border-top: 5px solid var(--secondary);
+    }
+    .hero-card-img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .hero-card-title {
+      font-size: 18px;
+      color: #FFFFFF;
+      font-weight: 800;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-card-desc {
+      font-size: 13.5px;
+      color: #B4CAD6;
+      line-height: 1.5;
+    }
+
+    /* Trust Stats Strip */
+    .trust-strip {
+      background: #FFFFFF;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+      border-radius: var(--radius);
+      margin-top: -36px;
+      position: relative;
+      z-index: 10;
+      padding: 24px 30px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      border: 1px solid var(--border);
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .trust-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      background: rgba(92, 148, 43, 0.12);
+      color: var(--secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .trust-label {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.25;
+      margin-bottom: 2px;
+    }
+    .trust-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Section Styling */
+    .section-wrap {
+      padding: 70px 0;
+    }
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 46px;
+    }
+    .section-pre {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--secondary);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .section-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    /* Products Filter & Grid */
+    .product-filter {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      padding: 9px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .product-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      position: relative;
+      border-top: 4px solid var(--secondary);
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(12, 56, 84, 0.12);
+      border-top-color: var(--gold);
+    }
+    .product-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--gold-light);
+      color: #8A641A;
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+    .product-cat {
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--secondary);
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .product-title {
+      font-size: 19px;
+      color: var(--primary);
+      font-weight: 800;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .product-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+    .product-crops {
+      background: #F4F8F5;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 18px;
+    }
+    .crops-title {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .crops-list {
+      font-size: 12px;
+      color: var(--secondary);
+      font-weight: 700;
+    }
+    .btn-product-wa {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #25D366;
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 13.5px;
+      padding: 11px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .btn-product-wa:hover {
+      background: #1EBE5D;
+    }
+
+    /* Government Incentive & GTS Showcase */
+    .gov-showcase {
+      background: linear-gradient(135deg, #09283C 0%, #061925 100%);
+      color: #FFFFFF;
+      border-radius: var(--radius);
+      padding: 44px 50px;
+      position: relative;
+      border-left: 6px solid var(--secondary);
+      margin-top: 30px;
+    }
+    .gov-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: center;
+    }
+    .gov-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: #FFFFFF;
+      margin-bottom: 14px;
+    }
+    .gov-desc {
+      font-size: 14.5px;
+      color: #C3D8E5;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .gov-checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 14px;
+    }
+    .gov-checklist li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .gov-checklist span {
+      color: var(--secondary-light);
+      font-weight: 900;
+    }
+
+    /* Why Goksu Cards */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .why-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      border-bottom: 4px solid var(--primary);
+    }
+    .why-icon {
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+    .why-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .why-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* FAQ Section */
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .faq-item {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+    }
+    .faq-question {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .faq-answer {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Contact & Quick Quote */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 36px;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .contact-info-side {
+      background: var(--primary);
+      color: #FFFFFF;
+      padding: 44px;
+    }
+    .contact-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: #FFFFFF;
+      margin-bottom: 14px;
+    }
+    .contact-p {
+      color: #BFD7E6;
+      font-size: 14.5px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+    .contact-details {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .contact-det-item {
+      display: flex;
+      gap: 12px;
+      font-size: 14.5px;
+    }
+    .contact-det-icon {
+      font-size: 20px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .contact-form-side {
+      padding: 44px;
+    }
+    .form-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+    .form-sub {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--text);
+      transition: border-color 0.2s;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--secondary);
+    }
+    .btn-submit {
+      width: 100%;
+      background: var(--secondary);
+      color: #FFFFFF;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-submit:hover {
+      background: var(--secondary-light);
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--primary-dark);
+      color: #8DAABF;
+      padding: 50px 0 24px;
+      border-top: 3px solid var(--secondary);
+      font-size: 13.5px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 36px;
+      margin-bottom: 40px;
+    }
+    .footer-brand h4 {
+      color: #FFFFFF;
+      font-size: 18px;
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+    .footer-brand p {
+      line-height: 1.6;
+      max-width: 380px;
+    }
+    .footer-links h4 {
+      color: #FFFFFF;
+      font-size: 15px;
+      margin-bottom: 14px;
+      font-weight: 800;
+    }
+    .footer-links ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .footer-links a {
+      color: #8DAABF;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: #FFFFFF;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 12.5px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid, .gov-grid, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .products-grid, .why-grid, .trust-strip, .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+      .hero-title {
+        font-size: 30px;
+      }
+      .trust-strip {
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Emergency / Info Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-left">
+        <span class="top-bar-badge">🏛️ T.C. Tarım Bakanlığı GTS Kayıtlı</span>
+        <span>📍 Niğde Merkez / Sazlıca Beldesi</span>
+        <a href="tel:+905323358270">📞 +90 532 335 82 70</a>
+        <a href="mailto:info@gok-su.com">✉️ info@gok-su.com</a>
+      </div>
+      <div>
+        <span style="color: var(--gold); font-weight: 700;">🌾 ÇKS Devlet Teşvikli Faturalı Satış</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="site-nav">
+    <div class="container nav-wrapper">
+      <a href="#home" class="brand-logo">
+        <img src="assets/logo.jpg" alt="GÖKSU A.Ş. Tarım ve Gübre Logosu">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#urunler">Ürünlerimiz</a></li>
+        <li><a href="#tesvik">Devlet Teşvikleri</a></li>
+        <li><a href="#neden-goksu">Neden Göksu?</a></li>
+        <li><a href="#sss">S.S.S.</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="tel:+905323358270" class="btn-call">📞 Tıkla Ara</a>
+        <a href="#teklif" class="btn-quote">📋 Fiyat Teklifi Al</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-tag">🌾 T.C. TARIM BAKANLIĞI DEVLET TEŞVİKLİ GÜBRELER</div>
+        <h1 class="hero-title">Toprağa Dokunan Eller, <span>Geleceği Yeşertir</span></h1>
+        <p class="hero-subtitle">
+          GÖKSU A.Ş. olarak Niğde'den tüm Türkiye'ye; yüksek verimlilik ve hızlı emilim sağlayan organomineral, sıvı yaprak, damlama sulama ve toz gübrelerimizle çiftçimizin ve bayilerimizin yanındayız.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#urunler" class="btn-hero-main">🌱 Ürünleri Keşfedin</a>
+          <a href="https://wa.me/905323358270?text=Merhaba,%20Göksu%20A.Ş.%20ürünleri%20hakkında%20bilgi%20ve%20toptan%20fiyat%20almak%20istiyorum." target="_blank" class="btn-hero-sub">
+            💬 WhatsApp ile Danış
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Right Card -->
+      <div class="hero-card">
+        <img src="assets/tesvik.webp" alt="Devlet Teşvikli Gübre" class="hero-card-img" onerror="this.style.display='none'">
+        <div class="hero-card-title">
+          <span>🏛️</span> GTS & ÇKS Destekleme Güvencesi
+        </div>
+        <p class="hero-card-desc">
+          Tüm gübrelerimiz Gübre Takip Sistemi (GTS) barkodlu ve T.C. Tarım Bakanlığı teşviklerine %100 uygundur. Faturalı teslimat ile devlet desteğinden eksiksiz faydalanın.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Stats Strip -->
+  <div class="container">
+    <div class="trust-strip">
+      <div class="trust-item">
+        <div class="trust-icon">🏛️</div>
+        <div>
+          <div class="trust-label">GTS Barkodlu</div>
+          <div class="trust-sub">Bakanlık Takip Garantisi</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">📈</div>
+        <div>
+          <div class="trust-label">Yüksek Verimlilik</div>
+          <div class="trust-sub">Hızlı Emilimli Mikrobesinler</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🌿</div>
+        <div>
+          <div class="trust-label">%100 Sürdürülebilir</div>
+          <div class="trust-sub">Toprak Yapısını Koruyan Formül</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🤝</div>
+        <div>
+          <div class="trust-label">Vadeli Satış İmkânı</div>
+          <div class="trust-sub">Çiftçiye ve Bayiye Destek</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Catalog Section -->
+  <section class="section-wrap" id="urunler">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-pre">EN İYİ KALİTE TARIM ÜRÜNLERİ</div>
+        <h2 class="section-title">Geniş Gübre & Besleme Yelpazesi</h2>
+        <p class="section-desc">
+          Toprağınızın ve bitkilerinizin tüm büyüme aşamalarında ihtiyaç duyduğu makro ve mikro besinleri sağlayan özel formülasyonlar.
+        </p>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid">
+        <!-- Ürün 1: Organomineral -->
+        <div class="product-card">
+          <div>
+            <div class="product-badge">ÇKS Teşvikli</div>
+            <div class="product-cat">Toprak Düzenleyici</div>
+            <h3 class="product-title">Organomineral Taban Gübreleri</h3>
+            <p class="product-desc">
+              Organik madde ve mineral elementleri bir arada sunarak toprağın su tutma kapasitesini ve biyolojik aktivitesini artıran devrim niteliğinde taban gübresi.
+            </p>
+            <div class="product-crops">
+              <div class="crops-title">Önerilen Bitkiler:</div>
+              <div class="crops-list">🥔 Patates, 🍎 Elma, 🌽 Mısır, 🌾 Buğday</div>
+            </div>
+          </div>
+          <a href="https://wa.me/905323358270?text=Merhaba,%20Organomineral%20Gübreler%20hakkında%20fiyat%20ve%20analiz%20istiyorum." target="_blank" class="btn-product-wa">
+            💬 WhatsApp ile Fiyat Al
+          </a>
+        </div>
+
+        <!-- Ürün 2: Sıvı Yaprak Gübreleri -->
+        <div class="product-card">
+          <div>
+            <div class="product-badge">Hızlı Emilim</div>
+            <div class="product-cat">Yapraktan Besleme</div>
+            <h3 class="product-title">Özel Formüllü Sıvı Gübreler</h3>
+            <p class="product-desc">
+              Bitkilerin stres koşullarında hızla besin almasını sağlayan, Çinko, Bor, Kalsiyum ve Magnezyum zengini şelatlar içeren yüksek performanslı yaprak gübreleri.
+            </p>
+            <div class="product-crops">
+              <div class="crops-title">Önerilen Bitkiler:</div>
+              <div class="crops-list">🍅 Domates, 🍇 Bağ, 🍒 Kiraz, 🫑 Biber</div>
+            </div>
+          </div>
+          <a href="https://wa.me/905323358270?text=Merhaba,%20Sıvı%20Yaprak%20Gübreleri%20hakkında%20fiyat%20ve%20analiz%20istiyorum." target="_blank" class="btn-product-wa">
+            💬 WhatsApp ile Fiyat Al
+          </a>
+        </div>
+
+        <!-- Ürün 3: Damlama NPK -->
+        <div class="product-card">
+          <div>
+            <div class="product-badge">%100 Suda Çözünür</div>
+            <div class="product-cat">Damlama Sulama</div>
+            <h3 class="product-title">Toz Damlama Sulama Gübreleri (NPK)</h3>
+            <p class="product-desc">
+              Damlama sistemlerinde tıkanma yapmayan, kök gelişimini hızlandıran ve çiçeklenme/meyve bağlamayı artıran saf NPK serisi (10-52-10, 20-20-20, 16-8-24).
+            </p>
+            <div class="product-crops">
+              <div class="crops-title">Önerilen Bitkiler:</div>
+              <div class="crops-list">🍓 Çilek, 🥒 Salatalık, 🍏 Meyve Bahçeleri</div>
+            </div>
+          </div>
+          <a href="https://wa.me/905323358270?text=Merhaba,%20Toz%20Damlama%20Gübreleri%20hakkında%20fiyat%20ve%20analiz%20istiyorum." target="_blank" class="btn-product-wa">
+            💬 WhatsApp ile Fiyat Al
+          </a>
+        </div>
+
+        <!-- Ürün 4: Kimyasal Taban Gübresi -->
+        <div class="product-card">
+          <div>
+            <div class="product-badge">Yüksek Azot / Fosfor</div>
+            <div class="product-cat">Klasik Kimyasal</div>
+            <h3 class="product-title">Kimyasal Taban & Üst Gübreleri</h3>
+            <p class="product-desc">
+              Geniş tarla ziraatinde yüksek mahsul alımı için dengelenmiş, homojen granül yapılı klasik taban ve üst gübre çeşitleri (Üre, DAP, Kompoze).
+            </p>
+            <div class="product-crops">
+              <div class="crops-title">Önerilen Bitkiler:</div>
+              <div class="crops-list">🌾 Arpa, 🌻 Ayçiçeği, 🍬 Şeker Pancarı</div>
+            </div>
+          </div>
+          <a href="https://wa.me/905323358270?text=Merhaba,%20Kimyasal%20Taban%20Gübreleri%20hakkında%20fiyat%20ve%20analiz%20istiyorum." target="_blank" class="btn-product-wa">
+            💬 WhatsApp ile Fiyat Al
+          </a>
+        </div>
+
+        <!-- Ürün 5: Yem & Besi Grubu -->
+        <div class="product-card">
+          <div>
+            <div class="product-badge">Hayvancılık</div>
+            <div class="product-cat">Besleme & Yem</div>
+            <h3 class="product-title">Kaliteli Yem ve Premiks Grubu</h3>
+            <p class="product-desc">
+              Büyükbaş ve küçükbaş hayvancılıkta süt ve et verimini maksimum seviyeye çıkaran, vitamin-mineral dengesi laboratuvarda test edilmiş kaliteli yem serisi.
+            </p>
+            <div class="product-crops">
+              <div class="crops-title">Hedef Sektör:</div>
+              <div class="crops-list">🐄 Süt Sığırcılığı, 🐂 Besi Çiftlikleri</div>
+            </div>
+          </div>
+          <a href="https://wa.me/905323358270?text=Merhaba,%20Yem%20ve%20Hayvancılık%20ürünleri%20hakkında%20fiyat%20istiyorum." target="_blank" class="btn-product-wa">
+            💬 WhatsApp ile Fiyat Al
+          </a>
+        </div>
+
+        <!-- Ürün 6: Bitki Koruma & Aletler -->
+        <div class="product-card">
+          <div>
+            <div class="product-badge">Teknik Ekipman</div>
+            <div class="product-cat">Koruma & Alet</div>
+            <h3 class="product-title">Tarım Aletleri & Haşere Grubu</h3>
+            <p class="product-desc">
+              Mahsulünüzü zararlı böcek ve hastalıklardan koruyan ruhsatlı haşere grubu çözümleri ve modern bağ-bahçe bakım ekipmanları.
+            </p>
+            <div class="product-crops">
+              <div class="crops-title">Kapsam:</div>
+              <div class="crops-list">🌿 Zirai Mücadele, 🛠️ Bahçe Aletleri</div>
+            </div>
+          </div>
+          <a href="https://wa.me/905323358270?text=Merhaba,%20Tarım%20Aletleri%20ve%20Haşere%20ürünleri%20hakkında%20bilgi%20istiyorum." target="_blank" class="btn-product-wa">
+            💬 WhatsApp ile Fiyat Al
+          </a>
+        </div>
+      </div>
+
+      <!-- Government Incentive Showcase -->
+      <div class="gov-showcase" id="tesvik">
+        <div class="gov-grid">
+          <div>
+            <div style="color: var(--gold); font-size: 12px; font-weight: 800; text-transform: uppercase; margin-bottom: 6px;">DEVLET DESTEKLEME GÜVENCESİ</div>
+            <h3 class="gov-title">T.C. Tarım ve Orman Bakanlığı GTS Sistemiyle Tam Güven</h3>
+            <p class="gov-desc">
+              Piyasadaki sahte ve kalitesiz gübre risklerine karşı GÖKSU A.Ş. ürünlerinin tamamı <strong>Gübre Takip Sistemi (GTS) DNA barkodludur.</strong> Faturanız doğrudan ÇKS (Çiftçi Kayıt Sistemi) desteklemesine uygun düzenlenir.
+            </p>
+            <ul class="gov-checklist">
+              <li><span>✓</span> %100 Resmi Faturalı ve GTS Takip Belgeli</li>
+              <li><span>✓</span> Devlet Gübre Teşvikinden Eksiksiz Yararlanma</li>
+              <li><span>✓</span> Laboratuvarda Doğrulanmış Saf Besin Değerleri</li>
+            </ul>
+          </div>
+          <div style="text-align: center;">
+            <div style="background: rgba(255,255,255,0.08); border: 2px dashed rgba(255,255,255,0.25); border-radius: 12px; padding: 28px;">
+              <div style="font-size: 38px; margin-bottom: 8px;">📑</div>
+              <div style="font-size: 18px; font-weight: 800; color: #FFFFFF; margin-bottom: 6px;">İçerik ve Fatura Garantisi</div>
+              <div style="font-size: 13.5px; color: #B2CBD9; margin-bottom: 18px;">
+                Toprağınızın ve ürününüzün hakkını veren şeffaf ve güvenilir ticaret anlayışı.
+              </div>
+              <a href="tel:+905323358270" style="display: inline-block; background: var(--secondary); color:#fff; text-decoration:none; padding:10px 22px; border-radius:999px; font-weight:800; font-size:14px;">
+                Mühendisimizle Görüşün
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Why Goksu Section -->
+  <section class="section-wrap" id="neden-goksu" style="background: #FFFFFF;">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-pre">NEDEN GÖKSU A.Ş.?</div>
+        <h2 class="section-title">Çiftçimizin ve Bayimizin Yanındayız</h2>
+        <p class="section-desc">
+          Göksu uzun zamandır tarım sektöründe hizmet vermekte, üreticinin emeğini en yüksek verimle taçlandırmaktadır.
+        </p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">🤝</div>
+          <h3 class="why-title">Vadeli Satış İmkânı</h3>
+          <p class="why-desc">
+            Üreticinin nakit akışını biliyor, hasat vadeli ve esnek ödeme planlarıyla çiftçimize can suyu oluyoruz.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon">🔬</div>
+          <h3 class="why-title">Uzman Ziraat Desteği</h3>
+          <p class="why-desc">
+            Toprağınızın analizine göre hangi ürünün ne zaman ve ne kadar atılacağını bilen uzman kadromuzla yanınızdayız.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon">🚚</div>
+          <h3 class="why-title">Hızlı ve Güvenli Sevkiyat</h3>
+          <p class="why-desc">
+            Niğde merkez depomuzdan Türkiye'nin dört bir yanına tır ve kamyon bazında güvenli ve zamanında sevkiyat.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section-wrap" id="sss">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-pre">MERAK EDİLENLER</div>
+        <h2 class="section-title">Sıkça Sorulan Sorular</h2>
+        <p class="section-desc">
+          Gübrelerimiz, destekleme süreçleri ve sipariş koşulları hakkında en çok sorulan sorular.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question"><span>❓</span> Ürünleriniz çevreye ve toprağa zarar verir mi?</div>
+          <div class="faq-answer">
+            Kesinlikle hayır. Organomineral ve organik gübre seçeneklerimiz, toprağın mikrobiyal florasını zenginleştirir, tuzlanmayı önler ve toprağın organik madde oranını artırarak sürdürülebilir tarımı destekler.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question"><span>❓</span> Devlet gübre teşvikinden ve ÇKS desteğinden nasıl yararlanırım?</div>
+          <div class="faq-answer">
+            GÖKSU A.Ş.'den aldığınız tüm gübreler Tarım Bakanlığı GTS sistemine kayıtlıdır. Düzenlediğimiz faturaları il/ilçe tarım müdürlüklerine ibraz ederek devletin dekar başına verdiği gübre ve mazot desteklemelerini eksiksiz alabilirsiniz.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question"><span>❓</span> Toptan alım veya bayilik şartlarınız nelerdir?</div>
+          <div class="faq-answer">
+            Bölgenizde Göksu A.Ş. gübrelerinin bayisi olmak veya kooperatif/birlik bazında toptan tonajlı alım yapmak için doğrudan <strong>0532 335 82 70</strong> numaramızdan bizimle iletişime geçebilirsiniz.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Quick Quote Section -->
+  <section class="section-wrap" id="iletisim" style="background: #FFFFFF;">
+    <div class="container">
+      <div class="contact-grid" id="teklif">
+        <div class="contact-info-side">
+          <h2 class="contact-title">Doğrudan İletişime Geçin</h2>
+          <p class="contact-p">
+            Toprağınızın analizini paylaşın, ihtiyacınız olan gübre miktarını ve en uygun toptan fiyat teklifimizi hemen iletelim.
+          </p>
+
+          <ul class="contact-details">
+            <li class="contact-det-item">
+              <span class="contact-det-icon">📍</span>
+              <div>
+                <strong>Merkez Adres:</strong><br>
+                Ağcaş Mah. Meydan Cad. Derman Özdoğan No: 13 B<br>
+                Sazlıca Beldesi, MERKEZ / NİĞDE (51310)
+              </div>
+            </li>
+            <li class="contact-det-item">
+              <span class="contact-det-icon">📞</span>
+              <div>
+                <strong>Telefon & WhatsApp:</strong><br>
+                <a href="tel:+905323358270" style="color:#fff; text-decoration:none; font-weight:700;">+90 532 335 82 70</a>
+              </div>
+            </li>
+            <li class="contact-det-item">
+              <span class="contact-det-icon">✉️</span>
+              <div>
+                <strong>E-Posta:</strong><br>
+                <a href="mailto:info@gok-su.com" style="color:#fff; text-decoration:none;">info@gok-su.com</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="contact-form-side">
+          <h3 class="form-title">Hızlı Fiyat & Teklif Talebi</h3>
+          <p class="form-sub">Aşağıdaki formu doldurun veya doğrudan WhatsApp'tan yazın.</p>
+
+          <form onsubmit="handleQuote(event)">
+            <div class="form-group">
+              <label>Adınız Soyadınız / İşletme Adı</label>
+              <input type="text" id="q_name" class="form-control" placeholder="Örn: Ahmet Yılmaz" required>
+            </div>
+            <div class="form-group">
+              <label>Telefon Numaranız</label>
+              <input type="tel" id="q_phone" class="form-control" placeholder="05XX XXX XX XX" required>
+            </div>
+            <div class="form-group">
+              <label>İlgilendiğiniz Ürün Grubu</label>
+              <select id="q_product" class="form-control">
+                <option value="Organomineral Taban Gübreleri">Organomineral Taban Gübreleri</option>
+                <option value="Sıvı Yaprak Gübreleri">Özel Formüllü Sıvı Gübreler</option>
+                <option value="Toz Damlama Sulama NPK">Toz Damlama Sulama Gübreleri (NPK)</option>
+                <option value="Kimyasal Taban Gübreleri">Kimyasal Taban & Üst Gübreleri</option>
+                <option value="Yem ve Besi Grubu">Kaliteli Yem ve Premiks Grubu</option>
+                <option value="Toptan Bayilik Talebi">Toptan Bayilik Talebi</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Notunuz / Arazi & Miktar Bilgisi</label>
+              <textarea id="q_note" class="form-control" rows="3" placeholder="Örn: 50 dönüm elma bahçesi için taban ve yaprak gübresi fiyatı istiyorum."></textarea>
+            </div>
+            <button type="submit" class="btn-submit">
+              🚀 Teklif İsteğini WhatsApp ile İlet
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>GÖKSU TARIM VE GÜBRE A.Ş.</h4>
+          <p>
+            Niğde merkezli üretim ve dağıtım ağımızla, Türk tarımının bereketini ve sürdürülebilir geleceğini yüksek kaliteli gübre çözümleriyle destekliyoruz.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4>Hızlı Bağlantılar</h4>
+          <ul>
+            <li><a href="#urunler">Ürün Kataloğumuz</a></li>
+            <li><a href="#tesvik">Devlet Teşvikleri & GTS</a></li>
+            <li><a href="#neden-goksu">Neden Göksu?</a></li>
+            <li><a href="#sss">Sıkça Sorulan Sorular</a></li>
+            <li><a href="#iletisim">İletişim & Konum</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>İletişim</h4>
+          <p style="margin-bottom: 8px;">Ağcaş Mah. Meydan Cad. No: 13 B, Sazlıca / NİĞDE</p>
+          <p style="margin-bottom: 8px;"><strong>Tel:</strong> +90 532 335 82 70</p>
+          <p><strong>E-Posta:</strong> info@gok-su.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 GÖKSU A.Ş. Tüm Hakları Saklıdır.</div>
+        <div>T.C. Tarım ve Orman Bakanlığı GTS Takip Sistemi Kayıtlıdır.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function handleQuote(e) {
+      e.preventDefault();
+      const name = document.getElementById('q_name').value.trim();
+      const phone = document.getElementById('q_phone').value.trim();
+      const product = document.getElementById('q_product').value;
+      const note = document.getElementById('q_note').value.trim();
+
+      const text = `Merhaba Göksu A.Ş.,\n\nAdım: ${name}\nTelefon: ${phone}\nİlgilendiğim Ürün: ${product}\nNotum/Miktar: ${note}\n\nDetaylı fiyat ve analiz teklifi almak istiyorum.`;
+      const encoded = encodeURIComponent(text);
+      window.open(`https://wa.me/905323358270?text=${encoded}`, '_blank');
+    }
+  </script>
+
+</body>
+</html>
