@@ -50,26 +50,30 @@
       padding: 0 18px;
     }
 
-    /* Top Badge Bar */
-    .top-pill-wrap {
+    /* Top Navigation Bar with Language Switcher */
+    .top-nav {
       display: flex;
-      justify-content: center;
-      padding-top: 24px;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 20px;
+      gap: 10px;
+      flex-wrap: wrap;
     }
+
     .top-pill {
       background: rgba(255, 42, 95, 0.12);
       border: 1px solid rgba(255, 42, 95, 0.35);
       color: #FF7597;
-      padding: 6px 14px;
+      padding: 5px 12px;
       border-radius: 999px;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.5px;
       display: inline-flex;
       align-items: center;
       gap: 6px;
       text-transform: uppercase;
-      box-shadow: 0 0 20px rgba(255, 42, 95, 0.2);
+      box-shadow: 0 0 15px rgba(255, 42, 95, 0.2);
     }
     .live-dot {
       width: 7px;
@@ -83,10 +87,39 @@
       50% { opacity: 0.4; transform: scale(0.8); }
     }
 
+    /* Language Switcher Selector */
+    .lang-switcher {
+      display: inline-flex;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      padding: 3px;
+      gap: 3px;
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .lang-btn.active {
+      background: var(--crimson);
+      color: #FFFFFF;
+      box-shadow: 0 0 10px rgba(255, 42, 95, 0.4);
+    }
+
     /* Hero Header */
     .hero-header {
       text-align: center;
-      margin: 20px 0 26px;
+      margin: 18px 0 24px;
     }
     .hero-title {
       font-family: 'Space Grotesk', sans-serif;
@@ -507,11 +540,6 @@
       font-size: 12px;
       color: var(--text-muted);
     }
-    .site-footer a {
-      color: #FF85A2;
-      text-decoration: none;
-      font-weight: 600;
-    }
 
     /* Toast Notification */
     .toast {
@@ -540,18 +568,25 @@
 
   <div class="container">
     
-    <!-- Top Pill -->
-    <div class="top-pill-wrap">
+    <!-- Top Nav with Live Badge & Global Language Switcher -->
+    <div class="top-nav">
       <div class="top-pill">
         <span class="live-dot"></span>
-        AI Dating Forensic Suite v2.4
+        <span id="txtSuiteBadge">AI Dating Forensic Suite v2.4</span>
+      </div>
+
+      <div class="lang-switcher">
+        <button type="button" class="lang-btn active" id="btnLang_en" onclick="changeLang('en')">🇺🇸 EN</button>
+        <button type="button" class="lang-btn" id="btnLang_es" onclick="changeLang('es')">🇪🇸 ES</button>
+        <button type="button" class="lang-btn" id="btnLang_de" onclick="changeLang('de')">🇩🇪 DE</button>
+        <button type="button" class="lang-btn" id="btnLang_fr" onclick="changeLang('fr')">🇫🇷 FR</button>
       </div>
     </div>
 
     <!-- Hero Header -->
     <header class="hero-header">
-      <h1 class="hero-title">The Red Flag <span>Scanner™</span></h1>
-      <p class="hero-desc">
+      <h1 class="hero-title" id="txtHeroTitle">The Red Flag <span>Scanner™</span></h1>
+      <p class="hero-desc" id="txtHeroDesc">
         60-Second Relationship & Narcissist Behavior Audit. Pinpoint emotional traps and get 1-click savage exit texts.
       </p>
     </header>
@@ -560,15 +595,15 @@
     <div class="stats-ribbon">
       <div>
         <div class="stat-box-val">142,850+</div>
-        <div class="stat-box-lbl">Scans Run</div>
+        <div class="stat-box-lbl" id="txtStatScans">Scans Run</div>
       </div>
       <div>
         <div class="stat-box-val">76.4%</div>
-        <div class="stat-box-lbl">Avg Toxicity</div>
+        <div class="stat-box-lbl" id="txtStatAvg">Avg Toxicity</div>
       </div>
       <div>
         <div class="stat-box-val">99.1%</div>
-        <div class="stat-box-lbl">Accuracy</div>
+        <div class="stat-box-lbl" id="txtStatAcc">Accuracy</div>
       </div>
     </div>
 
@@ -576,7 +611,7 @@
     <div class="quiz-card" id="quizSection">
       <div class="quiz-sec-header">
         <div class="quiz-sec-title">
-          <span>🚩</span> Behavioral Checklist
+          <span>🚩</span> <span id="txtChecklistTitle">Behavioral Checklist</span>
         </div>
         <div class="quiz-progress-text" id="answeredCount">0 / 10 Selected</div>
       </div>
@@ -587,7 +622,7 @@
       <!-- Submit Scan Button -->
       <div style="margin-top: 24px;">
         <button class="btn-scan" onclick="runAnalysis()">
-          <span>⚡ RUN TOXICITY SCAN</span>
+          <span id="txtBtnScan">⚡ RUN TOXICITY SCAN</span>
         </button>
       </div>
     </div>
@@ -599,14 +634,14 @@
         <div class="radar-icon">🚨</div>
       </div>
       <div class="scan-status-text" id="scanStatus">Scanning Text Frequency...</div>
-      <div class="scan-sub-text">Cross-referencing 40,000+ toxic archetype patterns</div>
+      <div class="scan-sub-text" id="txtScanSub">Cross-referencing 40,000+ toxic archetype patterns</div>
     </div>
 
     <!-- Result Dossier -->
     <div class="result-dossier" id="resultSection">
       <div class="dossier-card">
         <div class="dossier-badge-top">
-          <span class="dossier-tag">CONFIDENTIAL FORENSIC DOSSIER</span>
+          <span class="dossier-tag" id="txtDossierTag">CONFIDENTIAL FORENSIC DOSSIER</span>
           <span class="dossier-timestamp" id="dossierTime">JUST NOW</span>
         </div>
 
@@ -617,7 +652,7 @@
 
         <!-- Archetype Box -->
         <div class="archetype-box">
-          <div class="arch-sub">Diagnosed Behavioral Archetype</div>
+          <div class="arch-sub" id="txtArchSub">Diagnosed Behavioral Archetype</div>
           <div class="arch-title" id="archTitle">The Chameleon Gaslighter</div>
           <div class="arch-desc" id="archDesc">
             Masters the art of shifting blame. Whenever you bring up an issue, they turn it around until you apologize for bringing it up in the first place.
@@ -627,19 +662,19 @@
         <!-- Sub Indices -->
         <div class="sub-indices">
           <div class="sub-idx-card">
-            <div class="sub-idx-title">Gaslighting Index</div>
+            <div class="sub-idx-title" id="txtLblGaslight">Gaslighting Index</div>
             <div class="sub-idx-val" id="idxGaslight" style="color: #FF5A82;">HIGH (88%)</div>
           </div>
           <div class="sub-idx-card">
-            <div class="sub-idx-title">Emotional Breadcrumbs</div>
+            <div class="sub-idx-title" id="txtLblBreadcrumb">Emotional Breadcrumbs</div>
             <div class="sub-idx-val" id="idxBreadcrumb" style="color: #FFB020;">ACUTE (74%)</div>
           </div>
           <div class="sub-idx-card">
-            <div class="sub-idx-title">Narcissist Traits</div>
+            <div class="sub-idx-title" id="txtLblNarcissist">Narcissist Traits</div>
             <div class="sub-idx-val" id="idxNarcissist" style="color: #FF2A5F;">CRITICAL (91%)</div>
           </div>
           <div class="sub-idx-card">
-            <div class="sub-idx-title">Future-Faking Risk</div>
+            <div class="sub-idx-title" id="txtLblFutureFake">Future-Faking Risk</div>
             <div class="sub-idx-val" id="idxFutureFake" style="color: #9D4EDD;">ELEVATED (80%)</div>
           </div>
         </div>
@@ -647,13 +682,13 @@
         <!-- Savage Clapbacks -->
         <div class="clapbacks-sec">
           <div class="clapbacks-title">
-            <span>💬</span> 1-Click Savage Exit Texts
+            <span>💬</span> <span id="txtClapbackTitle">1-Click Savage Exit Texts</span>
           </div>
-          <div class="clapbacks-sub">Tap copy and paste directly into iMessage / WhatsApp / DM.</div>
+          <div class="clapbacks-sub" id="txtClapbackSub">Tap copy and paste directly into iMessage / WhatsApp / DM.</div>
 
           <div class="clapback-card">
             <div>
-              <span class="cb-tag">1. ICE COLD CORPORATE</span>
+              <span class="cb-tag" id="txtCbTag1">1. ICE COLD CORPORATE</span>
               <div class="cb-text" id="cbText1">"I’ve decided to unsubscribe from your free trial of emotional availability. Wishing you the best!"</div>
             </div>
             <button class="btn-copy" onclick="copyText('cbText1')">Copy</button>
@@ -661,7 +696,7 @@
 
           <div class="clapback-card">
             <div>
-              <span class="cb-tag">2. THE PHANTOM CLOSURE</span>
+              <span class="cb-tag" id="txtCbTag2">2. THE PHANTOM CLOSURE</span>
               <div class="cb-text" id="cbText2">"You wanted mystery and space. Now you have both, permanently."</div>
             </div>
             <button class="btn-copy" onclick="copyText('cbText2')">Copy</button>
@@ -669,7 +704,7 @@
 
           <div class="clapback-card">
             <div>
-              <span class="cb-tag">3. THE REVERSE GASLIGHT</span>
+              <span class="cb-tag" id="txtCbTag3">3. THE REVERSE GASLIGHT</span>
               <div class="cb-text" id="cbText3">"I don’t argue with people who confuse drama with passion. Take care of yourself."</div>
             </div>
             <button class="btn-copy" onclick="copyText('cbText3')">Copy</button>
@@ -678,15 +713,15 @@
 
         <!-- Retake Button -->
         <button class="btn-retake" onclick="resetAudit()">
-          🔄 Scan Another Person
+          <span id="txtBtnRetake">🔄 Scan Another Person</span>
         </button>
       </div>
     </div>
 
     <!-- Site Footer -->
     <footer class="site-footer">
-      <p>© 2026 The Red Flag Scanner™ • Powered by Aura Behavioral Intelligence</p>
-      <p style="margin-top: 6px;">For entertainment & forensic relationship clarity purposes.</p>
+      <p id="txtFooter">© 2026 The Red Flag Scanner™ • Powered by Aura Behavioral Intelligence</p>
+      <p style="margin-top: 6px;" id="txtDisclaimer">For entertainment & forensic relationship clarity purposes.</p>
     </footer>
 
   </div>
@@ -712,88 +747,352 @@
       } catch (e) {}
     }
 
-    // 10 Relatable High-Frequency Red Flag Questions
-    const questions = [
-      {
-        id: 1,
-        title: "Does their phone stay face-down or suspiciously guarded when you're around?",
-        weight: 12
+    // Comprehensive 4-Language Database
+    const i18n = {
+      en: {
+        badge: "AI Dating Forensic Suite v2.4",
+        heroTitle: 'The Red Flag <span>Scanner™</span>',
+        heroDesc: "60-Second Relationship & Narcissist Behavior Audit. Pinpoint emotional traps and get 1-click savage exit texts.",
+        statScans: "Scans Run",
+        statAvg: "Avg Toxicity",
+        statAcc: "Accuracy",
+        checklist: "Behavioral Checklist",
+        selected: "Selected",
+        btnScan: "⚡ RUN TOXICITY SCAN",
+        scanSub: "Cross-referencing 40,000+ toxic archetype patterns",
+        dossierTag: "CONFIDENTIAL FORENSIC DOSSIER",
+        justNow: "JUST NOW",
+        archSub: "Diagnosed Behavioral Archetype",
+        gaslight: "Gaslighting Index",
+        breadcrumbs: "Emotional Breadcrumbs",
+        narcissist: "Narcissist Traits",
+        futureFake: "Future-Faking Risk",
+        clapTitle: "1-Click Savage Exit Texts",
+        clapSub: "Tap copy and paste directly into iMessage / WhatsApp / DM.",
+        btnRetake: "🔄 Scan Another Person",
+        footer: "© 2026 The Red Flag Scanner™ • Powered by Aura Behavioral Intelligence",
+        disclaimer: "For entertainment & forensic relationship clarity purposes.",
+        toastCopy: "Exit text copied! Paste into chat 📋",
+        toastMin: "⚠️ Please answer at least 5 questions for accuracy!",
+        optNever: "🟢 Never",
+        optSome: "🟡 Sometimes",
+        optOften: "🚩 Often",
+        statuses: [
+          "Analyzing Defensive Language Patterns...",
+          "Measuring Love-Bombing to Ghosting Cycles...",
+          "Calculating Gaslight-to-Accountability Ratio...",
+          "Synthesizing Diagnostic Forensic Dossier..."
+        ],
+        results: {
+          highLabel: "CRITICAL TOXIC HAZARD (RED CODE)",
+          highArch: "The Chameleon Gaslighter",
+          highDesc: "A textbook master of deflecting accountability. Whenever you bring up an issue, they skillfully maneuver the conversation until you end up apologizing for having feelings in the first place.",
+          modLabel: "MODERATE TOXICITY & BREADCRUMBER",
+          modArch: "The Phantom Dater",
+          modDesc: "Provides just enough attention to keep you hooked, but vanishes the moment real consistency or emotional vulnerability is required.",
+          lowLabel: "LOW THREAT / GREEN FLAG TRAITS",
+          lowArch: "The Clumsy Communicator",
+          lowDesc: "Shows minor miscommunication traits, but lacks the intentional manipulation of a classic narcissist. Direct, calm communication can resolve 90% of issues.",
+          cb1Tag: "1. ICE COLD CORPORATE",
+          cb1Text: `"I’ve decided to unsubscribe from your free trial of emotional availability. Wishing you the best!"`,
+          cb2Tag: "2. THE PHANTOM CLOSURE",
+          cb2Text: `"You wanted mystery and space. Now you have both, permanently."`,
+          cb3Tag: "3. THE REVERSE GASLIGHT",
+          cb3Text: `"I don’t argue with people who confuse drama with passion. Take care of yourself."`
+        },
+        questions: [
+          { id: 1, text: "Does their phone stay face-down or suspiciously guarded when you're around?", weight: 12 },
+          { id: 2, text: "Do they take 6+ hours to reply, but are actively posting stories / active 2 mins ago?", weight: 10 },
+          { id: 3, text: "When you share a concern, do they flip it so YOU end up apologizing to THEM?", weight: 15 },
+          { id: 4, text: "Are literally ALL of their exes described as 'crazy' or 'toxic'?", weight: 12 },
+          { id: 5, text: "Do they shower you with love for 3 days, then act distant and cold for a week?", weight: 14 },
+          { id: 6, text: "Do they cancel plans last-minute with vague excuses, but expect you to be on-call 24/7?", weight: 9 },
+          { id: 7, text: "Do they disguise mean or condescending remarks as 'just joking, you're too sensitive'?", weight: 13 },
+          { id: 8, text: "Do they talk big about future vacations/plans together, but rarely follow through?", weight: 11 },
+          { id: 9, text: "Do they remember and bring up small mistakes you made months ago during fights?", weight: 12 },
+          { id: 10, text: "Does hanging out with them leave you feeling drained, confused, or walking on eggshells?", weight: 16 }
+        ]
       },
-      {
-        id: 2,
-        title: "Do they take 6+ hours to reply, but are actively posting stories / active 2 mins ago?",
-        weight: 10
-      },
-      {
-        id: 3,
-        title: "When you share a concern, do they flip it so YOU end up apologizing to THEM?",
-        weight: 15
-      },
-      {
-        id: 4,
-        title: "Are literally ALL of their exes described as 'crazy' or 'toxic'?",
-        weight: 12
-      },
-      {
-        id: 5,
-        title: "Do they shower you with love for 3 days, then act distant and cold for a week?",
-        weight: 14
-      },
-      {
-        id: 6,
-        title: "Do they cancel plans last-minute with vague excuses, but expect you to be on-call 24/7?",
-        weight: 9
-      },
-      {
-        id: 7,
-        title: "Do they disguise mean or condescending remarks as 'just joking, you're too sensitive'?",
-        weight: 13
-      },
-      {
-        id: 8,
-        title: "Do they talk big about future vacations/plans together, but rarely follow through?",
-        weight: 11
-      },
-      {
-        id: 9,
-        title: "Do they remember and bring up small mistakes you made months ago during fights?",
-        weight: 12
-      },
-      {
-        id: 10,
-        title: "Does hanging out with them leave you feeling drained, confused, or walking on eggshells?",
-        weight: 16
-      }
-    ];
 
+      es: {
+        badge: "Suite Forense de Citas IA v2.4",
+        heroTitle: 'El Escáner de <span>Banderas Rojas™</span>',
+        heroDesc: "Auditoría en 60 segundos sobre narcisismo y comportamiento tóxico. Detecta trampas y obtén mensajes de salida letales.",
+        statScans: "Escaneos",
+        statAvg: "Toxicidad Media",
+        statAcc: "Precisión",
+        checklist: "Lista de Comportamientos",
+        selected: "Seleccionados",
+        btnScan: "⚡ INICIAR ESCANEO DE TOXICIDAD",
+        scanSub: "Cruzando más de 40,000 patrones de arquetipos tóxicos",
+        dossierTag: "EXPEDIENTE FORENSE CONFIDENCIAL",
+        justNow: "AHORA MISMO",
+        archSub: "Arquetipo Conductual Diagnosticado",
+        gaslight: "Índice de Gaslighting",
+        breadcrumbs: "Migajas Emocionales",
+        narcissist: "Rasgos Narcisistas",
+        futureFake: "Riesgo de Falso Futuro",
+        clapTitle: "Mensajes Letales de 1-Clic",
+        clapSub: "Toca copiar y pega directamente en WhatsApp o Instagram.",
+        btnRetake: "🔄 Escanear a Otra Persona",
+        footer: "© 2026 The Red Flag Scanner™ • Impulsado por Inteligencia Conductual Aura",
+        disclaimer: "Para fines de entretenimiento y claridad relacional.",
+        toastCopy: "¡Mensaje copiado! Pégalo en tu chat 📋",
+        toastMin: "⚠️ ¡Responde al menos 5 preguntas para mayor precisión!",
+        optNever: "🟢 Nunca",
+        optSome: "🟡 A veces",
+        optOften: "🚩 Frecuente",
+        statuses: [
+          "Analizando patrones de lenguaje defensivo...",
+          "Midiendo ciclos de 'Love-Bombing' y desaparición...",
+          "Calculando ratio de manipulación y evasión...",
+          "Sintetizando expediente forense de diagnóstico..."
+        ],
+        results: {
+          highLabel: "PELIGRO TÓXICO CRÍTICO (CÓDIGO ROJO)",
+          highArch: "El Camaleón Manipulador (Gaslighter)",
+          highDesc: "Un maestro consumado en eludir responsabilidades. Cada vez que planteas un problema, le da la vuelta magistralmente hasta que terminas disculpándote tú por haberlo mencionado.",
+          modLabel: "TOXICIDAD MODERADA (LANZA-MIGAJAS)",
+          modArch: "El Fantasma Intermitente",
+          modDesc: "Te da la atención justa para mantenerte enganchado/a, pero desaparece en el momento exacto en que se requiere compromiso o vulnerabilidad real.",
+          lowLabel: "BAJO RIESGO / BANDERAS VERDES",
+          lowArch: "El Comunicador Torpe",
+          lowDesc: "Presenta pequeñas fallas de comunicación, pero carece de la manipulación intencional de un narcisista. Una charla directa y calmada resuelve el 90% de los problemas.",
+          cb1Tag: "1. CORPORATIVO Y GLACIAL",
+          cb1Text: `"He decidido cancelar mi suscripción a tu prueba gratuita de disponibilidad emocional. ¡Te deseo lo mejor!"`,
+          cb2Tag: "2. EL CIERRE FANTASMA",
+          cb2Text: `"Querías misterio y espacio. Ahora tienes ambos, permanentemente."`,
+          cb3Tag: "3. EL REVERSO GASLIGHT",
+          cb3Text: `"No discuto con personas que confunden el drama con la pasión. Cuídate mucho."`
+        },
+        questions: [
+          { id: 1, text: "¿Deja su teléfono boca abajo o lo vigila sospechosamente cuando estás cerca?", weight: 12 },
+          { id: 2, text: "¿Tarda más de 6 horas en responder, pero sube historias activas hace 2 minutos?", weight: 10 },
+          { id: 3, text: "¿Cuando expresas una queja, le da la vuelta para que TÚ termines pidiendo perdón?", weight: 15 },
+          { id: 4, text: "¿Describe a TODAS sus exparejas como 'locas' o 'tóxicas'?", weight: 12 },
+          { id: 5, text: "¿Te llena de amor durante 3 días y luego se muestra distante y frío/a por una semana?", weight: 14 },
+          { id: 6, text: "¿Cancela planes a última hora con excusas vagas, pero espera que estés disponible 24/7?", weight: 9 },
+          { id: 7, text: "¿Disfraza insultos o burlas diciendo 'era solo una broma, eres demasiado sensible'?", weight: 13 },
+          { id: 8, text: "¿Habla en grande sobre viajes y planes futuros, pero casi nunca cumple nada?", weight: 11 },
+          { id: 9, text: "¿Recuerda y te echa en cara pequeños errores que cometiste hace meses durante una discusión?", weight: 12 },
+          { id: 10, text: "¿Estar con esa persona te deja con sensación de agotamiento, confusión o pisando huevos?", weight: 16 }
+        ]
+      },
+
+      de: {
+        badge: "KI-Dating Forensik Suite v2.4",
+        heroTitle: 'Der Red Flag <span>Scanner™</span>',
+        heroDesc: "60-Sekunden Beziehungstest auf toxisches & narzisstisches Verhalten. Erkenne emotionale Fallen und erhalte eiskalte Exit-Texte.",
+        statScans: "Durchgeführt",
+        statAvg: "Ø Toxizität",
+        statAcc: "Präzision",
+        checklist: "Verhaltens-Checkliste",
+        selected: "Ausgewählt",
+        btnScan: "⚡ TOXIZITÄTS-SCAN STARTEN",
+        scanSub: "Abgleich mit 40.000+ toxischen Verhaltensmustern",
+        dossierTag: "VERTRAULICHES FORENSISCHES DOSSIER",
+        justNow: "GERADE EBEN",
+        archSub: "Diagnostizierter Verhaltenstyp",
+        gaslight: "Gaslighting-Index",
+        breadcrumbs: "Emotionale Brotkrumen",
+        narcissist: "Narzissmus-Merkmale",
+        futureFake: "Future-Faking Risiko",
+        clapTitle: "1-Klick Eiskalte Abschiedstexte",
+        clapSub: "Tippe auf Kopieren und sende es direkt per WhatsApp oder Chat.",
+        btnRetake: "🔄 Eine andere Person scannen",
+        footer: "© 2026 The Red Flag Scanner™ • Powered by Aura Behavioral Intelligence",
+        disclaimer: "Zu Unterhaltungs- und Beziehungs-Klarheitszwecken.",
+        toastCopy: "Text kopiert! In den Chat einfügen 📋",
+        toastMin: "⚠️ Bitte beantworte mindestens 5 Fragen!",
+        optNever: "🟢 Nie",
+        optSome: "🟡 Manchmal",
+        optOften: "🚩 Oft",
+        statuses: [
+          "Defensive Sprachmuster werden analysiert...",
+          "Love-Bombing- und Ghosting-Zyklen werden gemessen...",
+          "Verhältnis von Schuldumkehr zu Verantwortung wird berechnet...",
+          "Diagnostisches forensisches Dossier wird erstellt..."
+        ],
+        results: {
+          highLabel: "KRITISCHE TOXISCHE GEFAHR (CODE ROT)",
+          highArch: "Der Chamäleon-Gaslighter",
+          highDesc: "Ein absoluter Meister im Abschieben von Verantwortung. Jedes Mal, wenn du ein Problem ansprichst, dreht er/sie das Gespräch so lange, bis du dich am Ende dafür entschuldigst, überhaupt Gefühle gezeigt zu haben.",
+          modLabel: "MÄSSIGE TOXIZITÄT (BROTKRUMEN-WERFER)",
+          modArch: "Das Phantom-Date",
+          modDesc: "Gibt dir gerade genug Aufmerksamkeit, um dich bei der Stange zu halten, verschwindet aber in der Sekunde, in der echte Verlässlichkeit gefragt ist.",
+          lowLabel: "GERINGES RISIKO / GRÜNE FLAGGEN",
+          lowArch: "Der ungeschickte Kommunikator",
+          lowDesc: "Zeigt kleinere Kommunikationsschwächen, aber keine bösartige Manipulation. Ein ruhiges, offenes Gespräch löst 90% der Missverständnisse.",
+          cb1Tag: "1. EISKALT GESCHÄFTLICH",
+          cb1Text: `"Ich habe beschlossen, mein kostenloses Probeabo für deine emotionale Verfügbarkeit zu kündigen. Alles Gute für die Zukunft!"`,
+          cb2Tag: "2. DER PHANTOM-ABSCHIED",
+          cb2Text: `"Du wolltest Geheimnisse und Freiraum. Jetzt hast du beides – dauerhaft."`,
+          cb3Tag: "3. DER SCHULDUMKEHR-STOPP",
+          cb3Text: `"Ich diskutiere nicht mit Leuten, die Drama mit Leidenschaft verwechseln. Pass auf dich auf."`
+        },
+        questions: [
+          { id: 1, text: "Liegt das Handy verdächtig mit dem Display nach unten oder wird eifersüchtig bewacht?", weight: 12 },
+          { id: 2, text: "Braucht 6+ Stunden zum Antworten, postet aber zeitgleich Stories?", weight: 10 },
+          { id: 3, text: "Wenn du ein Problem ansprichst: Dreht er/sie es so, dass DU dich entschuldigst?", weight: 15 },
+          { id: 4, text: "Werden buchstäblich ALLE Ex-Partner als 'verrückt' oder 'toxisch' dargestellt?", weight: 12 },
+          { id: 5, text: "3 Tage lang überschüttet mit Liebe, danach eine Woche lang eiskalt und distanziert?", weight: 14 },
+          { id: 6, text: "Sagt kurzfristig mit vagen Ausreden ab, erwartet aber, dass du rund um die Uhr verfügbar bist?", weight: 9 },
+          { id: 7, text: "Verpackt fiese Spitzen als 'war doch nur Spaß, sei nicht so empfindlich'?", weight: 13 },
+          { id: 8, text: "Große Versprechen über gemeinsame Zukunft/Reisen, aber fast nie Taten?", weight: 11 },
+          { id: 9, text: "Kramt bei jedem Streit kleine Fehler heraus, die du vor Monaten gemacht hast?", weight: 12 },
+          { id: 10, text: "Fühlst du dich nach Treffen oft ausgelaugt, verwirrt oder wie auf Eierschalen?", weight: 16 }
+        ]
+      },
+
+      fr: {
+        badge: "Suite Médico-Légale de Rencontres IA v2.4",
+        heroTitle: 'Le Scanner de <span>Red Flags™</span>',
+        heroDesc: "Audit relationnel en 60 secondes sur le narcissisme et la toxicité. Détecte les pièges et obtiens des messages de rupture cinglants.",
+        statScans: "Analyses",
+        statAvg: "Toxicité Moyenne",
+        statAcc: "Précision",
+        checklist: "Grille Comportementale",
+        selected: "Sélectionnés",
+        btnScan: "⚡ LANCER L'ANALYSE DE TOXICITÉ",
+        scanSub: "Comparaison avec 40 000+ profils toxiques répertoriés",
+        dossierTag: "DOSSIER FORENSIQUE CONFIDENTIEL",
+        justNow: "À L'INSTANT",
+        archSub: "Archétype Comportemental Diagnostiqué",
+        gaslight: "Indice de Gaslighting",
+        breadcrumbs: "Miettes Émotionnelles",
+        narcissist: "Traits Narcissiques",
+        futureFake: "Risque de Fausses Promesses",
+        clapTitle: "Messages de Rupture Cinglants (1-Clic)",
+        clapSub: "Touche pour copier et colle directement dans WhatsApp ou SMS.",
+        btnRetake: "🔄 Scanner une autre personne",
+        footer: "© 2026 The Red Flag Scanner™ • Propulsé par l'Intelligence Comportementale Aura",
+        disclaimer: "À des fins de divertissement et de clarté relationnelle.",
+        toastCopy: "Message copié ! À coller dans le chat 📋",
+        toastMin: "⚠️ Répondez à au moins 5 questions pour plus de précision !",
+        optNever: "🟢 Jamais",
+        optSome: "🟡 Parfois",
+        optOften: "🚩 Souvent",
+        statuses: [
+          "Analyse des schémas de langage défensif...",
+          "Mesure des cycles de 'Love-Bombing' et de disparition...",
+          "Calcul du ratio manipulation/responsabilité...",
+          "Synthèse du dossier forensique de diagnostic..."
+        ],
+        results: {
+          highLabel: "DANGER TOXIQUE CRITIQUE (CODE ROUGE)",
+          highArch: "Le Caméléon Manipulateur (Gaslighter)",
+          highDesc: "Un virtuose dans l'art de fuir ses responsabilités. Chaque fois que tu soulèves un problème, il/elle retourne la situation jusqu'à ce que tu finisses par t'excuser d'avoir osé en parler.",
+          modLabel: "TOXICITÉ MODÉRÉE (DISTRIBUTEUR DE MIETTES)",
+          modArch: "Le Fantôme Intermittent",
+          modDesc: "Te donne juste assez d'attention pour te garder sous le coude, mais s'évapore dès qu'un réel engagement ou de la sincérité est requis.",
+          lowLabel: "FAIBLE RISQUE / DRAPEAUX VERTS",
+          lowArch: "Le Communicant Maladroit",
+          lowDesc: "Présente quelques maladresses de communication, mais sans malice manipulatrice. Une discussion calme et directe résout 90% des soucis.",
+          cb1Tag: "1. GLACIAL ET FORMEL",
+          cb1Text: `"J'ai décidé de résilier mon essai gratuit de ta disponibilité émotionnelle. Je te souhaite le meilleur !"`,
+          cb2Tag: "2. LA RUPTURE FANTÔME",
+          cb2Text: `"Tu voulais du mystère et de l'espace. Maintenant tu as les deux, pour toujours."`,
+          cb3Tag: "3. LE RETOURNEMENT DE SITUATION",
+          cb3Text: `"Je ne discute pas avec les personnes qui confondent drame et passion. Prends soin de toi."`
+        },
+        questions: [
+          { id: 1, text: "Laisse-t-il/elle son téléphone face contre table ou le surveille-t-il/elle bizarrement ?", weight: 12 },
+          { id: 2, text: "Met plus de 6h à répondre, mais publie activement des stories ?", weight: 10 },
+          { id: 3, text: "Quand tu exprimes un malaise, retourne-t-il/elle la faute pour que TU t'excuses ?", weight: 15 },
+          { id: 4, text: "Tous ses ex sont-ils décrits comme 'fous' ou 'toxiques' ?", weight: 12 },
+          { id: 5, text: "Couvert(e) d'amour pendant 3 jours, puis distant(e) et froid(e) pendant une semaine ?", weight: 14 },
+          { id: 6, text: "Annule à la dernière minute mais exige que tu sois disponible 24h/24 ?", weight: 9 },
+          { id: 7, text: "Déguise des piques méchantes en disant 'c'était pour rire, tu es trop sensible' ?", weight: 13 },
+          { id: 8, text: "Fait de grands discours sur l'avenir et les voyages, mais n'agit jamais ?", weight: 11 },
+          { id: 9, text: "Ressort des erreurs commises il y a des mois lors de chaque dispute ?", weight: 12 },
+          { id: 10, text: "Te sens-tu souvent vidé(e), confus(e) ou sur des charbons ardents après l'avoir vu ?", weight: 16 }
+        ]
+      }
+    };
+
+    let currentLang = 'en';
     const answers = {};
 
+    function changeLang(lang) {
+      if (!i18n[lang]) return;
+      currentLang = lang;
+      playBeep(580, 'sine', 0.05);
+
+      // Update switcher active buttons
+      ['en', 'es', 'de', 'fr'].forEach(l => {
+        const btn = document.getElementById(`btnLang_${l}`);
+        if (btn) btn.className = 'lang-btn' + (l === lang ? ' active' : '');
+      });
+
+      // Update static text elements
+      const data = i18n[lang];
+      document.getElementById('txtSuiteBadge').innerText = data.badge;
+      document.getElementById('txtHeroTitle').innerHTML = data.heroTitle;
+      document.getElementById('txtHeroDesc').innerText = data.heroDesc;
+      document.getElementById('txtStatScans').innerText = data.statScans;
+      document.getElementById('txtStatAvg').innerText = data.statAvg;
+      document.getElementById('txtStatAcc').innerText = data.statAcc;
+      document.getElementById('txtChecklistTitle').innerText = data.checklist;
+      document.getElementById('txtBtnScan').innerText = data.btnScan;
+      document.getElementById('txtScanSub').innerText = data.scanSub;
+      document.getElementById('txtDossierTag').innerText = data.dossierTag;
+      document.getElementById('dossierTime').innerText = data.justNow;
+      document.getElementById('txtArchSub').innerText = data.archSub;
+      document.getElementById('txtLblGaslight').innerText = data.gaslight;
+      document.getElementById('txtLblBreadcrumb').innerText = data.breadcrumbs;
+      document.getElementById('txtLblNarcissist').innerText = data.narcissist;
+      document.getElementById('txtLblFutureFake').innerText = data.futureFake;
+      document.getElementById('txtClapbackTitle').innerText = data.clapTitle;
+      document.getElementById('txtClapbackSub').innerText = data.clapSub;
+      document.getElementById('txtBtnRetake').innerText = data.btnRetake;
+      document.getElementById('txtFooter').innerText = data.footer;
+      document.getElementById('txtDisclaimer').innerText = data.disclaimer;
+
+      // Re-render questions in the chosen language while preserving user's choices
+      renderQuestions();
+    }
+
     function renderQuestions() {
+      const qList = i18n[currentLang].questions;
+      const data = i18n[currentLang];
       const container = document.getElementById('questionsContainer');
-      container.innerHTML = questions.map(q => `
-        <div class="q-item">
-          <div class="q-title">
-            <span class="q-num">0${q.id}</span>
-            <span>${q.title}</span>
+      
+      container.innerHTML = qList.map(q => {
+        const ans = answers[q.id];
+        const isNo = ans && ans.val === 'no';
+        const isSome = ans && ans.val === 'some';
+        const isYes = ans && ans.val === 'yes';
+
+        return `
+          <div class="q-item">
+            <div class="q-title">
+              <span class="q-num">0${q.id}</span>
+              <span>${q.text}</span>
+            </div>
+            <div class="opt-grid">
+              <button type="button" class="opt-btn${isNo ? ' active-no' : ''}" id="btn_${q.id}_no" onclick="selectOpt(${q.id}, 'no', 0)">
+                <span>${data.optNever}</span>
+              </button>
+              <button type="button" class="opt-btn${isSome ? ' active-sometimes' : ''}" id="btn_${q.id}_some" onclick="selectOpt(${q.id}, 'some', 0.5)">
+                <span>${data.optSome}</span>
+              </button>
+              <button type="button" class="opt-btn${isYes ? ' active-yes' : ''}" id="btn_${q.id}_yes" onclick="selectOpt(${q.id}, 'yes', 1.0)">
+                <span>${data.optOften}</span>
+              </button>
+            </div>
           </div>
-          <div class="opt-grid">
-            <button type="button" class="opt-btn" id="btn_${q.id}_no" onclick="selectOpt(${q.id}, 'no', 0)">
-              <span>🟢 Never</span>
-            </button>
-            <button type="button" class="opt-btn" id="btn_${q.id}_some" onclick="selectOpt(${q.id}, 'some', 0.5)">
-              <span>🟡 Sometimes</span>
-            </button>
-            <button type="button" class="opt-btn" id="btn_${q.id}_yes" onclick="selectOpt(${q.id}, 'yes', 1.0)">
-              <span>🚩 Often</span>
-            </button>
-          </div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
+
+      const count = Object.keys(answers).length;
+      document.getElementById('answeredCount').innerText = `${count} / 10 ${data.selected}`;
     }
 
     function selectOpt(qId, val, factor) {
       playBeep(val === 'yes' ? 320 : (val === 'some' ? 440 : 660), 'sine', 0.05);
-      answers[qId] = { val, factor, weight: questions.find(q => q.id === qId).weight };
+      const qList = i18n[currentLang].questions;
+      const weight = qList.find(q => q.id === qId).weight;
+      answers[qId] = { val, factor, weight };
 
       // Update UI buttons
       document.getElementById(`btn_${qId}_no`).className = 'opt-btn' + (val === 'no' ? ' active-no' : '');
@@ -801,13 +1100,13 @@
       document.getElementById(`btn_${qId}_yes`).className = 'opt-btn' + (val === 'yes' ? ' active-yes' : '');
 
       const count = Object.keys(answers).length;
-      document.getElementById('answeredCount').innerText = `${count} / 10 Selected`;
+      document.getElementById('answeredCount').innerText = `${count} / 10 ${i18n[currentLang].selected}`;
     }
 
     function runAnalysis() {
       const count = Object.keys(answers).length;
       if (count < 5) {
-        showToast('⚠️ Please answer at least 5 questions for accuracy!');
+        showToast(i18n[currentLang].toastMin);
         playBeep(220, 'sawtooth', 0.15);
         return;
       }
@@ -816,14 +1115,7 @@
       document.getElementById('quizSection').style.display = 'none';
       document.getElementById('scanningOverlay').style.display = 'block';
 
-      // Animated scanner status changes
-      const statuses = [
-        "Analyzing Defensive Language Patterns...",
-        "Measuring Love-Bombing to Ghosting Cycles...",
-        "Calculating Gaslight-to-Accountability Ratio...",
-        "Synthesizing Diagnostic Forensic Dossier..."
-      ];
-
+      const statuses = i18n[currentLang].statuses;
       let idx = 0;
       const interval = setInterval(() => {
         idx++;
@@ -840,16 +1132,18 @@
     }
 
     function calculateAndShowResults() {
-      // Calculate score
+      const qList = i18n[currentLang].questions;
+      const resData = i18n[currentLang].results;
+
       let totalEarned = 0;
       let totalMax = 0;
 
-      questions.forEach(q => {
+      qList.forEach(q => {
         totalMax += q.weight;
         if (answers[q.id]) {
           totalEarned += (answers[q.id].factor * q.weight);
         } else {
-          totalEarned += (0.2 * q.weight); // default low weight if unselected
+          totalEarned += (0.2 * q.weight);
         }
       });
 
@@ -869,25 +1163,33 @@
       if (score >= 75) {
         scoreEl.style.color = 'var(--crimson)';
         labelEl.style.color = 'var(--crimson)';
-        labelEl.innerText = 'CRITICAL TOXIC HAZARD (RED CODE)';
-        archTitle.innerText = 'The Chameleon Gaslighter';
-        archDesc.innerText = 'A textbook master of deflecting accountability. Every time you bring up an issue, they skillfully maneuver the conversation until you end up apologizing for having feelings in the first place.';
+        labelEl.innerText = resData.highLabel;
+        archTitle.innerText = resData.highArch;
+        archDesc.innerText = resData.highDesc;
         playBeep(260, 'sawtooth', 0.25);
       } else if (score >= 50) {
         scoreEl.style.color = 'var(--amber)';
         labelEl.style.color = 'var(--amber)';
-        labelEl.innerText = 'MODERATE TOXICITY & BREADCRUMBER';
-        archTitle.innerText = 'The Phantom Dater';
-        archDesc.innerText = 'Provides just enough attention to keep you hooked, but vanishes the moment real consistency or emotional vulnerability is required.';
+        labelEl.innerText = resData.modLabel;
+        archTitle.innerText = resData.modArch;
+        archDesc.innerText = resData.modDesc;
         playBeep(440, 'triangle', 0.2);
       } else {
         scoreEl.style.color = 'var(--emerald)';
         labelEl.style.color = 'var(--emerald)';
-        labelEl.innerText = 'LOW THREAT / GREEN FLAG TRAITS';
-        archTitle.innerText = 'The Occasional Clumsy Communicator';
-        archDesc.innerText = 'Shows minor miscommunication traits, but lacks the intentional manipulation of a classic narcissist. Direct, calm communication can resolve 90% of issues.';
+        labelEl.innerText = resData.lowLabel;
+        archTitle.innerText = resData.lowArch;
+        archDesc.innerText = resData.lowDesc;
         playBeep(660, 'sine', 0.2);
       }
+
+      // Exit Texts
+      document.getElementById('txtCbTag1').innerText = resData.cb1Tag;
+      document.getElementById('cbText1').innerText = resData.cb1Text;
+      document.getElementById('txtCbTag2').innerText = resData.cb2Tag;
+      document.getElementById('cbText2').innerText = resData.cb2Text;
+      document.getElementById('txtCbTag3').innerText = resData.cb3Tag;
+      document.getElementById('cbText3').innerText = resData.cb3Text;
 
       // Sub indices
       document.getElementById('idxGaslight').innerText = `${Math.min(96, score + 4)}%`;
@@ -910,7 +1212,7 @@
       const text = document.getElementById(elemId).innerText.replace(/"/g, '');
       navigator.clipboard.writeText(text).then(() => {
         playBeep(880, 'sine', 0.08);
-        showToast('Exit text copied! Paste into chat 📋');
+        showToast(i18n[currentLang].toastCopy);
       });
     }
 
